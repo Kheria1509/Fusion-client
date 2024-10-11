@@ -150,6 +150,12 @@ const Modules = [
     icon: <OtherAcademicIcon size={18} />,
     url: "/",
   },
+  {
+    label: "Patent",
+    id: "other_academics",
+    icon: <ResearchIcon size={18} />,
+    url: "/",
+  },
 ];
 
 const otherItems = [
