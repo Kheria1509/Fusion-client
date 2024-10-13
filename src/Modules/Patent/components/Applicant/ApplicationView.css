@@ -1,0 +1,97 @@
+/* ViewApplicationsPage.css */
+
+/* Breadcrumb styling */
+.breadcrumb {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  
+  /* Header styling */
+  .header {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 20px;
+  }
+  
+  /* Tab options container */
+  .tab-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .tab-container a,
+  .tab-container span {
+    font-size: 16px;
+    color: #4a5568;
+    text-decoration: none;
+    padding-bottom: 4px;
+  }
+  
+  .tab-container a:hover {
+    color: #2b6cb0;
+  }
+  
+  .tab-container .active {
+    border-bottom: 2px solid #3182ce;
+    font-weight: bold;
+    color: #3182ce;
+  }
+  
+  /* Application card styling */
+  .card {
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f7fafc;
+  }
+  
+  .card-header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .card-details {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .card-divider {
+    margin: 16px 0;
+  }
+  
+  .card-button {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .button-blue {
+    color: #3182ce;
+    border-color: #3182ce;
+  }
+  
+  .button-blue:hover {
+    background-color: #ebf8ff;
+  }
+  
+  .application-card {
+    border-left-width: 6px;
+    border-radius: 10px;
+  }
+  
+  .border-purple {
+    border-left-color: #805ad5;
+  }
+  
+  .border-blue {
+    border-left-color: #3182ce;
+  }
+  
+  .border-green {
+    border-left-color: #38a169;
+  }
+  

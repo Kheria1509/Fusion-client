@@ -1,0 +1,108 @@
+/* NotificationsPage.css */
+
+/* Container for the notifications page */
+.notifications-page {
+    padding: 32px;
+  }
+  
+  /* Page title */
+  .page-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 24px;
+  }
+  
+  /* Navigation links */
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  
+  /* Individual nav link styling */
+  .nav-link {
+    font-size: 16px;
+    color: #4a5568;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .nav-link:hover {
+    color: #2b6cb0;
+    border-color: #2b6cb0;
+  }
+  
+  /* Active link */
+  .nav-link.active {
+    color: #2b6cb0;
+    border-color: #2b6cb0;
+    font-weight: bold;
+  }
+  
+  /* Notifications container for flex layout */
+  .notifications-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  /* Notification card */
+  .notification-card {
+    flex: 1;
+    min-width: 45%;
+    max-width: 45%;
+    border-left-width: 6px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Notification title */
+  .notification-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  /* Notification status */
+  .notification-status {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  /* Notification description */
+  .notification-description {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  /* Date and time styling */
+  .notification-date {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  
+  /* Mark as Read button */
+  .mark-read-button {
+    margin-top: 16px;
+    color: #4a5568;
+    border-color: #4a5568;
+  }
+  
+  .mark-read-button:hover {
+    background-color: #e2e8f0;
+    border-color: #2b6cb0;
+  }
+  
+  /* Responsive behavior for smaller screens */
+  @media (max-width: 768px) {
+    .notification-card {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+  
