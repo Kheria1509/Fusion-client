@@ -1,0 +1,94 @@
+/* SavedDraftsPage.css */
+
+/* General padding and layout */
+.saved-drafts-page {
+    padding: 32px;
+  }
+  
+  /* Breadcrumbs styling */
+  .breadcrumbs {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 24px;
+  }
+  
+  /* Navigation Links */
+  .navigation-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .nav-links a {
+    font-size: 16px;
+    color: #4a5568;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    color: #2b6cb0;
+  }
+  
+  .nav-links .active {
+    font-weight: bold;
+    border-bottom: 2px solid #3182ce;
+    color: #3182ce;
+  }
+  
+  /* Page Title */
+  .page-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 32px;
+  }
+  
+  /* Draft card container */
+  .drafts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  /* Saved draft card styling */
+  .saved-draft-card {
+    border-left-width: 6px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f7fafc;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .saved-draft-card .card-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  .saved-draft-card .card-details {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .saved-draft-card .card-button {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .button-back {
+    color: #4a5568;
+    font-size: 14px;
+    padding-left: 0;
+  }
+  
+  .button-back:hover {
+    color: #2b6cb0;
+  }
+  
