@@ -81,7 +81,11 @@ export default function App() {
           element={
             <Layout>
               <SavedDraftsPage />
-            </Layout>
+          path="/profile"
+          element={
+            <Layout>
+              <Profile />
+           </Layout>
           }
         />
         <Route path="/accounts/login" element={<LoginPage />} />
