@@ -9,7 +9,13 @@ import LoginPage from "./pages/login";
 import ForgotPassword from "./pages/forgotPassword";
 import AcademicPage from "./Modules/Academic/index";
 import ValidateAuth from "./helper/validateauth";
-import PatentApplication from "./Modules/Patent/components/Applicant/StatusView";
+import NotificationsPage from "./Modules/Patent/components/Applicant/ApplicantNotifications";
+import SubmitNewApplication from "./Modules/Patent/components/Applicant/ApplicantSubmit";
+import ApplicantDashboard from "./Modules/Patent/components/Applicant/ApplicantDashboard";
+import ViewApplicationsPage from "./Modules/Patent/components/Applicant/ApplicationView";
+import SavedDraftsPage from "./Modules/Patent/components/Applicant/ApplicationDraft";
+import ApplicationForm from "./Modules/Patent/components/Applicant/ApplicationForm";
+import StatusView from "./Modules/Patent/components/Applicant/StatusView";
 
 export default function App() {
   const location = useLocation();
@@ -49,29 +55,60 @@ export default function App() {
             </Layout>
           }
         />
+
+        <Route
+          path="/applicantdashboard"
+          element={
+            <Layout>
+              <ApplicantDashboard />
+            </Layout>
+          }
+        />
+        <Route
+          path="/viewapplicationspage"
+          element={
+            <Layout>
+              <ViewApplicationsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/saveddraftspage"
+          element={
+            <Layout>
+              <SavedDraftsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/submitnewapplication"
+          element={
+            <Layout>
+              <SubmitNewApplication />
+            </Layout>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <Layout>
+              <NotificationsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/applicationform"
+          element={
+            <Layout>
+              <ApplicationForm />
+            </Layout>
+          }
+        />
         <Route
           path="/status-view"
           element={
             <Layout>
-              <PatentApplication
-                inventors={[
-                  {
-                    names: "Ashish",
-                    email: "Ashishg@gmail.com",
-                    phone: "4512314566",
-                  },
-                  {
-                    names: "Shreyash",
-                    email: "Shreyas@gmail.com",
-                    phone: "4512316689",
-                  },
-                  {
-                    names: "Aman",
-                    email: "Aman@gmail.com",
-                    phone: "4512316689",
-                  },
-                ]}
-              />
+              <StatusView />
             </Layout>
           }
         />

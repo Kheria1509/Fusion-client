@@ -1,0 +1,24 @@
+/* General Box Styling */
+.dashboard-box {
+  background-color: #f1f3f5; /* Light gray background */
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-box:hover {
+  background-color: #e9ecef; /* Darker gray on hover */
+}
+
+/* Styling for Active Links */
+.active-link .dashboard-box {
+  background-color: #e0f7fa; /* Light blue background for active link */
+  border: 1px solid #00bcd4; /* Border for active link */
+}
+
+/* Link text styling */
+.dashboard-link {
+  text-decoration: none;
+  color: inherit;
+}
