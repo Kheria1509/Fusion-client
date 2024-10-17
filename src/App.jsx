@@ -14,6 +14,7 @@ import SubmitNewApplication from "./Modules/Patent/components/Applicant/Applican
 import ApplicantDashboard from "./Modules/Patent/components/Applicant/ApplicantDashboard";
 import ViewApplicationsPage from "./Modules/Patent/components/Applicant/ApplicationView";
 import SavedDraftsPage from "./Modules/Patent/components/Applicant/ApplicationDraft";
+import ApplicationForm from "./Modules/Patent/components/Applicant/ApplicationForm";
 
 export default function App() {
   const location = useLocation();
@@ -91,6 +92,14 @@ export default function App() {
           element={
             <Layout>
               <NotificationsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/applicationform"
+          element={
+            <Layout>
+              <ApplicationForm />
             </Layout>
           }
         />
