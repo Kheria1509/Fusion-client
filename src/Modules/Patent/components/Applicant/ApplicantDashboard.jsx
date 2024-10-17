@@ -1,47 +1,97 @@
-import React from "react";
-import { Button, Card, Text, Box, Divider, Anchor } from "@mantine/core";
-import { ArrowRight } from "phosphor-react";
-import { Link } from "react-router-dom";
-import "./ApplicantDashboard.css"; // Import the CSS file
+import { Stack, Title, Grid, Box, Text, Divider } from "@mantine/core";
+import { NavLink } from "react-router-dom";
+import CustomBreadcrumbs from "../../../../components/Breadcrumbs";
+import "./ApplicantDashboard.css"; // Import CSS file
 
-function SubmitNewApplication() {
+function ApplicantDashboard() {
   return (
-    <Box padding="xl">
-      {/* Breadcrumb navigation */}
-      <Text className="breadcrumb">
-        Home &gt; Patent Management &gt; Applicant
-      </Text>
+    <Stack>
+      {/* Breadcrumbs */}
+      <CustomBreadcrumbs />
 
-      {/* Header */}
-      <Text className="header">Submit New Patent Application</Text>
+      {/* Page Title */}
+      <Title order={2} mt="md">
+        Applicant Dashboard
+      </Title>
 
-      {/* Tab options (implemented with react-router navigation links) */}
-      <Box className="tab-container">
-        <Anchor component={Link} to="/viewapplicationspage" underline={false}>
-          View Applications
-        </Anchor>
-        <Anchor component={Link} to="/saveddraftspage" underline={false}>
-          Saved Drafts
-        </Anchor>
-        <Anchor component={Link} to="/notifications" underline={false}>
-          Notifications
-        </Anchor>
-      </Box>
+      {/* Dashboard Sections */}
+      <Grid gutter="lg" mt="md">
+        <Grid.Col span={12}>
+          {/* Submit New Application */}
+          <NavLink
+            to="/submitnewapplication"
+            className="dashboard-link"
+            activeClassName="active-link"
+          >
+            <Box className="dashboard-box">
+              <Text size="lg" weight={500}>
+                Submit New Application
+              </Text>
+              <Divider mt="xs" />
+              <Text size="sm">Start a new patent application form.</Text>
+            </Box>
+          </NavLink>
+        </Grid.Col>
 
-      {/* Card containing form link */}
-      <Card className="card-container">
-        <Text className="card-header">Intellectual Property Filing Form</Text>
-        <Divider className="card-divider" />
-        <Button
-          rightIcon={<ArrowRight size={16} />}
-          variant="filled"
-          className="card-button"
-        >
-          Submit New Patent Application
-        </Button>
-      </Card>
-    </Box>
+        <Grid.Col span={12}>
+          {/* View Applications */}
+          <NavLink
+            to="/viewapplicationspage"
+            className="dashboard-link"
+            activeClassName="active-link"
+          >
+            <Box className="dashboard-box">
+              <Text size="lg" weight={500}>
+                View Applications
+              </Text>
+              <Divider mt="xs" />
+              <Text size="sm" color="dimmed">
+                Check the status of your patent applications.
+              </Text>
+            </Box>
+          </NavLink>
+        </Grid.Col>
+
+        <Grid.Col span={12}>
+          {/* Saved Drafts */}
+          <NavLink
+            to="/saveddraftspage"
+            className="dashboard-link"
+            activeClassName="active-link"
+          >
+            <Box className="dashboard-box">
+              <Text size="lg" weight={500}>
+                Saved Drafts
+              </Text>
+              <Divider mt="xs" />
+              <Text size="sm" color="dimmed">
+                Resume drafting your saved applications.
+              </Text>
+            </Box>
+          </NavLink>
+        </Grid.Col>
+
+        <Grid.Col span={12}>
+          {/* Notifications */}
+          <NavLink
+            to="/notifications"
+            className="dashboard-link"
+            activeClassName="active-link"
+          >
+            <Box className="dashboard-box">
+              <Text size="lg" weight={500}>
+                Notifications
+              </Text>
+              <Divider mt="xs" />
+              <Text size="sm" color="dimmed">
+                View your patent-related notifications.
+              </Text>
+            </Box>
+          </NavLink>
+        </Grid.Col>
+      </Grid>
+    </Stack>
   );
 }
 
-export default SubmitNewApplication;
+export default ApplicantDashboard;

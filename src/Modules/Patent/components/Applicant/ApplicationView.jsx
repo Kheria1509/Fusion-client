@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid, Anchor } from "@mantine/core";
 import { Eye, Info } from "phosphor-react";
 import { Link } from "react-router-dom";
+import CustomBreadcrumbs from "../../../../components/Breadcrumbs"; // Updated import
 import "./ApplicationView.css"; // Import the CSS file
 
 // Dummy data for applications
@@ -14,7 +15,7 @@ const applicationsData = [
     tokenNumber: "Token number",
     applicationNumber: "Application Number",
     attorney: "Name of Attorney",
-    borderColor: "purple",
+    borderColor: "orange",
   },
   {
     title: "Title of Patent Application",
@@ -23,7 +24,7 @@ const applicationsData = [
     tokenNumber: "Token number",
     applicationNumber: "Application Number",
     attorney: "Name of Attorney",
-    borderColor: "blue",
+    borderColor: "lightblue",
   },
   {
     title: "Title of Patent Application",
@@ -32,7 +33,16 @@ const applicationsData = [
     tokenNumber: "Token number",
     applicationNumber: "Application Number",
     attorney: "Name of Attorney",
-    borderColor: "green",
+    borderColor: "lightgreen",
+  },
+  {
+    title: "Title of Patent Application",
+    date: "DD/MM/YYYY",
+    time: "HH:MM:SS",
+    tokenNumber: "Token number",
+    applicationNumber: "Application Number",
+    attorney: "Name of Attorney",
+    borderColor: "lightgreen",
   },
 ];
 
@@ -48,39 +58,26 @@ function ApplicationCard({
 }) {
   return (
     <Card
-      className={`application-card border-${borderColor}`}
-      padding="lg"
-      mb="lg"
+      className="application-card"
+      style={{ borderLeft: `6px solid ${borderColor}` }}
     >
-      <Text weight={600} size="lg" className="card-header">
-        {title}
-      </Text>
-      <Text
-        size="sm"
-        color="dimmed"
-        className="card-details"
-      >{`${date} | ${time}`}</Text>
-      <Text size="sm" className="card-details">
-        Token No.: {tokenNumber}
-      </Text>
-      <Text size="sm" className="card-details">
-        Application No.: {applicationNumber}
-      </Text>
-      <Text size="sm" className="card-details">
-        Assigned Attorney: {attorney}
-      </Text>
-      <Box mt="md" display="flex" justifyContent="space-between">
+      <Text className="card-header">{title}</Text>
+      <Text className="card-details">{`${date} | ${time}`}</Text>
+      <Text className="card-details">Token No.: {tokenNumber}</Text>
+      <Text className="card-details">Application No.: {applicationNumber}</Text>
+      <Text className="card-details">Assigned Attorney: {attorney}</Text>
+      <Box className="button-container">
         <Button
           variant="outline"
           leftIcon={<Eye size={16} />}
-          className="button-blue"
+          className="button"
         >
           View Submitted Form
         </Button>
         <Button
           variant="outline"
           leftIcon={<Info size={16} />}
-          className="button-blue"
+          className="button"
         >
           View Details
         </Button>
@@ -103,35 +100,33 @@ ApplicationCard.propTypes = {
 // Main ViewApplicationsPage component
 function ViewApplicationsPage() {
   return (
-    <div style={{ padding: "24px" }}>
+    <Box style={{ padding: "24px" }}>
       {/* Breadcrumb navigation */}
-      <Text className="breadcrumb">
-        Home &gt; Patent Management &gt; Applicant
-      </Text>
+      <CustomBreadcrumbs />
 
       {/* Header */}
       <Text className="header">View Applications</Text>
 
       {/* Tab options */}
       <Box className="tab-container">
-        <Anchor component={Link} to="/applicant_dashboard" underline={false}>
-          <Text size="sm">Submit New Application</Text>
+        <Anchor component={Link} to="/submitnewapplication" underline={false}>
+          Submit New Application
         </Anchor>
         <Text size="sm" className="active">
           View Applications
         </Text>
         <Anchor component={Link} to="/saveddraftspage" underline={false}>
-          <Text size="sm">Saved Drafts</Text>
+          Saved Drafts
         </Anchor>
         <Anchor component={Link} to="/notifications" underline={false}>
-          <Text size="sm">Notifications</Text>
+          Notifications
         </Anchor>
       </Box>
 
       {/* Application cards */}
-      <Grid>
+      <Grid className="application-container">
         {applicationsData.map((application, index) => (
-          <Grid.Col span={4} key={index}>
+          <Grid.Col span={6} key={index}>
             <ApplicationCard
               title={application.title}
               date={application.date}
@@ -144,7 +139,7 @@ function ViewApplicationsPage() {
           </Grid.Col>
         ))}
       </Grid>
-    </div>
+    </Box>
   );
 }
 
