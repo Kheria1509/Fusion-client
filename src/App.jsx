@@ -9,6 +9,7 @@ import LoginPage from "./pages/login";
 import ForgotPassword from "./pages/forgotPassword";
 import AcademicPage from "./Modules/Academic/index";
 import ValidateAuth from "./helper/validateauth";
+import PatentApplication from "./Modules/Patent/components/Applicant/StatusView";
 
 export default function App() {
   const location = useLocation();
@@ -45,6 +46,32 @@ export default function App() {
           element={
             <Layout>
               <Profile />
+            </Layout>
+          }
+        />
+        <Route
+          path="/status-view"
+          element={
+            <Layout>
+              <PatentApplication
+                inventors={[
+                  {
+                    names: "Ashish",
+                    email: "Ashishg@gmail.com",
+                    phone: "4512314566",
+                  },
+                  {
+                    names: "Shreyash",
+                    email: "Shreyas@gmail.com",
+                    phone: "4512316689",
+                  },
+                  {
+                    names: "Aman",
+                    email: "Aman@gmail.com",
+                    phone: "4512316689",
+                  },
+                ]}
+              />
             </Layout>
           }
         />
