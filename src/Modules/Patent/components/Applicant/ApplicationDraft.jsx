@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card, Button, Text, Box, Breadcrumbs, Anchor } from "@mantine/core";
-import { ArrowRight, ArrowLeft } from "phosphor-react";
+import { Card, Button, Text, Box, Anchor, Grid } from "@mantine/core";
+import { ArrowRight } from "phosphor-react";
 import "./ApplicantDraft.css"; // Import the CSS file
+import { Link } from "react-router-dom";
+import CustomBreadcrumbs from "../../../../components/Breadcrumbs";
 
 // Dummy data for saved drafts
 const savedDraftsData = [
@@ -10,13 +12,19 @@ const savedDraftsData = [
     title: "Title of Patent Application",
     savedDate: "DD/MM/YYYY",
     savedTime: "HH:MM:SS",
-    borderColor: "red",
+    borderColor: "lightblue",
   },
   {
     title: "Title of Patent Application",
     savedDate: "DD/MM/YYYY",
     savedTime: "HH:MM:SS",
-    borderColor: "orange",
+    borderColor: "lightblue",
+  },
+  {
+    title: "Title of Patent Application",
+    savedDate: "DD/MM/YYYY",
+    savedTime: "HH:MM:SS",
+    borderColor: "lightblue",
   },
 ];
 
@@ -31,10 +39,11 @@ function SavedDraftCard({ title, savedDate, savedTime, borderColor }) {
       <Text className="card-details">
         Last Saved on: {savedDate} | {savedTime}
       </Text>
+      <br />
       <Button
         variant="outline"
         leftIcon={<ArrowRight size={16} />}
-        className="card-button"
+        className="button"
       >
         View Draft
       </Button>
@@ -53,48 +62,40 @@ SavedDraftCard.propTypes = {
 // Main SavedDraftsPage component
 function SavedDraftsPage() {
   return (
-    <Box className="saved-drafts-page">
-      {/* Breadcrumbs */}
-      <Breadcrumbs className="breadcrumbs">
-        <Anchor href="/">Home</Anchor> &gt;{" "}
-        <Anchor href="/patent-management">Patent Management</Anchor> &gt;
-        Applicant
-      </Breadcrumbs>
-
+    <Box style={{ padding: "24px" }}>
+      {/* Breadcrumb navigation */}
+      <CustomBreadcrumbs />{" "}
+      {/* Replaced breadcrumb text with CustomBreadcrumbs */}
       {/* Page Title */}
       <Text className="page-title">Saved Drafts</Text>
+      {/* Tab options */}
+      <Box className="tab-container">
+        <Anchor component={Link} to="/submitnewapplication" underline={false}>
+          Submit New Application
+        </Anchor>
+        <Anchor component={Link} to="/viewapplicationspage" underline={false}>
+          View Applications
+        </Anchor>
+        <Text size="sm" className="active">
+          Saved Drafts
+        </Text>
 
-      {/* Navigation Links */}
-      <Box className="navigation-links">
-        <Box className="nav-links">
-          <Anchor href="/applicant_dashboard">Submit New Application</Anchor>
-          <Anchor href="/viewapplicationspage">View Applications</Anchor>
-          <Anchor href="/saved-drafts" className="active">
-            Saved Drafts
-          </Anchor>
-          <Anchor href="/notifications">Notifications</Anchor>
-        </Box>
-        <Button
-          variant="subtle"
-          leftIcon={<ArrowLeft size={16} />}
-          className="button-back"
-        >
-          Back
-        </Button>
+        <Anchor component={Link} to="/notifications" underline={false}>
+          Notifications
+        </Anchor>
       </Box>
-
-      {/* Saved Draft Cards */}
-      <Box className="drafts-container">
+      <Grid>
         {savedDraftsData.map((draft, index) => (
-          <SavedDraftCard
-            key={index}
-            title={draft.title}
-            savedDate={draft.savedDate}
-            savedTime={draft.savedTime}
-            borderColor={draft.borderColor}
-          />
+          <Grid.Col span={4} key={index}>
+            <SavedDraftCard
+              title={draft.title}
+              savedDate={draft.savedDate}
+              savedTime={draft.savedTime}
+              borderColor={draft.borderColor}
+            />
+          </Grid.Col>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
 }

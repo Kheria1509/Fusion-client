@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Card, Button, Text, Box } from "@mantine/core";
-import { Link } from "react-router-dom"; // For navigation between pages
+import { Card, Button, Text, Box, Anchor } from "@mantine/core";
+import { Link } from "react-router-dom";
 import "./ApplicantNotifications.css"; // Import the CSS file
+import CustomBreadcrumbs from "../../../../components/Breadcrumbs"; // Breadcrumbs component
 
 // Dummy data for notifications
 const notificationsData = [
@@ -74,29 +75,30 @@ NotificationCard.propTypes = {
 
 // Main NotificationsPage component
 function NotificationsPage() {
-  const [notifications] = useState(notificationsData); // Remove unused setNotifications
+  const [notifications] = useState(notificationsData);
 
   return (
-    <Box className="notifications-page">
+    <Box style={{ padding: "24px" }}>
+      {/* Breadcrumb navigation */}
+      <CustomBreadcrumbs />{" "}
+      {/* Replaced breadcrumb text with CustomBreadcrumbs */}
       {/* Page Title */}
       <Text className="page-title">Notifications</Text>
-
-      {/* Navigation Links */}
-      <Box className="nav-links">
-        <Link className="nav-link" to="/applicant_dashboard">
+      {/* Tab options (implemented with react-router navigation links) */}
+      <Box className="tab-container">
+        <Anchor component={Link} to="/submitnewapplication" underline={false}>
           Submit New Application
-        </Link>
-        <Link className="nav-link" to="/viewapplicationspage">
+        </Anchor>
+        <Anchor component={Link} to="/viewapplicationspage" underline={false}>
           View Applications
-        </Link>
-        <Link className="nav-link" to="/saveddraftspage">
+        </Anchor>
+        <Anchor component={Link} to="/saveddraftspage" underline={false}>
           Saved Drafts
-        </Link>
-        <Link className="nav-link active" to="/notifications">
+        </Anchor>
+        <Text size="sm" className="active">
           Notifications
-        </Link>
+        </Text>
       </Box>
-
       {/* Notifications container */}
       <Box className="notifications-container">
         {notifications.map((notification, index) => (

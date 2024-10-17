@@ -10,7 +10,8 @@ import ForgotPassword from "./pages/forgotPassword";
 import AcademicPage from "./Modules/Academic/index";
 import ValidateAuth from "./helper/validateauth";
 import NotificationsPage from "./Modules/Patent/components/Applicant/ApplicantNotifications";
-import SubmitNewApplication from "./Modules/Patent/components/Applicant/ApplicantDashboard";
+import SubmitNewApplication from "./Modules/Patent/components/Applicant/ApplicantSubmit";
+import ApplicantDashboard from "./Modules/Patent/components/Applicant/ApplicantDashboard";
 import ViewApplicationsPage from "./Modules/Patent/components/Applicant/ApplicationView";
 import SavedDraftsPage from "./Modules/Patent/components/Applicant/ApplicationDraft";
 
@@ -52,19 +53,12 @@ export default function App() {
             </Layout>
           }
         />
+
         <Route
-          path="/notifications"
+          path="/applicantdashboard"
           element={
             <Layout>
-              <NotificationsPage />
-            </Layout>
-          }
-        />
-        <Route
-          path="/applicant_dashboard"
-          element={
-            <Layout>
-              <SubmitNewApplication />
+              <ApplicantDashboard />
             </Layout>
           }
         />
@@ -81,6 +75,22 @@ export default function App() {
           element={
             <Layout>
               <SavedDraftsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/submitnewapplication"
+          element={
+            <Layout>
+              <SubmitNewApplication />
+            </Layout>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <Layout>
+              <NotificationsPage />
             </Layout>
           }
         />
