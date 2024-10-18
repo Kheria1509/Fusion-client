@@ -13,6 +13,7 @@ import PatentPage from "./Modules/Patent/index";
 
 export default function App() {
   const location = useLocation();
+
   return (
     <MantineProvider>
       <Notifications
