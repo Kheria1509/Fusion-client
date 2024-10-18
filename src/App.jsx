@@ -16,9 +16,17 @@ import ViewApplicationsPage from "./Modules/Patent/components/Applicant/Applicat
 import SavedDraftsPage from "./Modules/Patent/components/Applicant/ApplicationDraft";
 import ApplicationForm from "./Modules/Patent/components/Applicant/ApplicationForm";
 import StatusView from "./Modules/Patent/components/Applicant/StatusView";
+import DirectorDashboard from "./Modules/Patent/components/Director/DirectorDashboard";
+
+// New components for the four pages
+import RecentApplications from "./Modules/Patent/components/Director/RecentApplications";
+import FinalReviewApplications from "./Modules/Patent/components/Director/FinalReviewApplications";
+import ReviewedApplications from "./Modules/Patent/components/Director/ReviewedApplications";
+import ActiveApplications from "./Modules/Patent/components/Director/ActiveApplications";
 
 export default function App() {
   const location = useLocation();
+
   return (
     <MantineProvider>
       <Notifications
@@ -31,6 +39,8 @@ export default function App() {
         location.pathname !== "/reset-password" && <ValidateAuth />}
       <Routes>
         <Route path="/" element={<Navigate to="/accounts/login" replace />} />
+
+        {/* Dashboard, profile, and other pages */}
         <Route
           path="/dashboard"
           element={
@@ -56,6 +66,7 @@ export default function App() {
           }
         />
 
+        {/* Applicant-related routes */}
         <Route
           path="/applicantdashboard"
           element={
@@ -112,6 +123,50 @@ export default function App() {
             </Layout>
           }
         />
+
+        {/* Director-related routes */}
+        <Route
+          path="/director-dashboard"
+          element={
+            <Layout>
+              <DirectorDashboard />
+            </Layout>
+          }
+        />
+        <Route
+          path="/director/recent"
+          element={
+            <Layout>
+              <RecentApplications />
+            </Layout>
+          }
+        />
+        <Route
+          path="/director/final-review"
+          element={
+            <Layout>
+              <FinalReviewApplications />
+            </Layout>
+          }
+        />
+        <Route
+          path="/director/reviewed"
+          element={
+            <Layout>
+              <ReviewedApplications />
+            </Layout>
+          }
+        />
+        <Route
+          path="/director/active"
+          element={
+            <Layout>
+              <ActiveApplications />
+            </Layout>
+          }
+        />
+
+        {/* Account-related routes */}
         <Route path="/accounts/login" element={<LoginPage />} />
         <Route path="/reset-password" element={<ForgotPassword />} />
       </Routes>
