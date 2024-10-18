@@ -9,7 +9,8 @@ import LoginPage from "./pages/login";
 import ForgotPassword from "./pages/forgotPassword";
 import AcademicPage from "./Modules/Academic/index";
 import ValidateAuth from "./helper/validateauth";
-import PatentPage from "./Modules/Patent/index";
+
+import PatentRoutes from "./Modules/Patent/routes/PatentRoutes";
 
 export default function App() {
   const location = useLocation();
@@ -26,14 +27,11 @@ export default function App() {
         location.pathname !== "/reset-password" && <ValidateAuth />}
       <Routes>
         <Route path="/" element={<Navigate to="/accounts/login" replace />} />
-        <Route
-          path="/patent"
-          element={
-            <Layout>
-              <PatentPage />
-            </Layout>
-          }
-        />
+
+        {/* Patent-related routes */}
+        <Route path="/patent/*" element={<PatentRoutes />} />
+
+        {/* Dashboard, profile, and other pages */}
         <Route
           path="/dashboard"
           element={
@@ -58,6 +56,8 @@ export default function App() {
             </Layout>
           }
         />
+
+        {/* Account-related routes */}
         <Route path="/accounts/login" element={<LoginPage />} />
         <Route path="/reset-password" element={<ForgotPassword />} />
       </Routes>
