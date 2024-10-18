@@ -19,7 +19,7 @@ function ApplicantDashboard() {
         <Grid.Col span={12}>
           {/* Submit New Application */}
           <NavLink
-            to="/submitnewapplication"
+            to="/Patent/submitnewapplication"
             className="dashboard-link"
             activeClassName="active-link"
           >

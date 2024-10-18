@@ -98,7 +98,7 @@ ApplicationCard.propTypes = {
 };
 
 // Main ViewApplicationsPage component
-function ViewApplicationsPage() {
+function ApplicationView() {
   return (
     <Box style={{ padding: "24px" }}>
       {/* Breadcrumb navigation */}
@@ -143,4 +143,4 @@ function ViewApplicationsPage() {
   );
 }
 
-export default ViewApplicationsPage;
+export default ApplicationView;
