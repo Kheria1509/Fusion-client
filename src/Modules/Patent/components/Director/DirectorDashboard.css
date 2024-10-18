@@ -1,0 +1,35 @@
+/* Styling for Dashboard Cards */
+.dashboard-card {
+    background-color: #f1f3f5; /* Light gray background */
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Align text to the left */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Consistent shadow effect */
+    margin-bottom: 16px; /* Add space between cards */
+    max-width: 600px; /* Limit card width */
+    width: 100%; /* Ensure cards are responsive */
+  }
+  
+  /* Reduce padding for a tighter appearance */
+  .dashboard-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  /* Styling for Page Title */
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  
+  /* Container for the dashboard */
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align cards to the left */
+  }
+  
