@@ -17,6 +17,7 @@ import RecentApplications from "../components/Director/RecentApplications";
 import FinalReviewApplications from "../components/Director/FinalReviewApplications";
 import ReviewedApplications from "../components/Director/ReviewedApplications";
 import ActiveApplications from "../components/Director/ActiveApplications";
+import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.tsx";
 
 // PCCAdmin-related imports
 // import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
@@ -126,7 +127,14 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
-
+      <Route
+        path="/pccAdmin/feedbackView"
+        element={
+          <Layout>
+            <FeedbackViewer />
+          </Layout>
+        }
+      />
       {/* PCCAdmin-related routes */}
       {/* <Route                      
         path="/pccAdmin/dashboard"
