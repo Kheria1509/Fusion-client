@@ -128,21 +128,21 @@ function PatentApplication(props) {
 }
 
 PatentApplication.propTypes = {
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  applicationNumber: PropTypes.string.isRequired,
-  tokenNumber: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  date: PropTypes.string,
+  applicationNumber: PropTypes.string,
+  tokenNumber: PropTypes.string,
   attorneyName: PropTypes.string,
   phoneNumber: PropTypes.string,
   email: PropTypes.string,
   inventors: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      email: PropTypes.string,
+      phone: PropTypes.string,
     }),
   ),
-  status: PropTypes.string.isRequired,
+  status: PropTypes.string,
   statusImage: PropTypes.string,
 };
 
