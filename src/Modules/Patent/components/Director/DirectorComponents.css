@@ -11,6 +11,7 @@
     font-weight: bold;
     color: #2d3748;
     margin: 24px 0; /* Adjust as needed */
+    margin-left: 20px;
 }
 
 /* Application card styling */
@@ -34,3 +35,4 @@
     margin-top: 16px;
     width: 100%; /* Make button full width */
 }
+
