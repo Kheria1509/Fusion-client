@@ -10,14 +10,19 @@
   .navbar-links {
     display: flex;
     gap: 32px; /* Space between links */
+    /* margin-bottom: 40px; */
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
   }
   
   /* Styling for links */
-  .navbar-links .mantine-Anchor-active {
-    font-weight: bold; /* Bold the active link */
-    text-decoration: underline; /* Underline active link */
-    text-decoration-thickness: 3px; /* Thickness of underline */
-    color: blue; /* Change color to match design */
+  .navbar-links a,
+  .navbar-links .active {
+    color: #4a5568;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 4px;
   }
   
   .navbar-links a {
@@ -25,8 +30,19 @@
     transition: color 0.3s; /* Smooth transition for color */
   }
   
-  .navbar-links a:hover {
-    color: blue; /* Change color on hover */
-    font-weight: bold; /* Bold on hover */
+  .navbar-links a:hover,
+  .navbar-links .active {
+    color: #1a202c;
+  border-bottom: 2px solid #3182ce;
+  cursor: pointer;
+  }
+  .view-button {
+    margin-top: 16px;
+    color: #4a5568;
+    border-color: #4a5568;
   }
   
+  .view-button:hover {
+    background-color: #e2e8f0;
+    border-color: #2b6cb0;
+  }

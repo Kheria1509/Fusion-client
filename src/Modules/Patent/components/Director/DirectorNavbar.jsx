@@ -13,33 +13,33 @@ function DirectorNavbar() {
       <div className="navbar-links">
         <Anchor
           component={Link}
-          to="/director/recent"
-          underline={false}
-          className={isActive("/director/recent") ? "active" : ""}
+          to="/patent/director/recent"
+          underline
+          className={isActive("/patent/director/recent") ? "active" : ""}
         >
           Recent Applications
         </Anchor>
         <Anchor
           component={Link}
-          to="/director/final-review"
+          to="/patent/director/final-review"
           underline={false}
-          className={isActive("/director/final-review") ? "active" : ""}
+          className={isActive("/patent/director/final-review") ? "active" : ""}
         >
           Applications for Final Review
         </Anchor>
         <Anchor
           component={Link}
-          to="/director/reviewed"
+          to="/patent/director/reviewed"
           underline={false}
-          className={isActive("/director/reviewed") ? "active" : ""}
+          className={isActive("/patent/director/reviewed") ? "active" : ""}
         >
           Reviewed Applications
         </Anchor>
         <Anchor
           component={Link}
-          to="/director/active"
+          to="/patent/director/active"
           underline={false}
-          className={isActive("/director/active") ? "active" : ""}
+          className={isActive("/patent/director/active") ? "active" : ""}
         >
           Active Applications
         </Anchor>
