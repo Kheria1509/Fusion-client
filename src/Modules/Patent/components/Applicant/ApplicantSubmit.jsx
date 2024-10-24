@@ -10,7 +10,7 @@ function SubmitNewApplication() {
 
   // Function to handle the click and navigate to /applicationform
   const handleSubmit = () => {
-    navigate("/applicationform"); // Navigate to the form route
+    navigate("/patent/applicationform"); // Navigate to the form route
   };
 
   return (
@@ -25,13 +25,17 @@ function SubmitNewApplication() {
         <Text size="sm" className="active">
           Submit New Application
         </Text>
-        <Anchor component={Link} to="/viewapplicationspage" underline={false}>
+        <Anchor
+          component={Link}
+          to="/patent/viewapplicationspage"
+          underline={false}
+        >
           View Applications
         </Anchor>
-        <Anchor component={Link} to="/saveddraftspage" underline={false}>
+        <Anchor component={Link} to="/patent/saveddraftspage" underline={false}>
           Saved Drafts
         </Anchor>
-        <Anchor component={Link} to="/notifications" underline={false}>
+        <Anchor component={Link} to="/patent/notifications" underline={false}>
           Notifications
         </Anchor>
       </Box>
