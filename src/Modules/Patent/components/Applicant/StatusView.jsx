@@ -106,22 +106,22 @@ function PatentApplication(props) {
 
       <div style={{ marginBottom: "20px" }}>
         <p>
-          <strong>Date:</strong> {date}
+          <strong>Date: </strong> {date}
         </p>
         <p>
-          <strong>Application No.:</strong> {applicationNumber}
+          <strong>Application No.: </strong> {applicationNumber}
         </p>
         <p>
-          <strong>Token No.:</strong> {tokenNumber}
+          <strong>Token No.: </strong> {tokenNumber}
         </p>
         <p>
-          <strong>Attorney Name:</strong> {attorneyName}
+          <strong>Attorney Name: </strong> {attorneyName}
         </p>
         <p>
-          <strong>Phone No.:</strong> {phoneNumber}
+          <strong>Phone No.: </strong> {phoneNumber}
         </p>
         <p>
-          <strong>Email ID:</strong> {email}
+          <strong>Email ID: </strong> {email}
         </p>
       </div>
 
@@ -189,13 +189,11 @@ PatentApplication.propTypes = {
   email: PropTypes.string,
   inventors: PropTypes.arrayOf(
     PropTypes.shape({
-      names: PropTypes.string,
-      email: PropTypes.string,
-      phone: PropTypes.string,
+      names: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
     }),
   ),
-  // eslint-disable-next-line react/no-unused-prop-types
-  currentStatus: PropTypes.string,
   statusImage: PropTypes.string,
 };
 
@@ -207,4 +205,40 @@ PatentApplication.defaultProps = {
   statusImage: null,
 };
 
-export default PatentApplication;
+// Sample usage with inventors
+function SampleInventorsApp() {
+  // Sample inventor array
+  const inventors = [
+    {
+      names: "Ashish Kumar Bhoi",
+      email: "ashish@gmail.com",
+      phone: "123-456-7890",
+    },
+    {
+      names: "Shreyas Katkar",
+      email: "shreyas@gmail.com",
+      phone: "987-654-3210",
+    },
+    {
+      names: "Aman Kheria",
+      email: "kheria@gmail.com",
+      phone: "555-123-4567",
+    },
+  ];
+
+  return (
+    <PatentApplication
+      title="Innovative Gadget"
+      date="24/10/2024"
+      applicationNumber="123456789"
+      tokenNumber="987654321"
+      attorneyName="XYZ"
+      phoneNumber="555-987-6543"
+      email="attorney@example.com"
+      inventors={inventors} // Passing the inventors array
+      statusImage=""
+    />
+  );
+}
+
+export default SampleInventorsApp;

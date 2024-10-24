@@ -1,96 +1,78 @@
-import { Stack, Title, Grid, Box, Text, Divider } from "@mantine/core";
+import { Grid, Title, Box, Text, Divider } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-import CustomBreadcrumbs from "../../../../components/Breadcrumbs";
 import "./ApplicantDashboard.css"; // Import CSS file
 
 function ApplicantDashboard() {
   return (
-    <Stack>
-      {/* Breadcrumbs */}
-      <CustomBreadcrumbs />
-
+    <Box>
       {/* Page Title */}
       <Title order={2} mt="md">
         Applicant Dashboard
       </Title>
 
       {/* Dashboard Sections */}
-      <Grid gutter="lg" mt="md">
-        <Grid.Col span={12}>
-          {/* Submit New Application */}
-          <NavLink
-            to="/submitnewapplication"
-            className="dashboard-link"
-            activeClassName="active-link"
-          >
-            <Box className="dashboard-box">
-              <Text size="lg" weight={500}>
+      <Grid mt="md">
+        <Grid.Col span={6} sm={6} md={3}>
+          <Box className="dashboard-card">
+            <NavLink
+              to="/patent/applicant/applications/submit"
+              className="dashboard-link"
+              activeclassname="active-link"
+            >
+              <Text className="dashboard-card-title">
                 Submit New Application
               </Text>
               <Divider mt="xs" />
-              <Text size="sm">Start a new patent application form.</Text>
-            </Box>
-          </NavLink>
+              <Text size="md">Start a new patent application form.</Text>
+            </NavLink>
+          </Box>
         </Grid.Col>
 
-        <Grid.Col span={12}>
-          {/* View Applications */}
-          <NavLink
-            to="/viewapplicationspage"
-            className="dashboard-link"
-            activeClassName="active-link"
-          >
-            <Box className="dashboard-box">
-              <Text size="lg" weight={500}>
-                View Applications
-              </Text>
+        <Grid.Col span={6} sm={6} md={3}>
+          <Box className="dashboard-card">
+            <NavLink
+              to="/patent/applicant/applications"
+              className="dashboard-link"
+              activeclassname="active-link"
+            >
+              <Text className="dashboard-card-title">View Applications</Text>
               <Divider mt="xs" />
-              <Text size="sm" color="dimmed">
+              <Text size="md">
                 Check the status of your patent applications.
               </Text>
-            </Box>
-          </NavLink>
+            </NavLink>
+          </Box>
         </Grid.Col>
 
-        <Grid.Col span={12}>
-          {/* Saved Drafts */}
-          <NavLink
-            to="/saveddraftspage"
-            className="dashboard-link"
-            activeClassName="active-link"
-          >
-            <Box className="dashboard-box">
-              <Text size="lg" weight={500}>
-                Saved Drafts
-              </Text>
+        <Grid.Col span={6} sm={6} md={3}>
+          <Box className="dashboard-card">
+            <NavLink
+              to="/patent/applicant/drafts"
+              className="dashboard-link"
+              activeclassname="active-link"
+            >
+              <Text className="dashboard-card-title">Saved Drafts</Text>
               <Divider mt="xs" />
-              <Text size="sm" color="dimmed">
-                Resume drafting your saved applications.
-              </Text>
-            </Box>
-          </NavLink>
+              <Text size="md">Resume drafting your saved applications.</Text>
+            </NavLink>
+          </Box>
         </Grid.Col>
 
-        <Grid.Col span={12}>
-          {/* Notifications */}
-          <NavLink
-            to="/notifications"
-            className="dashboard-link"
-            activeClassName="active-link"
-          >
-            <Box className="dashboard-box">
-              <Text size="lg" weight={500}>
-                Notifications
-              </Text>
+        <Grid.Col span={6} sm={6} md={3}>
+          <Box className="dashboard-card">
+            <NavLink
+              to="/patent/applicant/notifications"
+              className="dashboard-link"
+              activeclassname="active-link"
+            >
+              <Text className="dashboard-card-title">Notifications</Text>
               <Divider mt="xs" />
-              <Text size="sm" color="dimmed">
-                View your patent-related notifications.
-              </Text>
-            </Box>
-          </NavLink>
+              <Text size="md">View your patent-related notifications.</Text>
+            </NavLink>
+          </Box>
         </Grid.Col>
       </Grid>
-    </Stack>
+    </Box>
   );
 }
 

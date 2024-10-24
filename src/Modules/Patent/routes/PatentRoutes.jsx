@@ -1,52 +1,165 @@
-import React from "react";
+// PatentRoutes.jsx
 import { Route, Routes } from "react-router-dom";
+import { Layout } from "../../../components/layout";
 
-// Applicant Components
+// Applicant-related imports
 import ApplicantDashboard from "../components/Applicant/ApplicantDashboard";
+import ViewApplicationsPage from "../components/Applicant/ApplicationView";
+import SavedDraftsPage from "../components/Applicant/ApplicationDraft";
+import SubmitNewApplication from "../components/Applicant/ApplicantSubmit";
+import NotificationsPage from "../components/Applicant/ApplicantNotifications";
 import ApplicationForm from "../components/Applicant/ApplicationForm";
 import StatusView from "../components/Applicant/StatusView";
-import AttorneyDetails from "../components/Applicant/AttorneyDetails";
-import ModifyApplication from "../components/Applicant/ModifyApplication";
 
-// PCCAdmin Components
-import PCCAdminDashboard from "../components/PCCAdmin/PCCAdminDashboard";
-import ApplicationReview from "../components/PCCAdmin/ApplicationReview";
-import NotifyApplicant from "../components/PCCAdmin/NotifyApplicant";
-import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector";
-import ManageAttorneyAssignment from "../components/PCCAdmin/ManageAttorneyAssignment";
-
-// Director Components
+// Director-related imports
 import DirectorDashboard from "../components/Director/DirectorDashboard";
-import ReviewApplication from "../components/Director/ReviewApplication";
-import RequestModifications from "../components/Director/RequestModifications";
+import RecentApplications from "../components/Director/RecentApplications";
+import FinalReviewApplications from "../components/Director/FinalReviewApplications";
+import ReviewedApplications from "../components/Director/ReviewedApplications";
+import ActiveApplications from "../components/Director/ActiveApplications";
+
+// PCCAdmin-related imports
+// import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
+// import ReviewApplication from './components/PCCAdmin/ReviewApplication';
+// import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
+// import ManageAttorney from "./components/PCCAdmin/ManageAttorney";
 
 export default function PatentRoutes() {
   return (
     <Routes>
-      {/* Applicant Routes */}
-      <Route path="applicant/dashboard" element={<ApplicantDashboard />} />
-      <Route path="applicant/form" element={<ApplicationForm />} />
-      <Route path="applicant/status" element={<StatusView />} />
-      <Route path="applicant/attorney-details" element={<AttorneyDetails />} />
-      <Route path="applicant/modify" element={<ModifyApplication />} />
-
-      {/* PCCAdmin Routes */}
-      <Route path="pccadmin/dashboard" element={<PCCAdminDashboard />} />
-      <Route path="pccadmin/review" element={<ApplicationReview />} />
-      <Route path="pccadmin/notify" element={<NotifyApplicant />} />
-      <Route path="pccadmin/forward" element={<ForwardToDirector />} />
+      {/* Applicant-related routes */}
       <Route
-        path="pccadmin/attorney-manage"
-        element={<ManageAttorneyAssignment />}
+        path="/applicant/dashboard"
+        element={
+          <Layout>
+            <ApplicantDashboard />
+          </Layout>
+        }
+      />
+      <Route
+        path="/applicant/applications"
+        element={
+          <Layout>
+            <ViewApplicationsPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/applicant/drafts"
+        element={
+          <Layout>
+            <SavedDraftsPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/applicant/applications/submit"
+        element={
+          <Layout>
+            <SubmitNewApplication />
+          </Layout>
+        }
+      />
+      <Route
+        path="/applicant/notifications"
+        element={
+          <Layout>
+            <NotificationsPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/applicant/applications/submit/new"
+        element={
+          <Layout>
+            <ApplicationForm />
+          </Layout>
+        }
+      />
+      <Route
+        path="/applicant/applications/status-view"
+        element={
+          <Layout>
+            <StatusView />
+          </Layout>
+        }
       />
 
-      {/* Director Routes */}
-      <Route path="director/dashboard" element={<DirectorDashboard />} />
-      <Route path="director/review" element={<ReviewApplication />} />
+      {/* Director-related routes */}
       <Route
-        path="director/request-modifications"
-        element={<RequestModifications />}
+        path="/director-dashboard"
+        element={
+          <Layout>
+            <DirectorDashboard />
+          </Layout>
+        }
       />
+      <Route
+        path="/director/recent"
+        element={
+          <Layout>
+            <RecentApplications />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/final-review"
+        element={
+          <Layout>
+            <FinalReviewApplications />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/reviewed"
+        element={
+          <Layout>
+            <ReviewedApplications />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/active"
+        element={
+          <Layout>
+            <ActiveApplications />
+          </Layout>
+        }
+      />
+
+      {/* PCCAdmin-related routes */}
+      {/* <Route                      
+        path="/pccAdmin/dashboard"
+        element={
+          <Layout>
+            <PCCAdminDashboard />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/attorney_details"
+        element={
+          <Layout>
+            <AttorneyDetails />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/manage_attorney"
+        element={
+          <Layout>
+            <ManageAttorney />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/review_application"
+        element={
+          <Layout>
+            <ReviewApplication />
+          </Layout>
+        }
+      /> */}
     </Routes>
   );
 }
