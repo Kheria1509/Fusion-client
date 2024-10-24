@@ -154,7 +154,7 @@ const Modules = [
     label: "Patent",
     id: "other_academics",
     icon: <ResearchIcon size={18} />,
-    url: "/",
+    url: "/patent/",
   },
 ];
 
