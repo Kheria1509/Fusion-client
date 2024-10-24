@@ -1,0 +1,31 @@
+/* Apply more left and right margin */
+.component-container {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  /* Left align the text title */
+  .title-text {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Reduce top margin */
+  .top-margin {
+    margin-top: 15px; /* Adjust as per the requirement */
+  }
+  
+  /* Additional styles for consistent layout */
+  .content-box {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .smaller-font {
+    font-size: 0.9rem;
+  }
+  
