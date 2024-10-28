@@ -19,8 +19,20 @@ import RecentApplications from "../components/Director/RecentApplications";
 import FinalReviewApplications from "../components/Director/FinalReviewApplications";
 import ReviewedApplications from "../components/Director/ReviewedApplications";
 import ActiveApplications from "../components/Director/ActiveApplications";
+import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.tsx";
+import ForwardRedirect from "../components/PCCAdmin/ForwardRedirect.jsx";
+import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
+import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx";
 
 // PCCAdmin-related imports
+// import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
+// import ReviewApplication from './components/PCCAdmin/ReviewApplication';
+// import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
+// eslint-disable-next-line import/no-unresolved
+// import ManageAttorney from "./components/PCCAdmin/ManageAttorney";
+// eslint-disable-next-line import/no-unresolved
+import NotifyApplicant from "../components/PCCAdmin/NotifyApplicant";
+import PCCAdminDashboard from "../components/PCCAdmin/PCCAdminDashboard.jsx";
 // import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
 // import PCCAdminDashboard from '../components/PCCAdmin/PCCAdminDashboard';
 // import ReviewApplication from '../components/PCCAdmin/ReviewApplication';
@@ -146,7 +158,62 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
-
+      <Route
+        path="/pccAdmin/feedbackView"
+        element={
+          <Layout>
+            <FeedbackViewer />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/forwardRedirect"
+        element={
+          <Layout>
+            <ForwardRedirect />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/forwardToDirector"
+        element={
+          <Layout>
+            <ForwardToDirector />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/manageAttorney"
+        element={
+          <Layout>
+            <ManageAttorney />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/notifyApplicant"
+        element={
+          <Layout>
+            <NotifyApplicant />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/manage_attorney"
+        element={
+          <Layout>
+            <ManageAttorney />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/dashboard"
+        element={
+          <Layout>
+            <PCCAdminDashboard />
+          </Layout>
+        }
+      />
       {/* PCCAdmin-related routes */}
       {/* <Route                      
         path="/pccAdmin/dashboard"
@@ -164,14 +231,7 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
-      <Route
-        path="/pccAdmin/manage_attorney"
-        element={
-          <Layout>
-            <ManageAttorney />
-          </Layout>
-        }
-      />
+      
       <Route
         path="/pccAdmin/review_application"
         element={

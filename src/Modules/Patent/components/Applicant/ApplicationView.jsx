@@ -262,7 +262,7 @@ ApplicationCard.propTypes = {
 };
 
 // Main ViewApplicationsPage component
-function ViewApplicationsPage() {
+function ApplicationView() {
   return (
     <Box>
       {/* Header */}
@@ -288,4 +288,4 @@ function ViewApplicationsPage() {
   );
 }
 
-export default ViewApplicationsPage;
+export default ApplicationView;

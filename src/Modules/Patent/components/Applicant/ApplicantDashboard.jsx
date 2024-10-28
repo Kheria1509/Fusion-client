@@ -15,6 +15,7 @@ function ApplicantDashboard() {
         <Grid.Col span={6} sm={6} md={3}>
           <Box className="dashboard-card">
             <NavLink
+
               to="/patent/applicant/applications/submit"
               className="dashboard-link"
               activeclassname="active-link"

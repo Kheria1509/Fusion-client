@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Text, Button, Box, Anchor, Grid } from "@mantine/core";
+import { Card, Text, Button, Box, Grid } from "@mantine/core";
 import DirectorNavbar from "./DirectorNavbar"; // Import the Director Navbar
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs"; // Assuming you have breadcrumbs
 import "./DirectorComponents.css"; // Import your CSS file
@@ -49,7 +49,7 @@ function RecentApplications() {
     <Box style={{ padding: "24px" }}>
       {/* Breadcrumb navigation */}
       <CustomBreadcrumbs />
-      
+
       {/* Page title and recent applications list */}
       <Text className="page-title">Recent Applications</Text>
 
