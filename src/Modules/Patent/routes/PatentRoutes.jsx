@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "../../../components/layout";
 
 // Applicant-related imports
+import ApplicantMainDashboard from "../components/Applicant/ApplicantMainDashboard";
 import ApplicantDashboard from "../components/Applicant/ApplicantDashboard";
 import ViewApplicationsPage from "../components/Applicant/ApplicationView";
 import SavedDraftsPage from "../components/Applicant/ApplicationDraft";
@@ -12,6 +13,7 @@ import ApplicationForm from "../components/Applicant/ApplicationForm";
 import StatusView from "../components/Applicant/StatusView";
 
 // Director-related imports
+import DirectorMainDashboard from "../components/Director/DirectorMainDashboard";
 import DirectorDashboard from "../components/Director/DirectorDashboard";
 import RecentApplications from "../components/Director/RecentApplications";
 import FinalReviewApplications from "../components/Director/FinalReviewApplications";
@@ -19,10 +21,11 @@ import ReviewedApplications from "../components/Director/ReviewedApplications";
 import ActiveApplications from "../components/Director/ActiveApplications";
 
 // PCCAdmin-related imports
-// import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
-// import ReviewApplication from './components/PCCAdmin/ReviewApplication';
-// import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
-// import ManageAttorney from "./components/PCCAdmin/ManageAttorney";
+// import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
+// import PCCAdminDashboard from '../components/PCCAdmin/PCCAdminDashboard';
+// import ReviewApplication from '../components/PCCAdmin/ReviewApplication';
+// import AttorneyDetails from "../components/PCCAdmin/AttorneyDetails";
+// import ManageAttorney from "../components/PCCAdmin/ManageAttorney";
 
 export default function PatentRoutes() {
   return (
@@ -38,6 +41,15 @@ export default function PatentRoutes() {
       />
       <Route
         path="/applicant/applications"
+        path="/"
+        element={
+          <Layout>
+            <ApplicantMainDashboard />
+          </Layout>
+        }
+      />
+      <Route
+        path="/viewapplicationspage"
         element={
           <Layout>
             <ViewApplicationsPage />
@@ -86,6 +98,14 @@ export default function PatentRoutes() {
       />
 
       {/* Director-related routes */}
+      <Route
+        path="/directordashboard"
+        element={
+          <Layout>
+            <DirectorMainDashboard />
+          </Layout>
+        }
+      />
       <Route
         path="/director-dashboard"
         element={

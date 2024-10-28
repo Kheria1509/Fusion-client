@@ -1,30 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card, Button, Text, Box, Anchor, Grid } from "@mantine/core";
+import { Card, Button, Text, Box, Grid } from "@mantine/core";
 import { ArrowRight } from "phosphor-react";
-import "./ApplicantDraft.css"; // Import the CSS file
+import "./ApplicantDraft.css";
 import { Link } from "react-router-dom";
-import CustomBreadcrumbs from "../../../../components/Breadcrumbs";
 
-// Dummy data for saved drafts
+// Static data for saved drafts
 const savedDraftsData = [
   {
-    title: "Title of Patent Application",
+    title: "Title of Patent Application - Draft 1",
     savedDate: "DD/MM/YYYY",
     savedTime: "HH:MM:SS",
     borderColor: "lightblue",
   },
   {
-    title: "Title of Patent Application",
+    title: "Title of Patent Application - Draft 2",
     savedDate: "DD/MM/YYYY",
     savedTime: "HH:MM:SS",
-    borderColor: "lightblue",
+    borderColor: "orange",
   },
   {
-    title: "Title of Patent Application",
+    title: "Title of Patent Application - Draft 3",
     savedDate: "DD/MM/YYYY",
     savedTime: "HH:MM:SS",
-    borderColor: "lightblue",
+    borderColor: "lightgreen",
   },
 ];
 
@@ -39,7 +38,6 @@ function SavedDraftCard({ title, savedDate, savedTime, borderColor }) {
       <Text className="card-details">
         Last Saved on: {savedDate} | {savedTime}
       </Text>
-      <br />
       <Button
         variant="outline"
         leftIcon={<ArrowRight size={16} />}
@@ -62,43 +60,14 @@ SavedDraftCard.propTypes = {
 // Main SavedDraftsPage component
 function SavedDraftsPage() {
   return (
-    <Box style={{ padding: "24px" }}>
-      {/* Breadcrumb navigation */}
-      <CustomBreadcrumbs />{" "}
-      {/* Replaced breadcrumb text with CustomBreadcrumbs */}
-      {/* Page Title */}
-      <Text className="page-title">Saved Drafts</Text>
-      {/* Tab options */}
-      <Box className="tab-container">
-        <Anchor
-          component={Link}
-          to="/patent/applicant/applications/submit"
-          underline={false}
-        >
-          Submit New Application
-        </Anchor>
-        <Anchor
-          component={Link}
-          to="/patent/applicant/applications"
-          underline={false}
-        >
-          View Applications
-        </Anchor>
-        <Text size="sm" className="active">
-          Saved Drafts
-        </Text>
+    <Box style={{ padding: "0px" }}>
+      {/* Header */}
+      <Text className="header-text">Saved Drafts</Text>
 
-        <Anchor
-          component={Link}
-          to="/patent/applicant/notifications"
-          underline={false}
-        >
-          Notifications
-        </Anchor>
-      </Box>
-      <Grid>
+      {/* Saved draft cards */}
+      <Grid className="application-container">
         {savedDraftsData.map((draft, index) => (
-          <Grid.Col span={4} key={index}>
+          <Grid.Col span={6} key={index}>
             <SavedDraftCard
               title={draft.title}
               savedDate={draft.savedDate}

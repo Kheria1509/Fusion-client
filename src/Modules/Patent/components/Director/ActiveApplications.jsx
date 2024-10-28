@@ -3,7 +3,7 @@ import React from "react";
 import { Card, Text, Button, Box } from "@mantine/core";
 
 function ActiveApplications() {
-  // Dummy data for active applications
+  // Static data for active applications
   const activeApplicationsData = [
     {
       title: "Active Patent Application",
