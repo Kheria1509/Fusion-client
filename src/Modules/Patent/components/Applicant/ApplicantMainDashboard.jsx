@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Container, Loader, Flex, Select, Box, Text, Divider } from "@mantine/core";
+import { Grid, Container, Loader, Flex, Select } from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { SortAscending } from "@phosphor-icons/react";
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs.jsx";
@@ -24,7 +24,7 @@ function ApplicantMainDashboard() {
     { title: "Submit New Application" },
     { title: "View Applications" },
     { title: "Saved Drafts" },
-    { title: "Notifications" }
+    { title: "Notifications" },
   ];
 
   useEffect(() => {
@@ -80,11 +80,21 @@ function ApplicantMainDashboard() {
           </Container>
         ) : (
           <>
-            {activeTab === "0" && <ApplicantDashboard setActiveTab={setActiveTab}/>}
-            {activeTab === "1" && <SubmitNewApplication setActiveTab={setActiveTab}/>}
-            {activeTab === "2" && <ViewApplicationsPage setActiveTab={setActiveTab}/>}
-            {activeTab === "3" && <SavedDraftsPage setActiveTab={setActiveTab}/>}
-            {activeTab === "4" && <NotificationsPage setActiveTab={setActiveTab}/>}
+            {activeTab === "0" && (
+              <ApplicantDashboard setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "1" && (
+              <SubmitNewApplication setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "2" && (
+              <ViewApplicationsPage setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "3" && (
+              <SavedDraftsPage setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "4" && (
+              <NotificationsPage setActiveTab={setActiveTab} />
+            )}
           </>
         )}
       </Grid>

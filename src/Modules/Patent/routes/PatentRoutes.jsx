@@ -52,7 +52,7 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/"
+        path="/applicant/"
         element={
           <Layout>
             <ApplicantMainDashboard />
@@ -60,7 +60,7 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/viewapplicationspage"
+        path="/applicant/applications/"
         element={
           <Layout>
             <ViewApplicationsPage />

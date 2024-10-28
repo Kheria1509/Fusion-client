@@ -101,8 +101,8 @@ function PatentApplication(props) {
       className="mainbox"
       style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}
     >
-      <h1 style={{ textAlign: "center" }}>Title of Patent Application</h1>
-      <h3 style={{ textAlign: "center" }}>{title}</h3>
+      <h2 style={{ textAlign: "center" }}>Title of Patent Application</h2>
+      <h1 style={{ textAlign: "center" }}>{title}</h1>
 
       <div style={{ marginBottom: "20px" }}>
         <p>
@@ -228,11 +228,11 @@ function SampleInventorsApp() {
 
   return (
     <PatentApplication
-      title="Innovative Gadget"
-      date="24/10/2024"
-      applicationNumber="123456789"
-      tokenNumber="987654321"
-      attorneyName="XYZ"
+      title="Wireless Communication System for IoT Devices"
+      date="12/09/2024"
+      applicationNumber="APP001234"
+      tokenNumber="TKN001234"
+      attorneyName="John Doe"
       phoneNumber="555-987-6543"
       email="attorney@example.com"
       inventors={inventors} // Passing the inventors array
