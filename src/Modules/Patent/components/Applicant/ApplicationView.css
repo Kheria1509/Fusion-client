@@ -1,48 +1,13 @@
-/* ViewApplicationsPage.css */
-
-/* Breadcrumb styling */
-.breadcrumb {
-  font-size: 14px;
-  color: #6c757d;
-  margin-bottom: 20px;
-}
-
 /* Header styling */
-.header {
+.header-text {
   font-size: 28px;
   font-weight: 700;
   color: #2d3748;
-  margin-top: 24px;
-  margin-bottom: 24px;
   letter-spacing: 0.5px;
+  padding-left: 40px;
+  margin-bottom:-30px;
+  margin-top: 0px;
 }
-
-/* Tab options container */
-.tab-container {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 12px;
-}
-
-.tab-container a,
-.tab-container .active {
-  color: #4a5568;
-  font-size: 16px;
-  text-decoration: none;
-  font-weight: 600;
-  padding-bottom: 4px;
-}
-
-.tab-container a:hover,
-.tab-container .active {
-  color: #1a202c;
-  border-bottom: 2px solid #3182ce;
-  cursor: pointer;
-}
-/* General container for applications */
-
 
 /* Application card styling */
 .application-card {
@@ -56,34 +21,13 @@
   border-left-width: 6px;
 }
 
-/* Header styling - align title to the left */
-.card-header {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-/* Detail text styling */
-.card-details {
-  font-size: 14px;
-  color: #6b7280;
-  font-weight: 400;
-}
-
-/* Flexbox for buttons to push them to the extreme ends */
+/* Flexbox for buttons */
 .button-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
-}
-
-/* Button styling */
-
-
-.button-blue:hover {
-  background-color: #ebf8ff;
+  margin-top: 10px;
+  gap: 20px;
 }
 
 /* Responsive behavior for smaller screens */

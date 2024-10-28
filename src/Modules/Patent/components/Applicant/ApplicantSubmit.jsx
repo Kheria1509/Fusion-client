@@ -8,9 +8,9 @@ import "./ApplicantSubmit.css"; // Import the CSS file
 function SubmitNewApplication() {
   const navigate = useNavigate(); // Initialize useNavigate
 
-  // Function to handle the click and navigate to /applicationform
+  // Function to handle the click and navigate to /patent/applicant/applications/submit/new
   const handleSubmit = () => {
-    navigate("/patent/applicationform"); // Navigate to the form route
+    navigate("/patent/applicant/applications/submit/new"); // Updated route
   };
 
   return (
@@ -27,15 +27,23 @@ function SubmitNewApplication() {
         </Text>
         <Anchor
           component={Link}
-          to="/patent/viewapplicationspage"
+          to="/patent/applicant/applications"
           underline={false}
         >
           View Applications
         </Anchor>
-        <Anchor component={Link} to="/patent/saveddraftspage" underline={false}>
+        <Anchor
+          component={Link}
+          to="/patent/applicant/drafts"
+          underline={false}
+        >
           Saved Drafts
         </Anchor>
-        <Anchor component={Link} to="/patent/notifications" underline={false}>
+        <Anchor
+          component={Link}
+          to="/patent/applicant/notifications"
+          underline={false}
+        >
           Notifications
         </Anchor>
       </Box>
