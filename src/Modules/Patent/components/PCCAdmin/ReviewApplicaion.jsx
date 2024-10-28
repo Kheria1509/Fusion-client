@@ -1,17 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Box, Typography, Button } from '@mui/material';
-import './ReviewApplication.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Box, Typography, Button } from "@mui/material";
+import CustomBreadcrumbs from "../../../../components/Breadcrumbs"; // Importing CustomBreadcrumbs
+import "./ReviewApplication.css";
 
-const ReviewApplication = () => {
+function ReviewApplication() {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const maxPage = 3;
 
+  // Define handleClickOutside function
+  const handleClickOutside = (event) => {
+    // You can customize this logic depending on which element you want to check clicks outside of
+    if (!event.target.closest(".application-container")) {
+      console.log("Clicked outside the application container");
+    }
+  };
+
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
@@ -52,24 +61,40 @@ const ReviewApplication = () => {
       {/* Breadcrumbs */}
       <CustomBreadcrumbs
         breadcrumbs={[
-          { label: 'Home', link: '/' },
-          { label: 'Patent Management', link: '/patent/dashboard' },
-          { label: 'Review Applications', link: '/patent/review' }
+          { label: "Home", link: "/" },
+          { label: "Patent Management", link: "/patent/dashboard" },
+          { label: "Review Applications", link: "/patent/review" },
         ]}
       />
 
       {/* Navigation Links */}
-      <Box display="flex" mb={2} sx={{ marginTop: '20px' }}>
-        <Typography variant="body2" sx={{ mr: 2, cursor: 'pointer', color: 'black' }} onClick={() => handleNavigation('/patent/dashboard')}>
+      <Box display="flex" mb={2} sx={{ marginTop: "20px" }}>
+        <Typography
+          variant="body2"
+          sx={{ mr: 2, cursor: "pointer", color: "black" }}
+          onClick={() => handleNavigation("/patent/dashboard")}
+        >
           Dashboard
         </Typography>
-        <Typography variant="body2" sx={{ mr: 2, fontWeight: 'bold', cursor: 'pointer', color: 'black' }} onClick={() => handleNavigation('/patent/review_application')}>
+        <Typography
+          variant="body2"
+          sx={{ mr: 2, fontWeight: "bold", cursor: "pointer", color: "black" }}
+          onClick={() => handleNavigation("/patent/review_application")}
+        >
           Review Applications
         </Typography>
-        <Typography variant="body2" sx={{ mr: 2, cursor: 'pointer', color: 'black' }} onClick={() => handleNavigation('/patent/status-applications')}>
+        <Typography
+          variant="body2"
+          sx={{ mr: 2, cursor: "pointer", color: "black" }}
+          onClick={() => handleNavigation("/patent/status-applications")}
+        >
           Status of Applications
         </Typography>
-        <Typography variant="body2" sx={{ cursor: 'pointer', color: 'black' }} onClick={() => handleNavigation('/patent/manage_attorney')}>
+        <Typography
+          variant="body2"
+          sx={{ cursor: "pointer", color: "black" }}
+          onClick={() => handleNavigation("/patent/manage_attorney")}
+        >
           Manage Attorney Details
         </Typography>
       </Box>
@@ -84,18 +109,21 @@ const ReviewApplication = () => {
         className="application-container"
         position="relative"
         sx={{
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          padding: '20px',
-          marginTop: '20px',
-          minHeight: '400px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          backgroundColor: '#e3f2fd'
+          border: "1px solid #ccc",
+          borderRadius: "8px",
+          padding: "20px",
+          marginTop: "20px",
+          minHeight: "400px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          backgroundColor: "#e3f2fd",
         }}
       >
-        <Typography variant="h6" sx={{ position: 'absolute', top: '10px', right: '10px' }}>
+        <Typography
+          variant="h6"
+          sx={{ position: "absolute", top: "10px", right: "10px" }}
+        >
           Page {currentPage}
         </Typography>
 
@@ -105,8 +133,17 @@ const ReviewApplication = () => {
       </Box>
 
       {/* Pagination and Action Buttons */}
-      <Box display="flex" justifyContent="space-between" alignItems="center" mt={2}>
-        <Button variant="contained" onClick={handlePreviousPage} disabled={currentPage === 1}>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mt={2}
+      >
+        <Button
+          variant="contained"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
           Previous
         </Button>
         {currentPage === maxPage ? (
@@ -114,18 +151,25 @@ const ReviewApplication = () => {
             <Button variant="contained" onClick={handleNotifyChanges}>
               Notify for Changes
             </Button>
-            <Button variant="contained" onClick={() => handleNavigation('/patent/dashboard')}>
+            <Button
+              variant="contained"
+              onClick={() => handleNavigation("/patent/dashboard")}
+            >
               Close
             </Button>
           </Box>
         ) : (
-          <Button variant="contained" onClick={handleNextPage} disabled={currentPage === maxPage}>
+          <Button
+            variant="contained"
+            onClick={handleNextPage}
+            disabled={currentPage === maxPage}
+          >
             Next
           </Button>
         )}
       </Box>
     </div>
   );
-};
+}
 
 export default ReviewApplication;
