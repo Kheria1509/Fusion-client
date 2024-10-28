@@ -52,7 +52,6 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/applicant/applications"
         path="/"
         element={
           <Layout>
