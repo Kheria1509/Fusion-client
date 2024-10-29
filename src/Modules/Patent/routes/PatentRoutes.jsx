@@ -19,13 +19,14 @@ import RecentApplications from "../components/Director/RecentApplications";
 import FinalReviewApplications from "../components/Director/FinalReviewApplications";
 import ReviewedApplications from "../components/Director/ReviewedApplications";
 import ActiveApplications from "../components/Director/ActiveApplications";
-import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.tsx";
+import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.jsx";
 import ForwardRedirect from "../components/PCCAdmin/ForwardRedirect.jsx";
 import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
 import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx";
 import DirectorStatusView from "../components/Director/StatusView";
 
 // PCCAdmin-related imports
+import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
 // import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
 // import ReviewApplication from './components/PCCAdmin/ReviewApplication';
 // import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
@@ -166,6 +167,25 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
+
+      {/* PCCAdmin-related routes */}
+      <Route
+        path="/pccAdmin/"
+        element={
+          <Layout>
+            <PCCAdminMainDashboard />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/dashboard"
+        element={
+          <Layout>
+            <PCCAdminDashboard />
+          </Layout>
+        }
+      />
+
       <Route
         path="/pccAdmin/feedbackView"
         element={
@@ -175,18 +195,18 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/pccAdmin/forwardRedirect"
-        element={
-          <Layout>
-            <ForwardRedirect />
-          </Layout>
-        }
-      />
-      <Route
         path="/pccAdmin/forwardToDirector"
         element={
           <Layout>
             <ForwardToDirector />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/forwardRedirect"
+        element={
+          <Layout>
+            <ForwardRedirect />
           </Layout>
         }
       />
@@ -214,40 +234,7 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
-      <Route
-        path="/pccAdmin/dashboard"
-        element={
-          <Layout>
-            <PCCAdminDashboard />
-          </Layout>
-        }
-      />
-      {/* PCCAdmin-related routes */}
-      {/* <Route                      
-        path="/pccAdmin/dashboard"
-        element={
-          <Layout>
-            <PCCAdminDashboard />
-          </Layout>
-        }
-      />
-      <Route
-        path="/pccAdmin/attorney_details"
-        element={
-          <Layout>
-            <AttorneyDetails />
-          </Layout>
-        }
-      />
       
-      <Route
-        path="/pccAdmin/review_application"
-        element={
-          <Layout>
-            <ReviewApplication />
-          </Layout>
-        }
-      /> */}
     </Routes>
   );
 }
