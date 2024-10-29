@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Container, Loader, Flex, Select, Box, Text, Divider } from "@mantine/core";
+import { Grid, Container, Loader, Flex, Select } from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { SortAscending } from "@phosphor-icons/react";
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs.jsx";
@@ -7,7 +7,7 @@ import ModuleTabs from "../../../../components/moduleTabs.jsx";
 import PCCAdminDashboard from "./PCCAdminDashboard.jsx";
 import ManageAttorneyAssignment from "./ManageAttorneyAssignment.jsx";
 import ForwardToDirector from "./ForwardToDirector.jsx";
-// import ReviewApplication from "./ReviewApplicaion.jsx";
+import ReviewApplication from "./ReviewApplicaion.jsx";
 import FeedbackViewer from "./FeedbackViewer";
 
 const categories = ["Most Recent", "Tags", "Title"];
@@ -81,12 +81,24 @@ function ApplicantMainDashboard() {
           </Container>
         ) : (
           <>
-            {activeTab === "0" && <PCCAdminDashboard setActiveTab={setActiveTab} />}
-            {activeTab === "1" && <ReviewApplication setActiveTab={setActiveTab} />}
-            {activeTab === "2" && <StatusOfApplications setActiveTab={setActiveTab} />}
-            {activeTab === "3" && <ManageAttorneyAssignment setActiveTab={setActiveTab} />}
-            {activeTab === "4" && <ForwardToDirector setActiveTab={setActiveTab} />}
-            {activeTab === "5" && <FeedbackViewer setActiveTab={setActiveTab} />}
+            {activeTab === "0" && (
+              <PCCAdminDashboard setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "1" && (
+              <ReviewApplication setActiveTab={setActiveTab} />
+            )}
+            {/* {activeTab === "2" && (
+              <StatusOfApplications setActiveTab={setActiveTab} />
+            )} */}
+            {activeTab === "3" && (
+              <ManageAttorneyAssignment setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "4" && (
+              <ForwardToDirector setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "5" && (
+              <FeedbackViewer setActiveTab={setActiveTab} />
+            )}
           </>
         )}
       </Grid>

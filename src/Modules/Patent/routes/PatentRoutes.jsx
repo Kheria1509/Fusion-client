@@ -225,7 +225,6 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
-      
     </Routes>
   );
 }
