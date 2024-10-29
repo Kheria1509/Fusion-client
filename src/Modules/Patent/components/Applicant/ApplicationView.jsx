@@ -1,46 +1,47 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Card, Text, Box, Grid, Anchor } from "@mantine/core";
+import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { Eye, Info } from "phosphor-react";
-import "./ApplicationView.css"; // Import the CSS file
+import { useNavigate } from "react-router-dom";
+import "./ApplicationView.css";
 
 // Dummy data for applications
 const applicationsData = [
   {
-    title: "Title of Patent Application",
-    date: "DD/MM/YYYY",
-    time: "HH:MM:SS",
-    tokenNumber: "Token number",
-    applicationNumber: "Application Number",
-    attorney: "Name of Attorney",
+    title: "Wireless Communication System for IoT Devices",
+    date: "12/09/2024",
+    time: "14:30:45",
+    tokenNumber: "TKN001234",
+    applicationNumber: "APP001234",
+    attorney: "John Doe",
     borderColor: "orange",
   },
   {
-    title: "Title of Patent Application",
-    date: "DD/MM/YYYY",
-    time: "HH:MM:SS",
-    tokenNumber: "Token number",
-    applicationNumber: "Application Number",
-    attorney: "Name of Attorney",
-    borderColor: "lightblue",
+    title: "Renewable Energy Storage System",
+    date: "08/09/2024",
+    time: "13:20:30",
+    tokenNumber: "TKN001245",
+    applicationNumber: "APP001245",
+    attorney: "Sarah Adams",
+    borderColor: "mediumseagreen",
   },
   {
-    title: "Title of Patent Application",
-    date: "DD/MM/YYYY",
-    time: "HH:MM:SS",
-    tokenNumber: "Token number",
-    applicationNumber: "Application Number",
-    attorney: "Name of Attorney",
-    borderColor: "lightgreen",
+    title: "AI-Powered Financial Fraud Detection",
+    date: "05/09/2024",
+    time: "11:15:50",
+    tokenNumber: "TKN001246",
+    applicationNumber: "APP001246",
+    attorney: "Mark Johnson",
+    borderColor: "tomato",
   },
   {
-    title: "Title of Patent Application",
-    date: "DD/MM/YYYY",
-    time: "HH:MM:SS",
-    tokenNumber: "Token number",
-    applicationNumber: "Application Number",
-    attorney: "Name of Attorney",
-    borderColor: "lightgreen",
+    title: "Advanced Cybersecurity Threat Intelligence",
+    date: "03/09/2024",
+    time: "09:40:10",
+    tokenNumber: "TKN001247",
+    applicationNumber: "APP001247",
+    attorney: "Linda Perez",
+    borderColor: "steelblue",
   },
 ];
 
@@ -53,6 +54,7 @@ function ApplicationCard({
   applicationNumber,
   attorney,
   borderColor,
+  onViewDetails,
 }) {
   return (
     <Card
@@ -76,6 +78,7 @@ function ApplicationCard({
           variant="outline"
           leftIcon={<Info size={16} />}
           className="button"
+          onClick={onViewDetails} // Attach onClick handler
         >
           View Details
         </Button>
@@ -93,16 +96,24 @@ ApplicationCard.propTypes = {
   applicationNumber: PropTypes.string.isRequired,
   attorney: PropTypes.string.isRequired,
   borderColor: PropTypes.string.isRequired,
+  onViewDetails: PropTypes.func.isRequired, // Add prop type for onViewDetails
 };
 
 // Main ViewApplicationsPage component
 function ApplicationView() {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Function to handle "View Details" click
+  const handleViewDetails = (application) => {
+    // Redirect to the specified path with application-specific details
+    navigate(`/patent/applicant/applications/status-view`, {
+      state: { application },
+    });
+  };
+
   return (
     <Box>
-      {/* Header */}
       <Text className="header-text">View Applications</Text>
-
-      {/* Application cards */}
       <Grid className="application-container">
         {applicationsData.map((application, index) => (
           <Grid.Col span={6} key={index}>
@@ -114,6 +125,7 @@ function ApplicationView() {
               applicationNumber={application.applicationNumber}
               attorney={application.attorney}
               borderColor={application.borderColor}
+              onViewDetails={() => handleViewDetails(application)} // Pass application data to handler
             />
           </Grid.Col>
         ))}

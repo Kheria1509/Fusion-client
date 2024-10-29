@@ -104,7 +104,7 @@ function NotificationsPage() {
     <Box>
       {/* Page Title */}
       <Text className="header">Notifications</Text>
-      
+
       {/* Notifications container */}
       <Box className="notifications-container">
         {notifications.map((notification) => (

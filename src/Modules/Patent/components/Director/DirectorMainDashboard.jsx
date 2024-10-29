@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Container, Loader, Flex, Select, Box, Text, Divider } from "@mantine/core";
+import { Grid, Container, Loader, Flex, Select } from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { SortAscending } from "@phosphor-icons/react";
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs.jsx";
@@ -80,11 +80,21 @@ function DirectorMainDashboard() {
           </Container>
         ) : (
           <>
-            {activeTab === "0" && <DirectorDashboard setActiveTab={setActiveTab}/>}
-            {activeTab === "1" && <RecentApplications setActiveTab={setActiveTab}/>}
-            {activeTab === "2" && <FinalReviewApplications setActiveTab={setActiveTab}/>}
-            {activeTab === "3" && <ReviewedApplications setActiveTab={setActiveTab}/>}
-            {activeTab === "4" && <ActiveApplications setActiveTab={setActiveTab}/>}
+            {activeTab === "0" && (
+              <DirectorDashboard setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "1" && (
+              <RecentApplications setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "2" && (
+              <FinalReviewApplications setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "3" && (
+              <ReviewedApplications setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "4" && (
+              <ActiveApplications setActiveTab={setActiveTab} />
+            )}
           </>
         )}
       </Grid>

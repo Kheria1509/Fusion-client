@@ -23,6 +23,7 @@ import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.jsx";
 import ForwardRedirect from "../components/PCCAdmin/ForwardRedirect.jsx";
 import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
 import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx";
+import DirectorStatusView from "../components/Director/StatusView";
 
 // PCCAdmin-related imports
 import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
@@ -53,7 +54,7 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/"
+        path="/applicant/"
         element={
           <Layout>
             <ApplicantMainDashboard />
@@ -61,7 +62,7 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/viewapplicationspage"
+        path="/applicant/applications/"
         element={
           <Layout>
             <ViewApplicationsPage />
@@ -111,7 +112,7 @@ export default function PatentRoutes() {
 
       {/* Director-related routes */}
       <Route
-        path="/directordashboard"
+        path="/director"
         element={
           <Layout>
             <DirectorMainDashboard />
@@ -139,6 +140,14 @@ export default function PatentRoutes() {
         element={
           <Layout>
             <FinalReviewApplications />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/final-review/details"
+        element={
+          <Layout>
+            <DirectorStatusView />
           </Layout>
         }
       />

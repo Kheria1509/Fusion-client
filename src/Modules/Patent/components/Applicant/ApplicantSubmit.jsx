@@ -3,6 +3,7 @@ import { Button, Card, Text, Box, Divider } from "@mantine/core";
 import { Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 import "./ApplicantSubmit.css";
+
 function SubmitNewApplication() {
   const navigate = useNavigate();
   const handleSubmit = () => {
