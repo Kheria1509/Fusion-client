@@ -1,0 +1,108 @@
+/* Title Styling */
+.dashboard-title {
+  margin-left: 32px;
+  padding: 0;
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Grid Styling */
+.dashboard-grid {
+  margin: 32px;
+}
+
+/* General Card Styling */
+.dashboard-card {
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Specific Colorful Left Borders for Each Card */
+.dashboard-card.pending-reviews {
+  border-left: 6px solid #3182ce; /* Blue */
+}
+
+.dashboard-card.reviewed-applications {
+  border-left: 6px solid #38a169; /* Green */
+}
+
+.dashboard-card.active-applications {
+  border-left: 6px solid #d69e2e; /* Gold */
+}
+
+.dashboard-card.notifications {
+  border-left: 6px solid #e53e3e; /* Red */
+}
+
+/* Title Styling for All Cards */
+.dashboard-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon Styling */
+.icon {
+  margin-right: 8px;
+  color: #2d3748;
+}
+
+/* Divider for Card */
+.card-divider {
+  margin: 8px 0;
+  border-color: #e2e8f0;
+}
+
+/* Button Styling */
+.dashboard-button {
+  border-color: #3182ce;
+  font-size: 15px;
+  padding: 4px 10px;
+  min-height: 30px;
+  width: 100%;
+  background-color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.dashboard-button:hover {
+  color: #3182ce;
+}
+
+/* Header Styling */
+.header {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 24px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Behavior for Smaller Screens */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 16px;
+    border-left-width: 4px;
+  }
+}
+
+/* Padding and Margin Adjustments for Layout */
+.dashboard-container {
+  padding: 24px;
+  margin: 16px;
+}
