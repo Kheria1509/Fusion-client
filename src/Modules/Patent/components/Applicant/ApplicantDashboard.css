@@ -1,0 +1,115 @@
+/* Title Styling */
+.title {
+  margin-left: 32px;
+  padding: 0;
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Grid Styling */
+.dashboard-grid {
+  margin: 32px;
+}
+
+/* General Card Styling */
+.dashboard-card, .application-card {
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #3182ce;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Specific Colorful Left Borders for Each Card */
+.submit-application {
+  border-left-color: #3182ce; /* Blue */
+}
+
+.view-application {
+  border-left-color: #38a169; /* Green */
+}
+
+.saved-drafts {
+  border-left-color: #d69e2e; /* Gold */
+}
+
+.notifications {
+  border-left-color: #e53e3e; /* Red */
+}
+
+/* Title Styling for All Cards */
+.card-header, .dashboard-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon Styling */
+.icon {
+  margin-right: 8px;
+  color: #2d3748;
+}
+
+/* Divider for Card */
+.card-divider {
+  margin: 8px 0;
+  border-color: #e2e8f0;
+}
+
+/* Button Styling */
+.submit-button,
+.view-button,
+.draft-button,
+.notify-button {
+  border-color: #3182ce;
+  font-size: 18px;
+  padding: 14px 20px;
+  min-height: 48px; /* Increased height */
+  width: 100%;
+  background-color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Button Hover Effect - Only Button Color Changes */
+.submit-button:hover,
+.view-button:hover,
+.draft-button:hover,
+.notify-button:hover {
+  color: #3182ce;
+}
+
+/* Header Styling */
+.header {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 24px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Behavior for Smaller Screens */
+@media (max-width: 768px) {
+  .application-container {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card, .application-card {
+    padding: 16px;
+    border-left-width: 4px;
+  }
+}
+
+/* Padding and Margin Adjustments for Layout */
+.submit-application-container, .application-container {
+  padding: 24px;
+  margin: 16px;
+}
