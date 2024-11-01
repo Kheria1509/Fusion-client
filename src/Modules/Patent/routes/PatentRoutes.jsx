@@ -15,18 +15,19 @@ import StatusView from "../components/Applicant/StatusView";
 // Director-related imports
 import DirectorMainDashboard from "../components/Director/DirectorMainDashboard";
 import DirectorDashboard from "../components/Director/DirectorDashboard";
-import RecentApplications from "../components/Director/RecentApplications";
-import FinalReviewApplications from "../components/Director/FinalReviewApplications";
-import ReviewedApplications from "../components/Director/ReviewedApplications";
+import PendingReviewsView from "../components/Applicant/PendingReviews.jsx";
+import ReviewedApplications from "../components/Director/ReviewedApplications.jsx";
 import ActiveApplications from "../components/Director/ActiveApplications";
+import DirectorNotifications from "../components/Director/DirectorNotifications.jsx";
+
+// PCCAdmin-related imports
+import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
 import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.jsx";
 import ForwardRedirect from "../components/PCCAdmin/ForwardRedirect.jsx";
 import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
 import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx";
 import DirectorStatusView from "../components/Director/StatusView";
 
-// PCCAdmin-related imports
-import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
 // import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
 // import ReviewApplication from './components/PCCAdmin/ReviewApplication';
 // import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
@@ -128,18 +129,26 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/director/recent"
+        path="/director/pending-reviews"
         element={
           <Layout>
-            <RecentApplications />
+            <PendingReviewsView />
           </Layout>
         }
       />
       <Route
-        path="/director/final-review"
+        path="/director/reviewedapplications"
         element={
           <Layout>
-            <FinalReviewApplications />
+            <ReviewedApplications />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/active"
+        element={
+          <Layout>
+            <ActiveApplications />
           </Layout>
         }
       />
@@ -152,18 +161,10 @@ export default function PatentRoutes() {
         }
       />
       <Route
-        path="/director/reviewed"
+        path="/director/notifications/"
         element={
           <Layout>
-            <ReviewedApplications />
-          </Layout>
-        }
-      />
-      <Route
-        path="/director/active"
-        element={
-          <Layout>
-            <ActiveApplications />
+            <DirectorNotifications />
           </Layout>
         }
       />
