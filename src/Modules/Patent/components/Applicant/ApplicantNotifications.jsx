@@ -101,7 +101,7 @@ function NotificationsPage() {
   };
 
   return (
-    <Box>
+    <Box style={{ width: "95%" }}>
       {/* Page Title */}
       <Text className="notif-title">Notifications</Text>
 

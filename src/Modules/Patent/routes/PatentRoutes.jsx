@@ -15,7 +15,7 @@ import StatusView from "../components/Applicant/StatusView";
 // Director-related imports
 import DirectorMainDashboard from "../components/Director/DirectorMainDashboard";
 import DirectorDashboard from "../components/Director/DirectorDashboard";
-import PendingReviewsView from "../components/Applicant/PendingReviews.jsx";
+import PendingReviewsView from "../components/Director/PendingReviews.jsx";
 import ReviewedApplications from "../components/Director/ReviewedApplications.jsx";
 import ActiveApplications from "../components/Director/ActiveApplications";
 import DirectorNotifications from "../components/Director/DirectorNotifications.jsx";

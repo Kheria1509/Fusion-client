@@ -11,6 +11,7 @@
   /* Notifications container for flex layout */
   .notifications-container {
     padding-left: 32px;
+    
     display: flex;
     flex-wrap: wrap;
     gap: 24px;

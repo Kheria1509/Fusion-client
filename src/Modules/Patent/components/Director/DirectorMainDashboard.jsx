@@ -5,7 +5,7 @@ import { SortAscending } from "@phosphor-icons/react";
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs.jsx";
 import ModuleTabs from "../../../../components/moduleTabs.jsx";
 import DirectorDashboard from "./DirectorDashboard.jsx";
-import PendingReviewsView from "../Applicant/PendingReviews.jsx";
+import PendingReviewsView from "./PendingReviews.jsx";
 import ReviewedApplications from "./ReviewedApplications.jsx";
 import ActiveApplications from "./ActiveApplications.jsx";
 import DirectorNotifications from "./DirectorNotifications.jsx";
