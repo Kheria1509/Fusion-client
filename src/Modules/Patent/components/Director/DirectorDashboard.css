@@ -67,9 +67,9 @@
 /* Button Styling */
 .dashboard-button {
   border-color: #3182ce;
-  font-size: 15px;
-  padding: 4px 10px;
-  min-height: 30px;
+  font-size: 18px;
+  padding: 14px 20px;
+  min-height: 48px;
   width: 100%;
   background-color: #fff;
   transition: color 0.3s ease, background-color 0.3s ease;

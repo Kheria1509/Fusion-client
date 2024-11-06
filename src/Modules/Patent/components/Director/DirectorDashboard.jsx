@@ -1,5 +1,12 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { Grid, Box, Text, Divider, Button } from "@mantine/core";
-import { ClipboardText, CheckCircle, Hourglass, Bell } from "@phosphor-icons/react";
+import {
+  ClipboardText,
+  CheckCircle,
+  Hourglass,
+  Bell,
+} from "@phosphor-icons/react";
 import "./DirectorDashboard.css";
 
 function DirectorDashboard({ setActiveTab }) {
@@ -25,7 +32,7 @@ function DirectorDashboard({ setActiveTab }) {
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("Pending Reviews")}
+              onClick={() => setActiveTab("1")}
               className="dashboard-button"
             >
               View Pending Reviews
@@ -48,7 +55,7 @@ function DirectorDashboard({ setActiveTab }) {
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("reviewed")}
+              onClick={() => setActiveTab("2")}
               className="dashboard-button"
             >
               View Reviewed Applications
@@ -71,7 +78,7 @@ function DirectorDashboard({ setActiveTab }) {
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("active")}
+              onClick={() => setActiveTab("3")}
               className="dashboard-button"
             >
               View Active Applications
@@ -94,7 +101,7 @@ function DirectorDashboard({ setActiveTab }) {
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("notifications")}
+              onClick={() => setActiveTab("4")}
               className="dashboard-button"
             >
               View Notifications
@@ -105,5 +112,10 @@ function DirectorDashboard({ setActiveTab }) {
     </Box>
   );
 }
+
+// Prop validation
+DirectorDashboard.propTypes = {
+  setActiveTab: PropTypes.func.isRequired,
+};
 
 export default DirectorDashboard;

@@ -1,52 +1,52 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
-import { CheckCircle, Info } from "phosphor-react";
+import { Hourglass, Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import "./ActiveApplications.css";
+import "./PendingReviews.css";
 
-// Dummy data for active applications
-const activeApplicationsData = [
+// Dummy data for pending reviews
+const pendingReviewsData = [
   {
-    title: "Cloud-Based Data Storage Solution",
-    date: "25/11/2024",
-    time: "10:00:00",
-    tokenNumber: "TKN004567",
-    applicationNumber: "APP004567",
-    attorney: "XYZ123456",
-    borderColor: "mediumblue",
+    title: "Mobile Payment Security Protocol",
+    date: "20/10/2024",
+    time: "09:30:00",
+    tokenNumber: "TKN003456",
+    applicationNumber: "APP003456",
+    attorney: "JKL123456",
+    borderColor: "orange",
   },
   {
-    title: "Virtual Reality Gaming Platform",
-    date: "22/11/2024",
-    time: "12:30:00",
-    tokenNumber: "TKN004568",
-    applicationNumber: "APP004568",
-    attorney: "ABC987654",
-    borderColor: "darkorange",
+    title: "Telemedicine Platform for Remote Consultations",
+    date: "18/10/2024",
+    time: "11:15:00",
+    tokenNumber: "TKN003457",
+    applicationNumber: "APP003457",
+    attorney: "MNO987654",
+    borderColor: "lightcoral",
   },
   {
-    title: "AI-Based Customer Support Chatbot",
-    date: "20/11/2024",
-    time: "14:15:00",
-    tokenNumber: "TKN004569",
-    applicationNumber: "APP004569",
-    attorney: "DEF123456",
-    borderColor: "seagreen",
+    title: "AI-Driven Personalized Learning System",
+    date: "15/10/2024",
+    time: "14:00:00",
+    tokenNumber: "TKN003458",
+    applicationNumber: "APP003458",
+    attorney: "PQR123456",
+    borderColor: "mediumseagreen",
   },
   {
-    title: "Smart Agriculture Monitoring System",
-    date: "18/11/2024",
-    time: "16:45:00",
-    tokenNumber: "TKN004570",
-    applicationNumber: "APP004570",
-    attorney: "GHI654321",
-    borderColor: "crimson",
+    title: "Smart Waste Management System",
+    date: "12/10/2024",
+    time: "16:30:00",
+    tokenNumber: "TKN003459",
+    applicationNumber: "APP003459",
+    attorney: "STU654321",
+    borderColor: "steelblue",
   },
 ];
 
-// Component for individual active application card
-function ActiveApplicationCard({
+// Component for individual pending review card
+function PendingReviewCard({
   title,
   date,
   time,
@@ -59,7 +59,7 @@ function ActiveApplicationCard({
 }) {
   return (
     <Card
-      className="active-application-card"
+      className="pending-review-card"
       style={{ borderLeft: `6px solid ${borderColor}` }}
     >
       <Text className="card-header">{title}</Text>
@@ -70,7 +70,7 @@ function ActiveApplicationCard({
       <Box className="button-container">
         <Button
           variant="outline"
-          leftIcon={<CheckCircle size={16} />}
+          leftIcon={<Hourglass size={16} />}
           className="button"
           onClick={onReview}
         >
@@ -89,8 +89,8 @@ function ActiveApplicationCard({
   );
 }
 
-// PropTypes validation for ActiveApplicationCard
-ActiveApplicationCard.propTypes = {
+// PropTypes validation for PendingReviewCard
+PendingReviewCard.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
@@ -102,13 +102,13 @@ ActiveApplicationCard.propTypes = {
   onViewDetails: PropTypes.func.isRequired,
 };
 
-// Main ActiveApplications component
-function ActiveApplications() {
+// Main PendingReviewsView component
+function PendingReviewsView() {
   const navigate = useNavigate();
 
   // Function to handle the review click
   const handleReview = (application) => {
-    navigate(`/patent/review/active/${application.applicationNumber}`, {
+    navigate(`/patent/review/pending/${application.applicationNumber}`, {
       state: { application },
     });
   };
@@ -121,11 +121,11 @@ function ActiveApplications() {
 
   return (
     <Box>
-      <Text className="header-text">Active Applications</Text>
+      <Text className="header-text">Pending Reviews</Text>
       <Grid className="app-container">
-        {activeApplicationsData.map((application, index) => (
+        {pendingReviewsData.map((application, index) => (
           <Grid.Col span={6} key={index}>
-            <ActiveApplicationCard
+            <PendingReviewCard
               title={application.title}
               date={application.date}
               time={application.time}
@@ -143,4 +143,4 @@ function ActiveApplications() {
   );
 }
 
-export default ActiveApplications;
+export default PendingReviewsView;
