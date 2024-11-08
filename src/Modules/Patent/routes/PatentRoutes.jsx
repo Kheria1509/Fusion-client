@@ -23,11 +23,10 @@ import DirectorNotifications from "../components/Director/DirectorNotifications.
 // PCCAdmin-related imports
 import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
 import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.jsx";
-import ForwardRedirect from "../components/PCCAdmin/ForwardRedirect.jsx";
 import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
 import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx";
 import DirectorStatusView from "../components/Director/StatusView";
-
+import ForwardDetails from "../components/PCCAdmin/ForwardDetails.jsx";
 // import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
 // import ReviewApplication from './components/PCCAdmin/ReviewApplication';
 // import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
@@ -203,13 +202,13 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
-      <Route
-        path="/pccAdmin/forwardRedirect"
+      <Route 
+        path="/pccAdmin/details/:applicationNumber" 
         element={
-          <Layout>
-            <ForwardRedirect />
+          <Layout> 
+            <ForwardDetails />
           </Layout>
-        }
+        } 
       />
       <Route
         path="/pccAdmin/manageAttorney"
