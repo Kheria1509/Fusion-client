@@ -1,0 +1,192 @@
+/* PCCAdminDashboard.css */
+
+.dashboard-title {
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center; 
+  margin: 0 auto; 
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+
+/* CSS for Overview Section */
+.overview-section {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: 0rem;
+  margin-left: 32px;
+  margin-right: 32px;
+  line-height: 1.6;
+}
+
+.overview-icon {
+  margin-left: 8px; 
+  vertical-align: middle; 
+  color: #4c6ef5; 
+}
+
+.overview-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.overview-text {
+  font-size: 1rem;
+  color: #374151; 
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+/* Divider styling */
+.overview-section .mantine-Divider-root {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #d1d5db; 
+  height: 1px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .overview-section {
+    padding: 1.5rem;
+  }
+  
+  .overview-title {
+    font-size: 1.125rem;
+  }
+  
+  .overview-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* CSS for Enhanced Features List */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f7fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-3px);
+}
+
+.icon-and-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-icon {
+  color: #4c6ef5; /* Primary accent color */
+}
+
+.feature-title {
+  font-size: 1rem;
+  color: #333;
+}
+
+.feature-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-left: 2rem;
+  line-height: 1.5;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .feature-description {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* General card styling */
+.dashboard-card {
+  background-color: #f7fafc;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-left: 6px solid transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Hover effect for cards */
+.dashboard-card:hover {
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Specific colorful left borders for each card */
+.review-applications {
+  border-left-color: #3182ce;
+}
+
+.status-applications {
+  border-left-color: #38a169;
+}
+
+.manage-attorney {
+  border-left-color: #d69e2e;
+}
+
+.forward-director {
+  border-left-color: #e53e3e;
+}
+
+.feedback-section {
+  border-left-color: #805ad5;
+}
+
+/* Title styling for all cards */
+.dashboard-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Icon styling */
+.icon {
+  margin-right: 8px;
+}
+
+/* Divider for card */
+.card-divider {
+  margin: 8px 0;
+}
+
+/* Button styling */
+.dashboard-button {
+  border-color: #3182ce;
+  font-size: 15px;
+  padding: 4px 10px;
+  min-height: 30px;
+  width: 100%;
+  background-color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+ .dashboard-grid {
+   grid-template-columns: repeat(1, minmax(0,1fr));
+ }
+}
