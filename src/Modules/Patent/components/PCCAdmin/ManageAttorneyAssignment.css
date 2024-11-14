@@ -1,0 +1,81 @@
+/* ManageAttorneyAssignment.css */
+
+.page-t-title {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 700; 
+  text-align: center; 
+}
+
+.table-card {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.attorney-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attorney-table th,
+.attorney-table td {
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.view-d-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #0073e6;
+  padding: 6px 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  background: none;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.view-d-button:hover {
+  color: #005bb5;
+  transform: scale(1.02);
+}
+
+.icon {
+  margin-right: 6px;
+  color: #0073e6;
+}
+
+.table {
+  width: 100%;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.table td,
+.table th {
+  text-align: center;
+}
+
+.view-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
