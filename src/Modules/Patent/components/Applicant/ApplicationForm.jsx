@@ -5,7 +5,7 @@ import {
   TextInput,
   Button,
   Group,
-  Container,
+  Paper,
   Title,
   Text,
   Textarea,
@@ -160,8 +160,8 @@ function ApplicationForm() {
   };
 
   return (
-    <Container size="lg" my={30}>
-      <Title order={1} align="center" mb={20}>
+    <Paper shadow="xs" p="xl" size="md" mx={32}>
+      <Title order={1} align="center" mb={20} style={{ fontSize: "26px" }}>
         Intellectual Property Filing Form
       </Title>
 
@@ -171,7 +171,7 @@ function ApplicationForm() {
       </Text>
       {step === 1 && (
         <form>
-          <Title order={2} align="center" mb={20}>
+          <Title order={2} align="center" mb={20} style={{ fontSize: "24px" }}>
             Section - I : (Administrative and Technical Details)
           </Title>
           {/* Step 1: Title of Application */}
@@ -223,7 +223,7 @@ function ApplicationForm() {
                 required
               />
               <Button
-                color="red"
+                color="blue"
                 style={{ alignSelf: "flex-end", wordBreak: "break-word" }}
                 onClick={() => handleRemoveInventor(index)}
               >
@@ -234,7 +234,7 @@ function ApplicationForm() {
 
           {/* Add Inventor Button */}
           <Group position="center" mt="md">
-            <Button onClick={handleAddInventor} color="green">
+            <Button onClick={handleAddInventor} color="blue">
               Add Inventor
             </Button>
           </Group>
@@ -252,7 +252,12 @@ function ApplicationForm() {
         <div>
           {/* Step 2: General Questions */}
           <form>
-            <Title order={2} align="center" mb={20}>
+            <Title
+              order={2}
+              align="center"
+              mb={20}
+              style={{ fontSize: "24px" }}
+            >
               Section - I : (Administrative and Technical Details)
             </Title>
             <Text size="lg" weight={500} mb={10}>
@@ -332,13 +337,13 @@ function ApplicationForm() {
 
             {/* Previous, Next, and Save Draft Buttons */}
             <Group position="apart" mt="lg">
-              <Button color="gray" onClick={prevPage}>
+              <Button color="blue" onClick={prevPage}>
                 Previous
               </Button>
               <Button onClick={nextPage} color="blue">
                 Next
               </Button>
-              <Button onClick={handleSaveDraft} color="orange">
+              <Button onClick={handleSaveDraft} color="blue">
                 Save Draft
               </Button>
             </Group>
@@ -350,7 +355,12 @@ function ApplicationForm() {
         <div>
           {/* Step 3: IPR Ownership Questions */}
           <form>
-            <Title order={2} align="center" mb={20}>
+            <Title
+              order={2}
+              align="center"
+              mb={20}
+              style={{ fontSize: "24px" }}
+            >
               Section - II : (IPR Ownership)
             </Title>
             <Text size="lg" weight={500} mb={10}>
@@ -416,7 +426,7 @@ function ApplicationForm() {
 
             {/* Previous, Save Draft and Submit Buttons */}
             <Group position="apart" mt="lg">
-              <Button color="gray" onClick={prevPage}>
+              <Button color="blue" onClick={prevPage}>
                 Previous
               </Button>
               <Button onClick={nextPage} color="blue">
@@ -430,7 +440,12 @@ function ApplicationForm() {
       {step === 4 && (
         <form>
           <div>
-            <Title order={2} align="center" mb={20}>
+            <Title
+              order={2}
+              align="center"
+              mb={20}
+              style={{ fontSize: "24px" }}
+            >
               Section - II : (IPR Ownership)
             </Title>
             <Text size="sm" mb={20}>
@@ -471,7 +486,7 @@ function ApplicationForm() {
                   <Group spacing="xs">
                     {inventors.length > 1 && (
                       <Button
-                        color="red"
+                        color="blue"
                         onClick={() => handleRemoveInventor(index)}
                         style={{ marginTop: "25px" }}
                       >
@@ -480,7 +495,7 @@ function ApplicationForm() {
                     )}
                     {index === inventors.length - 1 && (
                       <Button
-                        color="green"
+                        color="blue"
                         onClick={handleAddInventor}
                         style={{ marginTop: "25px" }}
                       >
@@ -506,23 +521,23 @@ function ApplicationForm() {
 
             {/* Notify Inventors and View Status Buttons */}
             <Group position="apart" mt="md">
-              <Button color="cyan" onClick={handleNotifyInventors}>
+              <Button color="blue" onClick={handleNotifyInventors}>
                 Notify Inventors
               </Button>
-              <Button color="grape" onClick={handleViewStatus}>
+              <Button color="blue" onClick={handleViewStatus}>
                 View Status
               </Button>
             </Group>
 
             {/* Previous, Save Draft, and Next Buttons */}
             <Group position="apart" mt="lg">
-              <Button color="gray" onClick={prevPage}>
+              <Button color="blue" onClick={prevPage}>
                 Previous
               </Button>
               <Button color="blue" onClick={nextPage}>
                 Next
               </Button>
-              <Button color="orange" onClick={handleSaveDraft}>
+              <Button color="blue" onClick={handleSaveDraft}>
                 Save as Draft
               </Button>
             </Group>
@@ -533,7 +548,12 @@ function ApplicationForm() {
       {step === 5 && (
         <form>
           <div>
-            <Title order={2} align="center" mb={20}>
+            <Title
+              order={2}
+              align="center"
+              mb={20}
+              style={{ fontSize: "24px" }}
+            >
               Section - III : (Commercialization)
             </Title>
             {/* 1. Target Companies */}
@@ -603,7 +623,7 @@ function ApplicationForm() {
                         {/* Button to remove the company entry */}
                         <Button
                           type="button"
-                          color="red"
+                          color="blue"
                           onClick={() => removeCompany(index)}
                         >
                           Remove
@@ -671,20 +691,20 @@ function ApplicationForm() {
 
             {/* Previous, Save Draft, and Next Buttons */}
             <Group position="apart" mt="lg">
-              <Button color="gray" onClick={prevPage}>
+              <Button color="blue" onClick={prevPage}>
                 Previous
               </Button>
-              <Button color="orange" onClick={handleSaveDraft}>
+              <Button color="blue" onClick={handleSaveDraft}>
                 Save as Draft
               </Button>
-              <Button color="green" onClick={handleSubmit}>
+              <Button color="blue" onClick={handleSubmit}>
                 Submit
               </Button>
             </Group>
           </div>
         </form>
       )}
-    </Container>
+    </Paper>
   );
 }
 
