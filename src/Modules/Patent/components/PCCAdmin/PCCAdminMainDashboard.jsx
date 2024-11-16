@@ -10,7 +10,6 @@ import ForwardToDirector from "./ForwardToDirector.jsx";
 import ReviewApplication from "./ReviewApplicaion.jsx";
 import FeedbackViewer from "./FeedbackViewer";
 import StatusOfApplications from "./StatusOfApplications.jsx";
-import DownloadsPage from "./DownloadsPage.jsx";
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -28,7 +27,6 @@ function ApplicantMainDashboard() {
     { title: "Manage Attorney" },
     { title: "Forward to Director" },
     { title: "Feedback Viewer" },
-    { title: "Downloads" },
   ];
 
   useEffect(() => {
@@ -102,11 +100,6 @@ function ApplicantMainDashboard() {
             {activeTab === "5" && (
               <FeedbackViewer setActiveTab={setActiveTab} />
             )}
-            {activeTab === "6" && (
-              <DownloadsPage setActiveTab={setActiveTab} />
-            )}
-            
-
           </>
         )}
       </Grid>
