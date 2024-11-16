@@ -161,6 +161,10 @@ function ApplicationForm() {
     navigate("/patent/applicant/drafts"); // Navigate to the Saved Drafts page
   };
 
+  const handleDownload = () => {
+    window.open("https://example.com/sample.pdf", "_blank");
+  };
+
   return (
     <Paper shadow="xs" p="xl" size="md" mx={32}>
       <Title order={1} align="center" mb={20} style={{ fontSize: "26px" }}>
@@ -189,8 +193,8 @@ function ApplicationForm() {
             1. Please list inventor(s) who have contributed in the main
             inventive step of the invention. (Inventor is a person who has
             actually participated in the inventive step, in case a person has
-            worked worked under instructions, then he/she is not an inventor for
-            the of patent.)
+            worked under instructions, then he/she is not an inventor for the
+            purpose of patent.)
           </Text>
           <Text size="sm" fw={700} mb={20}>
             Note : Students should provide their permanent (personal) Email-ID
@@ -695,6 +699,35 @@ function ApplicationForm() {
             onChange={handleCheckboxChange}
             my={5}
           />
+          <Text size="sm" mt={20} mb={10}>
+            Download the following form, duly fill and sign it, and upload it
+            afterward.
+          </Text>
+          <Button color="blue" mb={10} onClick={handleDownload}>
+            Download Form-III
+          </Button>
+          <FileInput
+            label="Please upload duly filled and signed Form-III"
+            placeholder="Click here to upload form"
+            multiple
+            clearable
+            value={files}
+            mt={5}
+            onChange={setFiles}
+            accept="image/*"
+          />
+          <div style={{ marginBottom: "10px" }}>
+            {files.map((file, index) => (
+              <div key={index}>
+                <strong>{file.name}</strong> ({(file.size / 1024).toFixed(2)}{" "}
+                KB)
+              </div>
+            ))}
+          </div>
+          <Text size="sm" mt={20} mb={20} fw={700}>
+            Undertaking: Intellectual Property is filing on the behalf of the
+            Institute.
+          </Text>
           {/* Previous, Save Draft, and Next Buttons */}
           <Group position="apart" mt="lg">
             <Button color="blue" onClick={prevPage}>
