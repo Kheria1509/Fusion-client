@@ -27,6 +27,11 @@ function DownloadsPage() {
       <Text className="page-t-title">
         View Downloadable Forms and Documents
       </Text>
+      <Text align="center" size="sm" color="dimmed" mb="md">
+        The following is a list of documents available for download. Please
+        review the document title and click the "Download" button to access the
+        desired file.
+      </Text>
       <Card
         shadow="sm"
         padding="lg"
@@ -38,7 +43,7 @@ function DownloadsPage() {
           <thead>
             <tr>
               <th>S.No.</th>
-              <th>Process Title</th>
+              <th>Document Title</th>
               <th>Download</th>
             </tr>
           </thead>

@@ -86,7 +86,7 @@ function PCCAdminDashboard({ setActiveTab }) {
               icon: <ArrowCircleDown size={20} className="feature-icon" />,
               title: "Download Important Documents and Forms",
               description:
-                "Easy Access to key Documents and Forms for quick offline access.",
+                "Quick and easy access to important documents and forms for offline use.",
             },
           ].map((feature, index) => (
             <Box key={index} className="feature-item">
