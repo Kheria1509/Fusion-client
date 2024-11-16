@@ -1,15 +1,38 @@
-// AttorneyForm.jsx
-import React, { useState } from 'react';
-import { Text, Box, Divider, Tooltip, Badge, Button, Modal, TextInput } from '@mantine/core';
-import { EnvelopeSimple, Phone, Briefcase, CurrencyDollar, CheckCircle, Info, PencilSimple } from 'phosphor-react';
-import './AttorneyForm.css';
+import React, { useState } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
+import {
+  Text,
+  Box,
+  Divider,
+  Tooltip,
+  Badge,
+  Button,
+  Modal,
+  TextInput,
+} from "@mantine/core";
+import {
+  EnvelopeSimple,
+  Phone,
+  Briefcase,
+  CurrencyDollar,
+  CheckCircle,
+  Info,
+  PencilSimple,
+  List,
+} from "phosphor-react";
+import ApplicationModal from "./ApplicationModal"; // Import the new ApplicationModal component
+import "./AttorneyForm.css";
 
-const AttorneyForm = ({ attorney, onUpdate }) => {
+function AttorneyForm({ attorney, onUpdate }) {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [isApplicationModalOpen, setApplicationModalOpen] = useState(false); // State for Application Modal
   const [updatedData, setUpdatedData] = useState({ ...attorney });
 
   const openEditModal = () => setEditModalOpen(true);
   const closeEditModal = () => setEditModalOpen(false);
+
+  const openApplicationModal = () => setApplicationModalOpen(true); // Open Application Modal
+  const closeApplicationModal = () => setApplicationModalOpen(false); // Close Application Modal
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,13 +47,16 @@ const AttorneyForm = ({ attorney, onUpdate }) => {
 
   return (
     <Box className="attorney-form-container">
-      <Text className="attorney-form-header">Attorney Profile</Text>
+      <Text className="attorney-form-header" align="center">
+        Attorney Profile
+      </Text>
       <Divider my="sm" />
 
+      {/* Attorney Details */}
       <Tooltip label="Name of the Attorney" position="right">
         <Text className="attorney-detail">
           <Briefcase size={18} className="icon" />
-          <strong>Name:</strong> {attorney.AttorneyName}
+          <strong>Name: </strong> {attorney.AttorneyName}
         </Text>
       </Tooltip>
 
@@ -86,28 +112,38 @@ const AttorneyForm = ({ attorney, onUpdate }) => {
       <Divider my="sm" />
 
       <Text className="comments-section">
-        <strong>Comments:</strong> {attorney.Comments || 'No comments available at this time.'}
+        <strong>Comments:</strong>{" "}
+        {attorney.Comments || "No comments available at this time."}
       </Text>
 
-      <Badge color="green" variant="light" className="created-by-badge">
+      <Badge variant="light" size="xl" className="created-by-badge">
         Created By: {attorney.CreatedBy}
       </Badge>
 
-      <br/>
+      <br />
+
+      {/* Button to Edit Details */}
       <Button
         mt="lg"
-        variant="outline" color="blue"
+        variant="filled"
+        color="blue"
         leftIcon={<PencilSimple />}
         onClick={openEditModal}
-        style={{
-          marginTop: '20px',
-          border: '1px solid #1c7ed6',
-          backgroundColor: '#e7f5ff',
-        }}
       >
         Edit Details
       </Button>
-      
+
+      {/* New Button to View Applications */}
+      <Button
+        mt="lg"
+        ml="md"
+        variant="fullfilled"
+        color="blue"
+        leftIcon={<List />}
+        onClick={openApplicationModal}
+      >
+        Applications
+      </Button>
 
       {/* Modal for editing details */}
       <Modal
@@ -164,18 +200,51 @@ const AttorneyForm = ({ attorney, onUpdate }) => {
           fullWidth
           mt="lg"
           style={{
-            backgroundColor: '#1c7ed6',
-            color: 'white',
-            padding: '10px',
-            borderRadius: '8px',
-            fontWeight: 'bold',
+            backgroundColor: "#1c7ed6",
+            color: "white",
+            padding: "10px",
+            borderRadius: "8px",
+            fontWeight: "bold",
           }}
         >
           Save Changes
         </Button>
       </Modal>
+
+      {/* Modal to Display Applications */}
+      <ApplicationModal
+        isOpen={isApplicationModalOpen}
+        onClose={closeApplicationModal}
+        applications={attorney.AssignedApplications} // Pass assigned applications
+      />
     </Box>
   );
+}
+
+// Define PropTypes for the component
+AttorneyForm.propTypes = {
+  attorney: PropTypes.shape({
+    AttorneyName: PropTypes.string.isRequired,
+    LawFirm: PropTypes.string,
+    Email: PropTypes.string.isRequired,
+    PhoneNumber: PropTypes.string,
+    Specialization: PropTypes.string,
+    AttorneyFee: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    Status: PropTypes.string,
+    ReviewStatus: PropTypes.string,
+    Comments: PropTypes.string,
+    CreatedBy: PropTypes.string,
+    AssignedApplications: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+          .isRequired,
+        title: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+      }),
+    ),
+  }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default AttorneyForm;
