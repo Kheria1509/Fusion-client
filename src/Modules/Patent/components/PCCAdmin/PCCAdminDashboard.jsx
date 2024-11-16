@@ -7,9 +7,12 @@ import {
   ArrowRight,
   Chat,
   ChartBar,
-  Clock, Buildings
+  Clock,
+  Buildings,
 } from "@phosphor-icons/react";
 import "./PCCAdminDashboard.css";
+import { ArrowCircleDown, ArrowCircleRight } from "phosphor-react";
+import PropTypes from "prop-types";
 
 function PCCAdminDashboard({ setActiveTab }) {
   return (
@@ -21,7 +24,8 @@ function PCCAdminDashboard({ setActiveTab }) {
       <Box className="overview-section">
         <Text className="overview-title">
           IIITDM Jabalpur's Patent System
-          <Buildings size={24} className="overview-icon" /> {/* Adds an Eye icon */}
+          <Buildings size={24} className="overview-icon" />{" "}
+          {/* Adds an Eye icon */}
         </Text>
         <Text className="overview-text">
           The Patent Management System at IIITDM Jabalpur focuses on fostering
@@ -77,6 +81,12 @@ function PCCAdminDashboard({ setActiveTab }) {
               title: "Dashboard Analytics and Insights",
               description:
                 "Analyze application volume, performance metrics, and trends to support data-driven decisions.",
+            },
+            {
+              icon: <ArrowCircleDown size={20} className="feature-icon" />,
+              title: "Download Important Documents and Forms",
+              description:
+                "Easy Access to key Documents and Forms for quick offline access.",
             },
           ].map((feature, index) => (
             <Box key={index} className="feature-item">
@@ -167,7 +177,8 @@ function PCCAdminDashboard({ setActiveTab }) {
         <Grid.Col span={6}>
           <Box className="dashboard-card forward-director">
             <Text className="dashboard-card-title">
-              <ArrowRight size={20} className="icon" /> Forward to Director
+              <ArrowCircleRight size={20} className="icon" /> Forward to
+              Director
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
@@ -208,9 +219,36 @@ function PCCAdminDashboard({ setActiveTab }) {
             </Button>
           </Box>
         </Grid.Col>
+
+        {/* Downloads Section */}
+        <Grid.Col span={6}>
+          <Box className="dashboard-card downloads-section">
+            <Text className="dashboard-card-title">
+              <ArrowCircleDown size={20} className="icon" /> Downloads
+            </Text>
+            <Divider className="card-divider" />
+            <Text size="sm" mt="sm">
+              Access and download important documents.
+            </Text>
+            <Button
+              variant="light"
+              fullWidth
+              mt="md"
+              size="xs"
+              className="dashboard-button"
+              onClick={() => setActiveTab("6")}
+            >
+              Access Downloads
+            </Button>
+          </Box>
+        </Grid.Col>
       </Grid>
     </Box>
   );
 }
+//
+PCCAdminDashboard.propTypes = {
+  setActiveTab: PropTypes.func.isRequired, // Ensure setActiveTab is a required function
+};
 
 export default PCCAdminDashboard;
