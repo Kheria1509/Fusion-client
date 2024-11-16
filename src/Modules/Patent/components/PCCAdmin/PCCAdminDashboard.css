@@ -155,7 +155,9 @@
 .feedback-section {
   border-left-color: #805ad5;
 }
-
+.downloads-section {
+  border-left-color: #c3176d;
+}
 /* Title styling for all cards */
 .dashboard-card-title {
   font-size: 20px;
