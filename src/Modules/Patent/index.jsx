@@ -18,6 +18,7 @@ import ReviewedApplication from "./components/Director/ReviewedApplications";
 import RequestModifications from "./components/Director/RequestModifications";
 import ApplicationView from "./components/Applicant/ApplicationView";
 import DownloadsPage from "./components/PCCAdmin/DownloadsPage";
+import InsightsPage from "./components/PCCAdmin/InsightsPage";
 
 function PatentPage() {
   const [activeTab, setActiveTab] = useState("0");
@@ -38,6 +39,7 @@ function PatentPage() {
     { title: "Request Modifications", component: <RequestModifications /> },
     { title: "ApplicationView", component: <ApplicationView /> },
     { title: "DownloadsPage", component: <DownloadsPage /> },
+    { title: "InsightsPage", component: <InsightsPage /> },
   ];
 
   const handleTabChange = (direction) => {
