@@ -102,7 +102,9 @@ function ApplicantMainDashboard() {
             {activeTab === "5" && (
               <FeedbackViewer setActiveTab={setActiveTab} />
             )}
-            {activeTab === "6" && <DownloadsPage setActiveTab={setActiveTab} />}
+            {activeTab === "6" && (
+              <DownloadsPage setActiveTab={setActiveTab} />
+            )}
           </>
         )}
       </Grid>
