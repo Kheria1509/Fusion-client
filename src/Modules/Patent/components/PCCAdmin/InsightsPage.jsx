@@ -48,8 +48,8 @@ function InsightsPage() {
   return (
     <div className="insights-page">
       <h2 className="page-title">Applications Overview - {selectedYear}</h2>
-      <p className="description" style={{ textAlign: "center" }}>
-        Select a year from the dropdown below to view the statistics of
+      <p align="center" size="sm" color="dimmed" mb="md" className="description">
+      Select a year from the dropdown below to view the statistics of
         applications for that year. You can also download the data as a CSV file
         for further analysis.
       </p>
@@ -121,7 +121,19 @@ function InsightsPage() {
               ).slices
             }
           </svg>
-        </div>
+          
+          <div className="legend">
+    {applications.map((app, index) => (
+      <div key={index} className="legend-item">
+        <div
+          className="legend-color"
+          style={{ backgroundColor: app.color }}
+        ></div>
+        <span className="legend-label">{app.label}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
         <div className="table-section">
           <h3>Applications Data</h3>
