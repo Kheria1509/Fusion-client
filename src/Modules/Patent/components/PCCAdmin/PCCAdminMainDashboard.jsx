@@ -24,7 +24,7 @@ function ApplicantMainDashboard() {
   // Define your tabs here
   const tabItems = [
     { title: "Dashboard" },
-    { title: "Review Applications" },
+    { title: "New Applications" },
     { title: "Status of Applications" },
     { title: "Manage Attorney" },
     { title: "Forward to Director" },
