@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, Button, RingProgress } from "@mantine/core";
 import { Download } from "@phosphor-icons/react";
-// import "./InsightsPage.css";
+import "./InsightsPage.css";
 
 function InsightsPage() {
   const yearWiseData = [
