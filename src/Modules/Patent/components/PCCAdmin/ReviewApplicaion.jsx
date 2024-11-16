@@ -1,30 +1,74 @@
 import React from "react";
-import { Box, Button, ScrollArea, Table, Title, Text, Card } from "@mantine/core";
-import { Eye, Info, PaperPlane, NewspaperClipping } from "phosphor-react";
+import {
+  Box,
+  Button,
+  ScrollArea,
+  Table,
+  Title,
+  Text,
+  Paper,
+} from "@mantine/core";
+import {
+  Eye,
+  Info,
+  PaperPlane,
+  NewspaperClipping,
+} from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
-import { NewApplicationData, ReviewedApplicationsData } from "./ReviewApplicationData";
+import PropTypes from "prop-types"; // Import PropTypes
+import {
+  NewApplicationData,
+  ReviewedApplicationsData,
+} from "./ReviewApplicationData";
 import "./ReviewApplication.css";
 
-function ReviewedApplicationCard({ title, date, time, tokenNumber, applicationNumber, attorney, borderColor, onViewDetails }) {
+function ReviewedApplicationCard({
+  title,
+  date,
+  time,
+  tokenNumber,
+  applicationNumber,
+  attorney,
+  onViewDetails,
+}) {
   return (
-    <Card className="r-application-card" style={{ borderLeft: `8px solid ${borderColor}` }}>
+    <Paper shadow="xs" radius="md" className="r-application-card">
       <Text className="card-header">{title}</Text>
       <Text className="r-card-details">{`${date} | ${time}`}</Text>
       <Text className="r-card-details">Token No.: {tokenNumber}</Text>
-      <Text className="r-card-details">Application No.: {applicationNumber}</Text>
+      <Text className="r-card-details">
+        Application No.: {applicationNumber}
+      </Text>
       <Text className="r-card-details">Assigned Attorney: {attorney}</Text>
-      <Button variant="outline" leftIcon={<Info size={16} />} onClick={onViewDetails} className="r-button">
+      <Button
+        variant="filled"
+        color="blue"
+        leftIcon={<Info size={16} />}
+        onClick={onViewDetails}
+        className="r-button"
+      >
         View Details
       </Button>
-    </Card>
+    </Paper>
   );
 }
+
+// Add PropTypes validation for ReviewedApplicationCard
+ReviewedApplicationCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  tokenNumber: PropTypes.string.isRequired,
+  applicationNumber: PropTypes.string.isRequired,
+  attorney: PropTypes.string.isRequired,
+  onViewDetails: PropTypes.func.isRequired,
+};
 
 function ReviewedApplications() {
   const navigate = useNavigate();
 
   const handleViewDetails = (application) => {
-    navigate(`/patent/pccAdmin/appliction/view-details`, {
+    navigate(`/patent/pccAdmin/application/view-details`, {
       state: { application },
     });
   };
@@ -35,7 +79,12 @@ function ReviewedApplications() {
         {ReviewedApplicationsData.map((application, index) => (
           <ReviewedApplicationCard
             key={index}
-            {...application}
+            title={application.title} // Explicitly passing each prop
+            date={application.date}
+            time={application.time}
+            tokenNumber={application.tokenNumber}
+            applicationNumber={application.applicationNumber}
+            attorney={application.attorney}
             onViewDetails={() => handleViewDetails(application)}
           />
         ))}
@@ -46,7 +95,14 @@ function ReviewedApplications() {
 
 function ReviewApplication() {
   const navigate = useNavigate();
-  const columnNames = ["Patent Title", "Submitted By", "Designation", "Department", "Date - Time", "View"];
+  const columnNames = [
+    "Patent Title",
+    "Submitted By",
+    "Designation",
+    "Department",
+    "Date - Time",
+    "View",
+  ];
 
   const rows = NewApplicationData.map((item, index) => (
     <tr key={index} className="tableRow">
@@ -57,10 +113,14 @@ function ReviewApplication() {
       <td>{item["Date - Time"]}</td>
       <td>
         <Button
-          variant="subtle"
-          color="indigo"
+          variant="filled" // Changed from "fullfilled" to "filled"
+          color="blue"
           size="xs"
-          onClick={() => navigate(`/patent/pccAdmin/appliction/view-details`, { state: { application: item } })}
+          onClick={() =>
+            navigate(`/patent/pccAdmin/application/view-details`, {
+              state: { application: item },
+            })
+          }
           className="viewButton"
         >
           <Eye size={16} /> <span>View</span>
@@ -71,11 +131,16 @@ function ReviewApplication() {
 
   return (
     <Box>
-      <Title order={2} className="title"><PaperPlane size={20} /> New Applications</Title>
+      {/* Title for New Applications Section */}
+      <Title order={2} className="title">
+        <PaperPlane size={20} /> New Applications
+      </Title>
       <Box className="outerContainer">
         <Box className="content">
           <Text size="md" color="dimmed" className="description">
-            The following is a list of new patent applications that require review. Please examine the details and click on the "View" button to see more information.
+            The following is a list of new patent applications that require
+            review. Please examine the details and click on the "View" button to
+            see more information.
           </Text>
         </Box>
         <ScrollArea>
@@ -92,11 +157,16 @@ function ReviewApplication() {
         </ScrollArea>
       </Box>
 
-      <Title order={2} className="title"> <NewspaperClipping size={20} /> Applications Under Review</Title>
+      {/* Title for Applications Under Review Section */}
+      <Title order={2} className="title">
+        <NewspaperClipping size={20} /> Applications Under Review
+      </Title>
       <Box className="outerContainer">
         <Box className="content">
           <Text size="md" color="dimmed" className="description">
-            The following is a list of patent applications under review. Please examine the details and click on the "Review" button to see more information.
+            The following is a list of patent applications under review. Please
+            examine the details and click on the "Review" button to see more
+            information.
           </Text>
         </Box>
         <ReviewedApplications />

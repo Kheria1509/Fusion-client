@@ -1,17 +1,20 @@
 /* General Container */
 .outerContainer {
   max-width: 100%;
-  padding: 20px;
-  background-color: #f7fafc;
+  padding: 32px; /* Adjusted padding as per standard */
+  background-color: #f9fafc;
   margin-left: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 1.8rem;
-  margin-bottom: 0px;
-  color: #333;
-  text-align: left;
-  margin-left: 40px;
+  font-size: 26px; /* Increased for better visibility */
+  color: #1c7ed6; /* Brighter color for headings */
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 700;
+  padding-bottom: 5px;
 }
 
 .content {
@@ -20,56 +23,68 @@
 }
 
 .description {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: 14px; /* Standardized normal text size */
+  color: #555;
+  margin-bottom: 15px;
+  align-items: center;
 }
 
 /* Table Styling */
 .styledTable {
   width: 100%;
-  font-size: 1rem;
+  font-size: 14px;
+  background-color: #ffffff;
+  border-collapse: separate;
+  border-spacing: 0 8px;
   transition: all 0.3s ease;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
 }
 
 .fusionTableHeader {
-  background-color: #f7fafc;
-  color: #4a4a4a;
-  font-weight: 600;
-  font-size: 1.1rem;
+  background-color: #e9f1f7;
+  color: #1c7ed6;
+  font-weight: 700;
+  font-size: 14px;
+  border-bottom: 2px solid #1c7ed6;
 }
 
 .fusionTableHeader th {
-  padding: 12px 15px;
+  padding: 14px 18px;
   text-align: left;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .tableRow {
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  background-color: #ffffff;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.tableRow:hover {
+/* .tableRow:hover {
   background-color: #e3e7ea;
-  transform: scale(1.01);
-}
+  transform: translateY(-3px);
+} */
 
 .viewButton {
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: transform 0.2s ease;
+  gap: 6px;
+ 
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.viewButton:hover {
+/* .viewButton:hover {
+  color: #155a9e;
   transform: scale(1.1);
-}
+} */
 
 /* Card Styling */
 .r-app-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 32px; /* Increased gap as per spacing standards */
   justify-content: flex-start;
 }
 
@@ -77,54 +92,44 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: calc(50% - 20px); /* Two cards per row with space in-between */
-  padding: 20px;
+  width: calc(50% - 32px);
+  padding: 24px;
   background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-  height: 230px; /* Fixed height for uniform look */
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 280px; /* Increased height for a uniform look */
 }
 
 .r-application-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-header {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.4rem; /* Adjusted for emphasis */
+  font-weight: 700;
   color: #333;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .r-card-details {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #555;
-  margin-bottom: 0px;
+  margin-bottom: 6px;
 }
 
 .r-button {
   align-self: flex-start;
   width: 100%;
   font-size: 0.9rem;
-  font-weight: 500;
-  padding: 6px 10px;
-  border-color: #4a90e2;
-  color: #4a90e2;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.r-button:hover {
-  background-color: #e3f2fd;
-  transform: scale(1.025);
+  font-weight: 600;
+  padding: 10px 12px;
 }
 
 /* Responsive Design for Cards */
 @media (max-width: 768px) {
   .r-application-card {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 }
