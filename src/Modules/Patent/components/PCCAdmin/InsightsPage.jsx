@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Table } from "@mantine/core";
+import { Table, Paper, Select, Button, Title, Text } from "@mantine/core";
+import { DownloadSimple } from "@phosphor-icons/react";
 import "./InsightsPage.css";
 
 function InsightsPage() {
@@ -25,17 +26,15 @@ function InsightsPage() {
   );
 
   const handleDownload = () => {
-    const csvContent =
-      "Status,Count,Percentage\n" +
-      applications
-        .map(
-          (app) =>
-            `${app.label},${app.count},${(
-              (app.count / totalApplications) *
-              100
-            ).toFixed(2)}%`,
-        )
-        .join("\n");
+    const csvContent = `Status,Count,Percentage\n${applications
+      .map(
+        (app) =>
+          `${app.label},${app.count},${(
+            (app.count / totalApplications) *
+            100
+          ).toFixed(2)}%`,
+      )
+      .join("\n")}`;
 
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
@@ -46,27 +45,37 @@ function InsightsPage() {
   };
 
   return (
-    <div className="insights-page">
-      <h2 className="page-title">Applications Overview - {selectedYear}</h2>
-      <p align="center" size="sm" color="dimmed" mb="md" className="description">
-      Select a year from the dropdown below to view the statistics of
+    <Paper shadow="md" radius="lg" padding="xl" className="insights-page">
+      <Title order={2} align="center" className="page-title">
+        Applications Overview - {selectedYear}
+      </Title>
+      <Text
+        align="center"
+        color="dimmed"
+        size="sm"
+        mb="lg"
+        className="description"
+      >
+        Select a year from the dropdown below to view the statistics of
         applications for that year. You can also download the data as a CSV file
         for further analysis.
-      </p>
+      </Text>
 
       <div className="filter">
-        <label htmlFor="year-select">Select Year:</label>
-        <select
-          id="year-select" // Ensure this ID matches the htmlFor attribute in the label
+        <Text size="sm" weight={600}>
+          Select Year:
+        </Text>
+        <Select
+          id="year-select"
+          data={Object.keys(applicationsByYear)}
           value={selectedYear}
-          onChange={(e) => setSelectedYear(e.target.value)}
-        >
-          {Object.keys(applicationsByYear).map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
+          onChange={(value) => setSelectedYear(value)}
+          radius="md"
+          size="sm"
+          styles={{
+            dropdown: { padding: "10px" },
+          }}
+        />
       </div>
 
       <div className="content">
@@ -121,22 +130,24 @@ function InsightsPage() {
               ).slices
             }
           </svg>
-          
+
           <div className="legend">
-    {applications.map((app, index) => (
-      <div key={index} className="legend-item">
-        <div
-          className="legend-color"
-          style={{ backgroundColor: app.color }}
-        ></div>
-        <span className="legend-label">{app.label}</span>
-      </div>
-    ))}
-  </div>
-</div>
+            {applications.map((app, index) => (
+              <div key={index} className="legend-item">
+                <div
+                  className="legend-color"
+                  style={{ backgroundColor: app.color }}
+                />
+                <span className="legend-label">{app.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="table-section">
-          <h3>Applications Data</h3>
+          <Title order={3} size="lg" align="center" mb="md">
+            Applications Data
+          </Title>
           <Table highlightOnHover>
             <thead>
               <tr>
@@ -159,11 +170,16 @@ function InsightsPage() {
       </div>
 
       <div className="download">
-        <button className="insights-button" onClick={handleDownload}>
+        <Button
+          radius="md"
+          size="md"
+          leftIcon={<DownloadSimple size={16} />}
+          onClick={handleDownload}
+        >
           Download CSV
-        </button>
+        </Button>
       </div>
-    </div>
+    </Paper>
   );
 }
 

@@ -1,111 +1,76 @@
 .insights-page {
-    width: 80%;
-    max-width: 1200px;
-    margin: -16px auto 32px; /* Moves component 16px upward */
-    padding: 32px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: "Arial", sans-serif;
-  }
-  
-  .page-title {
-    font-size: 1.6rem;
-    color: #0056b3;
-    margin-bottom: 16px;
-  }
-  
-  .description {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 32px;
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
 
-  }
-  
-  .filter {
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .content {
-    display: flex;
-    gap: 32px;
-  }
-  
-  .chart-section {
-    flex: 1;
-    text-align: center;
-  }
-  .h3{
-    text-align: center;
-  }
-  .table-section {
-    flex: 1;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-    display: flex; /* Makes it a flex container */
-    flex-direction: column; /* Ensures children align vertically */
-    align-items: center; /* Centers horizontally */
-    justify-content: center; /* Centers vertically */
-    padding-top: 10px; /* Reduces overall top padding */
+.page-title {
+  font-size: 1.8rem; /* 24px */
+  color: #0056b3;
+  margin-bottom: 16px;
+  text-align: center;
+}
 
-  }
-  
-  .table-section h3 {
-    margin-top: 0; /* Removes default top margin */
-    margin-bottom: 16px; /* Optional: Adjusts spacing below the heading */
-  }
-  .download {
-    margin-top: 32px;
-  }
-  
-  .insights-button {
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .insights-button:hover {
-    background-color: #004494;
-  }
-  
-  @media (max-width: 768px) {
-    .content {
-      flex-direction: column;
-    }
-  }
-  .legend {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-    gap: 16px;
-  }
-  
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .legend-color {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-  }
-  
-  .legend-label {
-    font-size: 14px;
-    color: #333;
-  }
-  
+.description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 32px;
+}
+
+.filter {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.content {
+  display: flex;
+  gap: 32px;
+}
+
+.chart-section {
+  flex: 1;
+  text-align: center;
+}
+
+.table-section {
+  flex: 1;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.legend-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.download {
+  margin-top: 32px;
+  text-align: center;
+}

@@ -2,7 +2,7 @@
 .page-t-title {
   margin-bottom: 20px;
   font-size: 1.8rem; /* Updated to match 24px */
-  color: #333; /* Standard black */
+  color: #333; 
   font-weight: 700;
   text-align: center;
 }
@@ -10,35 +10,34 @@
 /* Card styling for table */
 .table-card {
   padding: 24px;
-  border-radius: 12px; /* Increased rounding for a modern look */
-  background-color: #fff; /* Ensure white background for compliance */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for contrast */
+  border-radius: 12px; 
+  background-color: #fff; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Table styling */
 .downloads-table {
-  width: 100%; /* Occupies full width */
+  width: 100%; 
   border-collapse: collapse;
 }
 
 .downloads-table th,
 .downloads-table td {
   text-align: center;
-  padding: 12px; /* Increased padding for readability */
   font-size: 0.875rem; /* Standard text size: 14px */
-  color: #444; /* Neutral dark gray for text */
+  color: #444; 
 }
 
 /* Header styling */
 .downloads-table thead th {
   font-weight: 600;
-  color: #222; /* Slightly darker for better contrast */
+  color: #222; 
   border-bottom: 2px solid #e0e0e0;
 }
 
 /* Row hover effect */
 .downloads-table tr:hover {
-  background-color: #f8f9fa; /* Subtle light gray for hover state */
+  background-color: #f8f9fa; 
 }
 
 /* Button styling */
@@ -48,14 +47,14 @@
   font-weight: 500;
   font-size: 0.875rem; /* Match 14px size */
   padding: 6px 12px;
-  border: 1px solid #0073e6; /* Blue border for emphasis */
-  border-radius: 6px; /* Rounded buttons */
+  border: 1px solid #0073e6; 
+  border-radius: 6px; 
   color: #0073e6;
-  background-color: #fff; /* White background */
+  background-color: #fff; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .download-button:hover {
-  background-color: #d5edfb; /* Blue background */
-  color: #0279ef; /* White text on hover */
+  background-color: #d5edfb; 
+  color: #0279ef; 
 }
