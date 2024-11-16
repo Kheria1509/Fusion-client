@@ -7,7 +7,8 @@ import {
   ArrowRight,
   Chat,
   ChartBar,
-  Clock, Buildings
+  Clock, Buildings,
+  ArrowCircleDown
 } from "@phosphor-icons/react";
 import "./PCCAdminDashboard.css";
 
@@ -78,6 +79,12 @@ function PCCAdminDashboard({ setActiveTab }) {
               description:
                 "Analyze application volume, performance metrics, and trends to support data-driven decisions.",
             },
+            {
+              icon: <ArrowCircleDown size={20} className="feature-icon" />,
+              title: "Access to Downloadable Forms and Key Documents",
+              description:
+                "Easily download essential forms, reports, and other important documents for official use.",
+              },
           ].map((feature, index) => (
             <Box key={index} className="feature-item">
               <Box className="icon-and-title">
@@ -205,6 +212,29 @@ function PCCAdminDashboard({ setActiveTab }) {
               onClick={() => setActiveTab("5")}
             >
               View Feedback
+            </Button>
+          </Box>
+        </Grid.Col>
+
+        {/* Download Documents */}
+        <Grid.Col span={6}>
+          <Box className="dashboard-card downloads-section">
+            <Text className="dashboard-card-title">
+              <ArrowCircleDown size={20} className="icon" /> Download Documents
+            </Text>
+            <Divider className="card-divider" />
+            <Text size="sm" mt="sm">
+              Download Form for Offline Purpose
+            </Text>
+            <Button
+              variant="light"
+              fullWidth
+              mt="md"
+              size="xs"
+              className="dashboard-button"
+              onClick={() => setActiveTab("6")}
+            >
+              Access Downloads
             </Button>
           </Box>
         </Grid.Col>

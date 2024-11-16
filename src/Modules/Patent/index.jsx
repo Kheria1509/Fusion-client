@@ -12,6 +12,7 @@ import PCCAdminDashboard from "./components/PCCAdmin/PCCAdminDashboard";
 import ApplicationReview from "./components/PCCAdmin/ApplicationReview";
 import NotifyApplicant from "./components/PCCAdmin/NotifyApplicant";
 import ForwardToDirector from "./components/PCCAdmin/ForwardToDirector";
+import DownloadsPage from "./components/PCCAdmin/DownloadsPage.jsx";
 import ManageAttorneyAssignment from "./components/PCCAdmin/ManageAttorneyAssignment";
 import DirectorDashboard from "./components/Director/DirectorDashboard";
 import ReviewApplication from "./components/Director/ReviewApplication";
@@ -36,6 +37,7 @@ function PatentPage() {
     { title: "Review Application", component: <ReviewApplication /> },
     { title: "Request Modifications", component: <RequestModifications /> },
     { title: "ApplicationView", component: <ApplicationView /> },
+    { title: "DownloadsPage", component: <DownloadsPage /> },
   ];
 
   const handleTabChange = (direction) => {
