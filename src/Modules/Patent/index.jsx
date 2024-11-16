@@ -19,6 +19,8 @@ import RequestModifications from "./components/Director/RequestModifications";
 import ApplicationView from "./components/Applicant/ApplicationView";
 import DownloadsPage from "./components/PCCAdmin/DownloadsPage";
 import InsightsPage from "./components/PCCAdmin/InsightsPage";
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
 
 function PatentPage() {
   const [activeTab, setActiveTab] = useState("0");
@@ -53,6 +55,8 @@ function PatentPage() {
       behavior: "smooth",
     });
   };
+
+
 
   return (
     <>

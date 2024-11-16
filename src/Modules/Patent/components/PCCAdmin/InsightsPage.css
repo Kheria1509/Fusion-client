@@ -1,111 +1,74 @@
-/* Page container */
-.insights-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    width: 90%;
-    margin: 0 auto;
+.insights-page {
+    width: 80%;
+    max-width: 1200px;
+    margin: -16px auto 32px; /* Moves component 16px upward */
+    padding: 32px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
   }
   
-  /* Page title */
-  .title {
-    text-align: center;
-    font-size: 1.8rem;
+  .page-title {
+    font-size: 1.6rem;
+    color: #0056b3;
+    margin-bottom: 16px;
+  }
+  
+  .description {
+    font-size: 14px;
     color: #333;
-    font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
+
   }
   
-  /* Section styling */
-  .section {
-    margin-top: 30px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .section-title {
-    font-size: 1.4rem;
-    color: #0073e6;
-    margin-bottom: 15px;
-  }
-  
-  /* Chart container */
-  .chart-container {
+  .filter {
+    margin-bottom: 32px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 16px;
   }
   
-  .chart-item {
+  .content {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .chart-section {
+    flex: 1;
     text-align: center;
-    margin: 20px;
   }
   
-  .chart-item h4 {
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 10px;
+  .table-section {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Table styling */
-  .table-container {
-    margin-top: 20px;
+  .download {
+    margin-top: 32px;
   }
   
-  .insights-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .insights-table th,
-  .insights-table td {
-    text-align: center;
-    padding: 10px;
-    font-size: 1rem;
-    color: #444;
-  }
-  
-  .insights-table thead th {
-    background-color: #e6f7ff;
-    color: #0073e6;
-    font-weight: 600;
-  }
-  
-  .insights-table tr:nth-child(even) {
-    background-color: #f8f9fa;
-  }
-  
-  .insights-table tr:hover {
-    background-color: #e6f7ff;
-  }
-  
-  /* Button styling */
-  /* .download-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    background-color: #0073e6;
+  .insights-button {
+    background-color: #0056b3;
     color: #fff;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 10px 20px;
     border: none;
+    padding: 12px 24px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  } */
-  
-  /* .download-button:hover {
-    background-color: #005bb5;
-    transform: scale(1.05);
-  } */
-  
-  .icon {
-    margin-right: 8px;
-    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
   }
-
+  
+  .insights-button:hover {
+    background-color: #004494;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+  }
+  
