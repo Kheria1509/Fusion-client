@@ -14,9 +14,10 @@ import NotifyApplicant from "./components/PCCAdmin/NotifyApplicant";
 import ForwardToDirector from "./components/PCCAdmin/ForwardToDirector";
 import ManageAttorneyAssignment from "./components/PCCAdmin/ManageAttorneyAssignment";
 import DirectorDashboard from "./components/Director/DirectorDashboard";
-import ReviewApplication from "./components/Director/ReviewApplication";
+import ReviewedApplication from "./components/Director/ReviewedApplications";
 import RequestModifications from "./components/Director/RequestModifications";
 import ApplicationView from "./components/Applicant/ApplicationView";
+import DownloadsPage from "./components/PCCAdmin/DownloadsPage";
 
 function PatentPage() {
   const [activeTab, setActiveTab] = useState("0");
@@ -33,9 +34,10 @@ function PatentPage() {
     { title: "Forward to Director", component: <ForwardToDirector /> },
     { title: "Manage Attorney", component: <ManageAttorneyAssignment /> },
     { title: "Director Dashboard", component: <DirectorDashboard /> },
-    { title: "Review Application", component: <ReviewApplication /> },
+    { title: "Review Application", component: <ReviewedApplication /> },
     { title: "Request Modifications", component: <RequestModifications /> },
     { title: "ApplicationView", component: <ApplicationView /> },
+    { title: "DownloadsPage", component: <DownloadsPage /> },
   ];
 
   const handleTabChange = (direction) => {
