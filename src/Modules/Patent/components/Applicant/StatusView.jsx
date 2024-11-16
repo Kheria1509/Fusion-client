@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
-import "./StatusView.css";
 import PropTypes from "prop-types";
-import { Progress, Text, Group, Box } from "@mantine/core";
+import { Text, Loader, Table } from "@mantine/core";
+import "./StatusView.css";
 
-// Simulate fetching status from backend
+// Mock backend call
 const fetchApplicationStatus = async () => {
-  // Replace this with actual backend API call
-  return "Attorney Assignment"; // Default for now
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Attorney Assignment"), 1000); // Simulating API delay
+  });
 };
 
+// Progress Bar Component
 function PatentProgressBar({ currentStatus }) {
-  // Determine progress based on status
   const progressMapping = {
     "Patent Application Submission": 1,
     "PCC Admin Review": 2,
     "Director Initial Review": 3,
-    "Attorney Assignment": 4, // Default until this step for now
+    "Attorney Assignment": 4,
     "Patentability Check": 5,
     "Final Approval by Director": 6,
     "Final Contract Completion": 7,
@@ -23,156 +24,151 @@ function PatentProgressBar({ currentStatus }) {
 
   const currentStep = progressMapping[currentStatus] || 1;
 
-  return (
-    <Box style={{ width: "80%", margin: "0 auto" }}>
-      <Progress
-        sections={[
-          { value: 15, color: currentStep >= 1 ? "green" : "gray" }, // Patent Application Submission
-          { value: 12, color: currentStep >= 2 ? "green" : "gray" }, // PCC Admin Review
-          { value: 12, color: currentStep >= 3 ? "green" : "gray" }, // Director Initial Review
-          { value: 12, color: currentStep >= 4 ? "green" : "gray" }, // Attorney Assignment
-          { value: 12, color: currentStep >= 5 ? "green" : "gray" }, // Patentability Check
-          { value: 12, color: currentStep >= 6 ? "green" : "gray" }, // Final Approval by Director
-          { value: 12, color: currentStep >= 7 ? "green" : "gray" }, // Final Contract Completion
-        ]}
-        size={10}
-        radius="md"
-      />
+  const steps = [
+    "Patent Application Submission",
+    "PCC Admin Review",
+    "Director Initial Review",
+    "Attorney Assignment",
+    "Patentability Check",
+    "Final Approval by Director",
+    "Final Contract Completion",
+  ];
 
-      <Group position="apart" mt="md">
-        <Text size="xs" align="center" style={{ width: "15%" }}>
-          Patent Application <br /> Submission
-        </Text>
-        <Text size="xs" align="center" style={{ width: "12%" }}>
-          PCC Admin <br /> Review
-        </Text>
-        <Text size="xs" align="center" style={{ width: "12%" }}>
-          Director <br /> Initial Review
-        </Text>
-        <Text size="xs" align="center" style={{ width: "12%" }}>
-          Assignment of <br /> Attorney
-        </Text>
-        <Text size="xs" align="center" style={{ width: "12%" }}>
-          Patentability <br /> Check
-        </Text>
-        <Text size="xs" align="center" style={{ width: "12%" }}>
-          Final Approval <br /> by Director
-        </Text>
-        <Text size="xs" align="center" style={{ width: "12%" }}>
-          Final Contract <br /> Completion
-        </Text>
-      </Group>
-    </Box>
+  return (
+    <div className="progress-bar-container">
+      {/* Progress Bar */}
+      <div className="progress-bar">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className={`progress-step ${
+              index < currentStep ? "step-green" : "step-gray"
+            }`}
+            style={{ width: `${100 / steps.length}%` }}
+          />
+        ))}
+      </div>
+
+      {/* Labels */}
+      <div className="progress-labels">
+        {steps.map((step, index) => (
+          <span key={index}>{step.split(" ").join(" ")}</span>
+        ))}
+      </div>
+    </div>
   );
 }
 
 PatentProgressBar.propTypes = {
-  currentStatus: PropTypes.string,
+  currentStatus: PropTypes.string.isRequired,
 };
 
+// Inventors Table Component
+function InventorsTable({ inventors }) {
+  return (
+    <Table striped highlightOnHover>
+      <thead>
+        <tr>
+          <th>Inventor's Name</th>
+          <th>Email ID</th>
+          <th>Phone No.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {inventors.map((inventor, index) => (
+          <tr key={index}>
+            <td>{inventor.names}</td>
+            <td>{inventor.email}</td>
+            <td>{inventor.phone}</td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  );
+}
+
+InventorsTable.propTypes = {
+  inventors: PropTypes.arrayOf(
+    PropTypes.shape({
+      names: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+// Main Application Component
 function PatentApplication(props) {
   const {
     title,
     date,
     applicationNumber,
     tokenNumber,
-    attorneyName = "N/A",
-    phoneNumber = "N/A",
-    email = "N/A",
-    inventors = [],
-    statusImage,
+    attorneyName,
+    phoneNumber,
+    email,
+    inventors,
   } = props;
 
-  const [currentStatus, setCurrentStatus] = useState(
-    "Patent Application Submission",
-  );
+  const [currentStatus, setCurrentStatus] = useState(null);
 
   useEffect(() => {
-    const getStatus = async () => {
-      const status = await fetchApplicationStatus(); // Fetch status from backend
+    const fetchStatus = async () => {
+      const status = await fetchApplicationStatus();
       setCurrentStatus(status);
     };
 
-    getStatus();
+    fetchStatus();
   }, []);
+
+  if (!currentStatus) {
+    return (
+      <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <Loader size="lg" />
+        <Text>Loading application status...</Text>
+      </div>
+    );
+  }
 
   return (
     <div
       className="mainbox"
       style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}
     >
-      <h2 style={{ textAlign: "center" }}>Title of Patent Application</h2>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
 
       <div style={{ marginBottom: "20px" }}>
         <p>
-          <strong>Date: </strong> {date}
+          <strong>Date:</strong> {date}
         </p>
         <p>
-          <strong>Application No.: </strong> {applicationNumber}
+          <strong>Application No.:</strong> {applicationNumber}
         </p>
         <p>
-          <strong>Token No.: </strong> {tokenNumber}
+          <strong>Token No.:</strong> {tokenNumber}
         </p>
         <p>
-          <strong>Attorney Name: </strong> {attorneyName}
+          <strong>Attorney Name:</strong> {attorneyName}
         </p>
         <p>
-          <strong>Phone No.: </strong> {phoneNumber}
+          <strong>Phone No.:</strong> {phoneNumber}
         </p>
         <p>
-          <strong>Email ID: </strong> {email}
+          <strong>Email ID:</strong> {email}
         </p>
       </div>
 
       <h3>Details of All Inventors:</h3>
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        <thead>
-          <tr>
-            <th style={{ border: "1px solid black", padding: "8px" }}>
-              Inventor's Name
-            </th>
-            <th style={{ border: "1px solid black", padding: "8px" }}>
-              Email ID
-            </th>
-            <th style={{ border: "1px solid black", padding: "8px" }}>
-              Phone No.
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {inventors.map((inventor, index) => (
-            <tr key={index}>
-              <td style={{ border: "1px solid black", padding: "8px" }}>
-                {inventor.names}
-              </td>
-              <td style={{ border: "1px solid black", padding: "8px" }}>
-                {inventor.email}
-              </td>
-              <td style={{ border: "1px solid black", padding: "8px" }}>
-                {inventor.phone}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <InventorsTable inventors={inventors} />
 
       <div style={{ marginTop: "20px" }}>
         <p>
           <strong>Status of Application:</strong> {currentStatus}
         </p>
-        {statusImage && (
-          <img
-            src={statusImage}
-            alt="Status"
-            style={{ width: "100px", marginTop: "10px" }}
-          />
-        )}
       </div>
 
       <div style={{ marginTop: "20px" }}>
         <h3>Application Progress</h3>
-        {/* Render the progress bar and pass the current status */}
         <PatentProgressBar currentStatus={currentStatus} />
       </div>
     </div>
@@ -180,34 +176,24 @@ function PatentApplication(props) {
 }
 
 PatentApplication.propTypes = {
-  title: PropTypes.string,
-  date: PropTypes.string,
-  applicationNumber: PropTypes.string,
-  tokenNumber: PropTypes.string,
-  attorneyName: PropTypes.string,
-  phoneNumber: PropTypes.string,
-  email: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  applicationNumber: PropTypes.string.isRequired,
+  tokenNumber: PropTypes.string.isRequired,
+  attorneyName: PropTypes.string.isRequired,
+  phoneNumber: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   inventors: PropTypes.arrayOf(
     PropTypes.shape({
       names: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
     }),
-  ),
-  statusImage: PropTypes.string,
+  ).isRequired,
 };
 
-PatentApplication.defaultProps = {
-  attorneyName: "N/A",
-  phoneNumber: "N/A",
-  email: "N/A",
-  inventors: [],
-  statusImage: null,
-};
-
-// Sample usage with inventors
+// Sample App
 function SampleInventorsApp() {
-  // Sample inventor array
   const inventors = [
     {
       names: "Ashish Kumar Bhoi",
@@ -219,11 +205,7 @@ function SampleInventorsApp() {
       email: "shreyas@gmail.com",
       phone: "987-654-3210",
     },
-    {
-      names: "Aman Kheria",
-      email: "kheria@gmail.com",
-      phone: "555-123-4567",
-    },
+    { names: "Aman Kheria", email: "kheria@gmail.com", phone: "555-123-4567" },
   ];
 
   return (
@@ -235,8 +217,7 @@ function SampleInventorsApp() {
       attorneyName="John Doe"
       phoneNumber="555-987-6543"
       email="attorney@example.com"
-      inventors={inventors} // Passing the inventors array
-      statusImage=""
+      inventors={inventors}
     />
   );
 }
