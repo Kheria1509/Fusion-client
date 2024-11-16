@@ -10,21 +10,18 @@ const savedDraftsData = [
     title: "Title of Patent Application - Draft 1",
     savedDate: "12/09/2024",
     savedTime: "14:30:45",
-    borderColor: "lightblue",
     content: "This is the content of Draft 1 for the patent application.",
   },
   {
     title: "Title of Patent Application - Draft 2",
     savedDate: "08/09/2024",
     savedTime: "13:20:30",
-    borderColor: "orange",
     content: "This is the content of Draft 2 for the patent application.",
   },
   {
     title: "Title of Patent Application - Draft 3",
     savedDate: "05/09/2024",
     savedTime: "11:15:50",
-    borderColor: "lightgreen",
     content: "This is the content of Draft 3 for the patent application.",
   },
 ];
@@ -49,7 +46,7 @@ function SavedDraftCard({
       <Button
         variant="outline"
         leftIcon={<ArrowRight size={16} />}
-        className="button"
+        className="viewDraftButton"
         onClick={onViewDraft}
       >
         View Draft
