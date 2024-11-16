@@ -8,7 +8,7 @@ import "./ApplicationView.css";
 // Dummy data for applications with additional fields
 const applicationsData = [
   {
-    title: "Wireless Communication System for IoT Devices",
+    title: "Wireless Communication System",
     date: "12/09/2024",
     time: "14:30:45",
     tokenNumber: "TKN001234",
@@ -27,7 +27,6 @@ const applicationsData = [
     priorityDate: "01/09/2024",
     examiner: "Samuel Lee",
     IPCClassifications: ["H04W 72/04", "H04L 12/10"],
-    borderColor: "orange",
   },
   {
     title: "Renewable Energy Storage System",
@@ -49,7 +48,6 @@ const applicationsData = [
     priorityDate: "02/09/2024",
     examiner: "Alex Kim",
     IPCClassifications: ["F03G 7/08", "H01M 10/48"],
-    borderColor: "mediumseagreen",
   },
   // Additional applications can be added here
 ];
@@ -83,7 +81,7 @@ function ApplicationCard({
           <Button
             variant="outline"
             leftIcon={<Eye size={16} />}
-            className="button"
+            className="button viewApplicationButton"
             onClick={onViewSubmittedForm}
           >
             View Submitted Form
@@ -91,7 +89,7 @@ function ApplicationCard({
           <Button
             variant="outline"
             leftIcon={<Info size={16} />}
-            className="button"
+            className="button viewApplicationButton"
             onClick={onViewDetails}
           >
             View Details
@@ -192,7 +190,7 @@ function ApplicationView() {
   };
 
   return (
-    <Box>
+    <Box style={{ width: "95%" }}>
       <Text className="header-text">View Applications</Text>
       <Grid className="app-container">
         {applicationsData.map((application, index) => (

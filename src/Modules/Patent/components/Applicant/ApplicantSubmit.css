@@ -16,11 +16,9 @@
   border-radius: 12px;
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
   padding: 24px;
-  width: 650px;
   max-width: 100%;
   height: auto;
   transition: box-shadow 0.3s ease;
-  border-left: 6px solid #3182ce; 
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -29,7 +27,7 @@
 
 /* Card title styling */
 .card-title {
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 600;
   color: #2d3748;
   margin-bottom: 8px;
@@ -52,8 +50,7 @@
 .submit-button {
   color: #3182ce;
   border-color: #3182ce;
-  font-size: 15px;
-  padding: 10px 16px; 
+  font-size: 14px;
   width: 100%;
   align-self: center; 
   transition: background-color 0.2s ease-in-out;
