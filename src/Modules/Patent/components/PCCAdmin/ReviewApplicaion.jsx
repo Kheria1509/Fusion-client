@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Button, ScrollArea, Table, Title, Text, Card } from "@mantine/core";
-import { Eye, Info, List } from "phosphor-react";
+import { Eye, Info, PaperPlane, NewspaperClipping } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 import { NewApplicationData, ReviewedApplicationsData } from "./ReviewApplicationData";
 import "./ReviewApplication.css";
 
-function ReviewedApplicationCard({ title, date, time, tokenNumber, applicationNumber, attorney, borderColor, onViewDetails,}) {
+function ReviewedApplicationCard({ title, date, time, tokenNumber, applicationNumber, attorney, borderColor, onViewDetails }) {
   return (
     <Card className="r-application-card" style={{ borderLeft: `8px solid ${borderColor}` }}>
       <Text className="card-header">{title}</Text>
@@ -24,7 +24,7 @@ function ReviewedApplications() {
   const navigate = useNavigate();
 
   const handleViewDetails = (application) => {
-    navigate(`/patent/reviewed/details/${application.applicationNumber}`, {
+    navigate(`/patent/pccAdmin/appliction/view-details`, {
       state: { application },
     });
   };
@@ -45,6 +45,7 @@ function ReviewedApplications() {
 }
 
 function ReviewApplication() {
+  const navigate = useNavigate();
   const columnNames = ["Patent Title", "Submitted By", "Designation", "Department", "Date - Time", "View"];
 
   const rows = NewApplicationData.map((item, index) => (
@@ -59,7 +60,7 @@ function ReviewApplication() {
           variant="subtle"
           color="indigo"
           size="xs"
-          onClick={() => alert(`Viewing ${item["Patent Title"]}`)}
+          onClick={() => navigate(`/patent/pccAdmin/appliction/view-details`, { state: { application: item } })}
           className="viewButton"
         >
           <Eye size={16} /> <span>View</span>
@@ -70,7 +71,7 @@ function ReviewApplication() {
 
   return (
     <Box>
-      <Title order={2} className="title"><List size={20} /> New Applications</Title>
+      <Title order={2} className="title"><PaperPlane size={20} /> New Applications</Title>
       <Box className="outerContainer">
         <Box className="content">
           <Text size="md" color="dimmed" className="description">
@@ -91,7 +92,7 @@ function ReviewApplication() {
         </ScrollArea>
       </Box>
 
-      <Title order={2} className="title"> <List size={20} /> Applications Under Review</Title>
+      <Title order={2} className="title"> <NewspaperClipping size={20} /> Applications Under Review</Title>
       <Box className="outerContainer">
         <Box className="content">
           <Text size="md" color="dimmed" className="description">
