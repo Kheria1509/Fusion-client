@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Card, Button, Text, Box } from "@mantine/core";
-import "./ApplicantNotifications.css"; // Import the CSS file
+import "./ApplicantNotifications.css";
 
 // Dummy data for notifications
 const notificationsData = [
@@ -12,7 +12,6 @@ const notificationsData = [
     description: "Application rejected by PCC Admin due to missing details.",
     date: "2024-10-23",
     time: "14:30:00",
-    color: "red",
   },
   {
     id: 2,
@@ -22,7 +21,6 @@ const notificationsData = [
       "Application accepted by PCC Admin and forwarded to Director for initial review.",
     date: "2024-10-22",
     time: "10:15:30",
-    color: "green",
   },
   {
     id: 3,
@@ -32,7 +30,6 @@ const notificationsData = [
       "Application approved by Director and sent to Attorney for Patentability check.",
     date: "2024-10-21",
     time: "09:45:00",
-    color: "green",
   },
   {
     id: 4,
@@ -41,7 +38,6 @@ const notificationsData = [
     description: "Application rejected by Director during final approval step.",
     date: "2024-10-20",
     time: "16:20:45",
-    color: "red",
   },
 ];
 
@@ -69,7 +65,7 @@ function NotificationCard({
       <Text className="notification-description">{description}</Text>
       <Button
         variant="outline"
-        className="mark-read-button"
+        className="markReadButton"
         onClick={() => onMarkAsRead(id)}
       >
         Mark as Read

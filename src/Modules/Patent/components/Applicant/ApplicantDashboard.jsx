@@ -1,7 +1,8 @@
-import { Grid, Title, Box, Text, Divider, Button } from "@mantine/core";
+import { Grid, Box, Text, Divider, Button } from "@mantine/core";
 import { ClipboardText, FilePlus, Archive, Bell } from "@phosphor-icons/react";
 import "./ApplicantDashboard.css";
 
+// eslint-disable-next-line react/prop-types
 function ApplicantDashboard({ setActiveTab }) {
   return (
     <Box>
@@ -12,16 +13,20 @@ function ApplicantDashboard({ setActiveTab }) {
       <Grid mt="md" className="dashboard-grid">
         {/* Submit New Application */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card submit-application">
+          <Box className="dashboard-card">
             <Text className="dashboard-card-title">
               <FilePlus size={20} className="icon" /> Submit New Application
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
-              Begin the process of filing a new patent application with our guided form.
+              Begin the process of filing a new patent application with our
+              guided form.
             </Text>
             <Button
-              variant="light" fullWidth mt="md" size="xs"
+              variant="light"
+              fullWidth
+              mt="md"
+              size="xs"
               onClick={() => setActiveTab("1")}
               className="submit-button"
             >
@@ -32,13 +37,14 @@ function ApplicantDashboard({ setActiveTab }) {
 
         {/* View Applications */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card view-application">
+          <Box className="dashboard-card">
             <Text className="dashboard-card-title">
               <ClipboardText size={20} className="icon" /> View Applications
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
-              Monitor the progress and status of all your submitted patent applications.
+              Monitor the progress and status of all your submitted patent
+              applications.
             </Text>
             <Button
               variant="light"
@@ -46,16 +52,16 @@ function ApplicantDashboard({ setActiveTab }) {
               mt="md"
               size="xs"
               onClick={() => setActiveTab("2")}
-              className="view-button"
+              className="submit-button"
             >
-              View Status
+              View Applications
             </Button>
           </Box>
         </Grid.Col>
 
         {/* Saved Drafts */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card saved-drafts">
+          <Box className="dashboard-card">
             <Text className="dashboard-card-title">
               <Archive size={20} className="icon" /> Saved Drafts
             </Text>
@@ -78,13 +84,14 @@ function ApplicantDashboard({ setActiveTab }) {
 
         {/* Notifications */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card notifications">
+          <Box className="dashboard-card">
             <Text className="dashboard-card-title">
               <Bell size={20} className="icon" /> Notifications
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
-              Stay updated with the latest notifications regarding your patent applications.
+              Stay updated with the latest notifications regarding your patent
+              applications.
             </Text>
             <Button
               variant="light"

@@ -7,21 +7,29 @@ import {
   ArrowRight,
   Chat,
   ChartBar,
-  Clock, Buildings
+  Clock,
+  Buildings,
 } from "@phosphor-icons/react";
 import "./PCCAdminDashboard.css";
+import {
+  ArrowCircleDown,
+  ArrowCircleRight,
+  ClipboardText,
+} from "phosphor-react";
+import PropTypes from "prop-types";
 
 function PCCAdminDashboard({ setActiveTab }) {
   return (
     <Box>
       {/* Page Title */}
-      <Text className="dashboard-title">Dashboard</Text>
+      <Text className="dashboard-title">Patent & Copyright Cell Dashboard</Text>
 
       {/* Overview Section */}
       <Box className="overview-section">
         <Text className="overview-title">
           IIITDM Jabalpur's Patent System
-          <Buildings size={24} className="overview-icon" /> {/* Adds an Eye icon */}
+          <Buildings size={24} className="overview-icon" />{" "}
+          {/* Adds an Eye icon */}
         </Text>
         <Text className="overview-text">
           The Patent Management System at IIITDM Jabalpur focuses on fostering
@@ -78,6 +86,12 @@ function PCCAdminDashboard({ setActiveTab }) {
               description:
                 "Analyze application volume, performance metrics, and trends to support data-driven decisions.",
             },
+            {
+              icon: <ArrowCircleDown size={20} className="feature-icon" />,
+              title: "Download Important Documents and Forms",
+              description:
+                "Quick and easy access to important documents and forms for offline use.",
+            },
           ].map((feature, index) => (
             <Box key={index} className="feature-item">
               <Box className="icon-and-title">
@@ -94,15 +108,15 @@ function PCCAdminDashboard({ setActiveTab }) {
 
       {/* Dashboard Sections */}
       <Grid mt="md" className="dashboard-grid">
-        {/* Review Applications */}
+        {/* New Applications */}
         <Grid.Col span={6}>
           <Box className="dashboard-card review-applications">
             <Text className="dashboard-card-title">
-              <Eye size={20} className="icon" /> Review Applications
+              <Eye size={20} className="icon" /> New Applications
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
-              Review and provide feedback on applications.
+              Review and provide feedback on latest applications.
             </Text>
             <Button
               variant="light"
@@ -112,7 +126,7 @@ function PCCAdminDashboard({ setActiveTab }) {
               className="dashboard-button"
               onClick={() => setActiveTab("1")}
             >
-              Review Applications
+              New Applications
             </Button>
           </Box>
         </Grid.Col>
@@ -167,7 +181,8 @@ function PCCAdminDashboard({ setActiveTab }) {
         <Grid.Col span={6}>
           <Box className="dashboard-card forward-director">
             <Text className="dashboard-card-title">
-              <ArrowRight size={20} className="icon" /> Forward to Director
+              <ArrowCircleRight size={20} className="icon" /> Forward to
+              Director
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
@@ -208,9 +223,59 @@ function PCCAdminDashboard({ setActiveTab }) {
             </Button>
           </Box>
         </Grid.Col>
+
+        {/* Downloads Section */}
+        <Grid.Col span={6}>
+          <Box className="dashboard-card downloads-section">
+            <Text className="dashboard-card-title">
+              <ArrowCircleDown size={20} className="icon" /> Downloads
+            </Text>
+            <Divider className="card-divider" />
+            <Text size="sm" mt="sm">
+              Access and download important documents.
+            </Text>
+            <Button
+              variant="light"
+              fullWidth
+              mt="md"
+              size="xs"
+              className="dashboard-button"
+              onClick={() => setActiveTab("6")}
+            >
+              Access Downloads
+            </Button>
+          </Box>
+        </Grid.Col>
+
+        {/* Insights Section */}
+        <Grid.Col span={6}>
+          <Box className="dashboard-card insights-section">
+            <Text className="dashboard-card-title">
+              <ClipboardText size={20} className="icon" /> Insights
+            </Text>
+            <Divider className="card-divider" />
+            <Text size="sm" mt="sm">
+              See Past Years Applications Data
+            </Text>
+            <Button
+              variant="light"
+              fullWidth
+              mt="md"
+              size="xs"
+              className="dashboard-button"
+              onClick={() => setActiveTab("7")}
+            >
+              See Insights
+            </Button>
+          </Box>
+        </Grid.Col>
       </Grid>
     </Box>
   );
 }
+//
+PCCAdminDashboard.propTypes = {
+  setActiveTab: PropTypes.func.isRequired, // Ensure setActiveTab is a required function
+};
 
 export default PCCAdminDashboard;
