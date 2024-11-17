@@ -28,12 +28,11 @@ function DirectorDashboard({ setActiveTab }) {
               View applications awaiting your final assessment.
             </Text>
             <Button
-              variant="light"
+              
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("1")}
-              className="dashboard-button"
+              
             >
               View Pending Reviews
             </Button>
@@ -51,12 +50,9 @@ function DirectorDashboard({ setActiveTab }) {
               Access applications that have already been reviewed.
             </Text>
             <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              onClick={() => setActiveTab("2")}
-              className="dashboard-button"
+               fullWidth
+               mt="md"
+               size="xs"
             >
               View Reviewed Applications
             </Button>
@@ -74,12 +70,9 @@ function DirectorDashboard({ setActiveTab }) {
               Monitor currently active applications.
             </Text>
             <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              onClick={() => setActiveTab("3")}
-              className="dashboard-button"
+            fullWidth
+            mt="md"
+            size="xs"
             >
               View Active Applications
             </Button>
@@ -97,12 +90,9 @@ function DirectorDashboard({ setActiveTab }) {
               Stay updated with the latest alerts and updates.
             </Text>
             <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              onClick={() => setActiveTab("4")}
-              className="dashboard-button"
+               fullWidth
+               mt="md"
+               size="xs"
             >
               View Notifications
             </Button>

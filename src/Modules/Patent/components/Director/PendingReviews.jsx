@@ -17,13 +17,13 @@ const pendingReviewsData = [
     borderColor: "orange",
   },
   {
-    title: "Telemedicine Platform for Remote Consultations",
-    date: "18/10/2024",
-    time: "11:15:00",
-    tokenNumber: "TKN003457",
-    applicationNumber: "APP003457",
-    attorney: "MNO987654",
-    borderColor: "lightcoral",
+    title: "Smart Waste Management System",
+    date: "12/10/2024",
+    time: "16:30:00",
+    tokenNumber: "TKN003459",
+    applicationNumber: "APP003459",
+    attorney: "STU654321",
+    borderColor: "steelblue",
   },
   {
     title: "AI-Driven Personalized Learning System",
@@ -35,13 +35,13 @@ const pendingReviewsData = [
     borderColor: "mediumseagreen",
   },
   {
-    title: "Smart Waste Management System",
-    date: "12/10/2024",
-    time: "16:30:00",
-    tokenNumber: "TKN003459",
-    applicationNumber: "APP003459",
-    attorney: "STU654321",
-    borderColor: "steelblue",
+    title: "Telemedicine Platform for Remote Consultations",
+    date: "18/10/2024",
+    time: "11:15:00",
+    tokenNumber: "TKN003457",
+    applicationNumber: "APP003457",
+    attorney: "MNO987654",
+    borderColor: "lightcoral",
   },
 ];
 
@@ -60,7 +60,7 @@ function PendingReviewCard({
   return (
     <Card
       className="pending-review-card"
-      style={{ borderLeft: `6px solid ${borderColor}` }}
+     
     >
       <Text className="card-header">{title}</Text>
       <Text className="card-details">{`${date} | ${time}`}</Text>
