@@ -53,15 +53,11 @@ function PendingReviewCard({
   tokenNumber,
   applicationNumber,
   attorney,
-  borderColor,
   onReview,
   onViewDetails,
 }) {
   return (
-    <Card
-      className="pending-review-card"
-     
-    >
+    <Card className="pending-review-card">
       <Text className="card-header">{title}</Text>
       <Text className="card-details">{`${date} | ${time}`}</Text>
       <Text className="card-details">Token No.: {tokenNumber}</Text>
@@ -97,7 +93,6 @@ PendingReviewCard.propTypes = {
   tokenNumber: PropTypes.string.isRequired,
   applicationNumber: PropTypes.string.isRequired,
   attorney: PropTypes.string.isRequired,
-  borderColor: PropTypes.string.isRequired,
   onReview: PropTypes.func.isRequired,
   onViewDetails: PropTypes.func.isRequired,
 };

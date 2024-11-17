@@ -1,12 +1,11 @@
 import React from "react";
 import { Button, Card, Text, Box, Divider } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
 import "./ApplicantSubmit.css";
 
-function SubmitNewApplication() {
-  const navigate = useNavigate();
+// eslint-disable-next-line react/prop-types
+function SubmitNewApplication({ setActiveTab }) {
   const handleSubmit = () => {
-    navigate("/patent/applicant/applications/submit/new");
+    setActiveTab("1.1");
   };
   return (
     <Box style={{ width: "50%" }}>

@@ -43,7 +43,6 @@ const pendingReviewsData = [
     attorney: "STU654321",
     borderColor: "steelblue",
   },
-  
 ];
 
 // Component for individual pending review card

@@ -12,14 +12,10 @@ function SubmittedApplicationCard({
   tokenNumber,
   applicationNumber,
   attorney,
-  borderColor,
   onViewDetails,
 }) {
   return (
-    <Card
-      className="submitted-application-card"
-      
-    >
+    <Card className="submitted-application-card">
       <Text className="card-header">{title}</Text>
       <Text className="card-details">{`Date: ${date}`}</Text>
       <Text className="card-details">Token No.: {tokenNumber}</Text>
@@ -46,7 +42,6 @@ SubmittedApplicationCard.propTypes = {
   tokenNumber: PropTypes.string.isRequired,
   applicationNumber: PropTypes.string.isRequired,
   attorney: PropTypes.string.isRequired,
-  borderColor: PropTypes.string.isRequired,
   onViewDetails: PropTypes.func.isRequired,
 };
 
@@ -90,8 +85,13 @@ function SubmittedApplications() {
   ];
 
   return (
-    <Box className="submitted-applications-container" style={{ padding: "24px" }}>
-      <Text className="submitted-header-text">Applications Submitted by PCC Admin</Text>
+    <Box
+      className="submitted-applications-container"
+      style={{ padding: "24px" }}
+    >
+      <Text className="submitted-header-text">
+        Applications Submitted by PCC Admin
+      </Text>
       <Grid gutter="24px">
         {SubmittedApplicationsData.map((application, index) => (
           <Grid.Col span={6} key={index}>

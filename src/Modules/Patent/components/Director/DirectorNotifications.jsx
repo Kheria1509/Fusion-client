@@ -22,7 +22,6 @@ const notificationsData = [
     date: "2024-10-20",
     time: "16:20:45",
     color: "red",
-    
   },
   {
     id: 3,

@@ -197,7 +197,6 @@ export default function PatentRoutes() {
         }
       />
 
-
       {/* PCCAdmin-related routes */}
       <Route
         path="/pccAdmin/"

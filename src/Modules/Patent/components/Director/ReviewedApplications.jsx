@@ -94,7 +94,7 @@ function ReviewedApplications() {
   return (
     <Box style={{ padding: "24px" }}>
       <Text className="page-title">Reviewed Applications</Text>
-      <Grid >
+      <Grid>
         {ReviewedApplicationsData.map((application, index) => (
           <Grid.Col span={6} key={index}>
             <ApplicationCard

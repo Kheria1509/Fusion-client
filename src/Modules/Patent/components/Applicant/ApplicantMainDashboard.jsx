@@ -9,6 +9,7 @@ import ApplicantDashboard from "./ApplicantDashboard.jsx";
 import ViewApplicationsPage from "./ApplicationView.jsx";
 import SavedDraftsPage from "./ApplicationDraft.jsx";
 import NotificationsPage from "./ApplicantNotifications";
+import ApplicationForm from "./ApplicationForm.jsx";
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -85,6 +86,9 @@ function ApplicantMainDashboard() {
             )}
             {activeTab === "1" && (
               <SubmitNewApplication setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "1.1" && (
+              <ApplicationForm setActiveTab={setActiveTab} />
             )}
             {activeTab === "2" && (
               <ViewApplicationsPage setActiveTab={setActiveTab} />

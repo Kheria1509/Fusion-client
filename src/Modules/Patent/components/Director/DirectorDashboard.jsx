@@ -27,13 +27,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               View applications awaiting your final assessment.
             </Text>
-            <Button
-              
-              fullWidth
-              mt="md"
-              size="xs"
-              
-            >
+            <Button fullWidth mt="md" size="xs">
               View Pending Reviews
             </Button>
           </Box>
@@ -49,11 +43,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Access applications that have already been reviewed.
             </Text>
-            <Button
-               fullWidth
-               mt="md"
-               size="xs"
-            >
+            <Button fullWidth mt="md" size="xs">
               View Reviewed Applications
             </Button>
           </Box>
@@ -69,11 +59,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Monitor currently active applications.
             </Text>
-            <Button
-            fullWidth
-            mt="md"
-            size="xs"
-            >
+            <Button fullWidth mt="md" size="xs">
               View Active Applications
             </Button>
           </Box>
@@ -89,11 +75,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Stay updated with the latest alerts and updates.
             </Text>
-            <Button
-               fullWidth
-               mt="md"
-               size="xs"
-            >
+            <Button fullWidth mt="md" size="xs">
               View Notifications
             </Button>
           </Box>
@@ -103,7 +85,8 @@ function DirectorDashboard({ setActiveTab }) {
         <Grid.Col span={6}>
           <Box className="dashboard-card submitted-applications">
             <Text className="dashboard-card-title">
-              <ClipboardText size={20} className="icon" /> Submitted Applications
+              <ClipboardText size={20} className="icon" /> Submitted
+              Applications
             </Text>
             <Divider className="card-divider" />
             <Text size="sm" mt="sm">
