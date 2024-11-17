@@ -12,7 +12,7 @@
 
 /* Card styling */
 .card {
-  background-color: #f7fafc;
+  background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
   padding: 24px;
@@ -57,8 +57,8 @@
 }
 
 .submit-button:hover {
-  background-color: #ebf8ff;
-  color: #3182ce;
+  background-color: #3182ce;
+  color: #fff;
 }
 
 /* Responsive styling for smaller screens */

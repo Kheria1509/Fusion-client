@@ -12,24 +12,22 @@ function FeedbackCard({
   time,
   tokenNumber,
   applicationNumber,
-  reviewer,
   feedback,
-  borderColor,
   onViewDetails,
 }) {
   return (
-    <Card
-      className="fv-application-card"
-      style={{ borderLeft: `8px solid ${borderColor}` }}
-    >
+    <Card className="fv-application-card">
       <Text className="fv-card-header">{title}</Text>
       <Text className="fv-card-details">{`${date} | ${time}`}</Text>
       <Text className="fv-card-details">Token No.: {tokenNumber}</Text>
-      <Text className="fv-card-details">Application No.: {applicationNumber}</Text>
-      <Text className="fv-card-details">Reviewer: {reviewer}</Text>
-      <Text className="fv-card-feedback">{feedback}</Text>
+      <Text className="fv-card-details">
+        Application No.: {applicationNumber}
+      </Text>
+      <Text className="fv-card-details">Reviewer: {feedback}</Text>
+
       <Button
-        variant="outline"
+        variant="filled"
+        color="blue"
         leftIcon={<Info size={16} />}
         onClick={onViewDetails}
         className="fv-button"
@@ -46,9 +44,7 @@ FeedbackCard.propTypes = {
   time: PropTypes.string.isRequired,
   tokenNumber: PropTypes.string.isRequired,
   applicationNumber: PropTypes.string.isRequired,
-  reviewer: PropTypes.string.isRequired,
   feedback: PropTypes.string.isRequired,
-  borderColor: PropTypes.string.isRequired,
   onViewDetails: PropTypes.func.isRequired,
 };
 
@@ -68,7 +64,12 @@ function FeedbackViewer() {
         {FeedbackDataAttorney.map((application, index) => (
           <FeedbackCard
             key={index}
-            {...application}
+            title={application.title}
+            date={application.date}
+            time={application.time}
+            tokenNumber={application.tokenNumber}
+            applicationNumber={application.applicationNumber}
+            feedback={application.feedback}
             onViewDetails={() => handleViewDetails(application)}
           />
         ))}
@@ -79,7 +80,12 @@ function FeedbackViewer() {
         {FeedbackDataDirector.map((application, index) => (
           <FeedbackCard
             key={index}
-            {...application}
+            title={application.title}
+            date={application.date}
+            time={application.time}
+            tokenNumber={application.tokenNumber}
+            applicationNumber={application.applicationNumber}
+            feedback={application.feedback}
             onViewDetails={() => handleViewDetails(application)}
           />
         ))}

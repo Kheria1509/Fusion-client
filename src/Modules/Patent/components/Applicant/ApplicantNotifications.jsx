@@ -7,16 +7,16 @@ import "./ApplicantNotifications.css";
 const notificationsData = [
   {
     id: 1,
-    title: "Patent Application - Smart Home Security",
-    status: "Rejected",
-    description: "Application rejected by PCC Admin due to missing details.",
+    title: "AI-Based Disease Detection in Crops",
+    status: "Approved by director",
+    description: "Application approved by Director and sent to Attorney for Patentability check.",
     date: "2024-10-23",
     time: "14:30:00",
   },
   {
     id: 2,
-    title: "Patent Application - AI Driven Agriculture",
-    status: "Accepted",
+    title: "AI-Based Disease Detection in Crops",
+    status: "Sent to director by PCC_Admin",
     description:
       "Application accepted by PCC Admin and forwarded to Director for initial review.",
     date: "2024-10-22",
@@ -24,20 +24,12 @@ const notificationsData = [
   },
   {
     id: 3,
-    title: "Patent Application - Quantum Computing",
-    status: "Accepted",
+    title: "AI-Based Disease Detection in Crops",
+    status: "Submitted to PCC Admin",
     description:
-      "Application approved by Director and sent to Attorney for Patentability check.",
+      "Application forwarded to PCC Admin for approval by Director and sent to Attorney for Patentability check.",
     date: "2024-10-21",
     time: "09:45:00",
-  },
-  {
-    id: 4,
-    title: "Patent Application - Renewable Energy Storage",
-    status: "Rejected",
-    description: "Application rejected by Director during final approval step.",
-    date: "2024-10-20",
-    time: "16:20:45",
   },
 ];
 
@@ -55,40 +47,18 @@ function NotificationCard({
   return (
     <Card
       className="notification-card"
-      style={{
-        borderLeft: `6px solid ${color}`,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        minHeight: "250px",
-        height: "100%",
-      }}
+      style={{ borderLeft: `6px solid ${color}` }}
     >
-      <div>
-        <Text className="notification-title">{title}</Text>
-        <Text className="notification-status" style={{ color }}>
-          {status}
-        </Text>
-        <Text className="notification-date">{`${date} | ${time}`}</Text>
-        <Text
-          className="notification-description"
-          style={{
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        >
-          {description}
-        </Text>
-      </div>
-
+      <Text className="notification-title">{title}</Text>
+      <Text className="notification-status" style={{ color }}>
+        {status}
+      </Text>
+      <Text className="notification-date">{`${date} | ${time}`}</Text>
+      <Text className="notification-description">{description}</Text>
       <Button
         variant="outline"
         className="markReadButton"
         onClick={() => onMarkAsRead(id)}
-        style={{ marginTop: "auto" }}
       >
         Mark as Read
       </Button>

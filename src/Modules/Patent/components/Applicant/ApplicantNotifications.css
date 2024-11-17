@@ -1,6 +1,6 @@
 /* Page title */
 .notif-title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   color: #2d3748;
   margin-top: 0px;
@@ -30,26 +30,24 @@
 
 /* Notification title */
 .notification-title {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 8px;
 }
 
 /* Notification status */
 .notification-status {
   font-size: 14px;
-  margin-bottom: 8px;
 }
 
 /* Notification description */
 .notification-description {
   font-size: 14px;
-  margin-top: 8px;
 }
 
 /* Date and time styling */
 .notification-date {
-  font-size: 12px;
+  font-size: 14px;
   color: #6b7280;
   margin-top: 8px;
 }
@@ -57,8 +55,14 @@
 /* Mark as Read button */
 .markReadButton {
   margin-top: 16px;
+  background-color: #fff;
+  border: 1px solid #0073e6;
+  color: #0073e6;;
+}
+
+.markReadButton:hover {
   background-color: #0073e6;
-  color: #F7FAFC;;
+  color: #fff;
 }
 
 /* Responsive behavior for smaller screens */

@@ -32,10 +32,14 @@
 /* View Draft button */
 .viewDraftButton {
   margin-top: 16px;
-  background-color: #0073e6;
-  color: #F7FAFC;;
+  background-color: #fff;
+  color: #0073e6;
+  border: 1px solid #0073e6
 }
-
+.viewDraftButton:hover {
+  background-color: #0073e6;
+  color: #fff;
+}
 /* Card title styling */
 .card-title {
   font-size: 26px;

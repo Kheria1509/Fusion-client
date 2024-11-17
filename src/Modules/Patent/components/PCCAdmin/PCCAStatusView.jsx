@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Progress, Text, Group, Box } from "@mantine/core";
 import { User, MessengerLogo, Phone, FileText } from "phosphor-react";
-import "./PCCAStatus.css";
 import PropTypes from "prop-types";
+import "./PCCAStatus.css";
 
-// Simulate fetching status from backend
+// Simulate fetching status from the backend
 const fetchApplicationStatus = async () => {
   return "Attorney Assignment";
 };
 
+// Patent Progress Bar Component
 function PatentProgressBar({ currentStatus }) {
   const progressMapping = {
     "Patent Application Submission": 1,
@@ -39,7 +40,15 @@ function PatentProgressBar({ currentStatus }) {
         animate
       />
       <Group position="apart" mt="md">
-        {["Submission", "Admin Review", "Initial Review", "Assignment", "Check", "Approval", "Completion"].map((step, index) => (
+        {[
+          "Submission",
+          "Admin Review",
+          "Initial Review",
+          "Assignment",
+          "Check",
+          "Approval",
+          "Completion",
+        ].map((step, index) => (
           <Text key={index} className="progress-label">
             {step}
           </Text>
@@ -49,20 +58,26 @@ function PatentProgressBar({ currentStatus }) {
   );
 }
 
-function PatentApplication(props) {
-  const {
-    title,
-    date,
-    applicationNumber,
-    tokenNumber,
-    attorneyName,
-    phoneNumber,
-    email,
-    inventors,
-    statusImage,
-  } = props;
+// Add PropTypes validation for PatentProgressBar
+PatentProgressBar.propTypes = {
+  currentStatus: PropTypes.string.isRequired,
+};
 
-  const [currentStatus, setCurrentStatus] = useState("Patent Application Submission");
+// Main Patent Application Component
+function PatentApplication({
+  title,
+  date,
+  applicationNumber,
+  tokenNumber,
+  attorneyName,
+  phoneNumber,
+  email,
+  inventors,
+  statusImage,
+}) {
+  const [currentStatus, setCurrentStatus] = useState(
+    "Patent Application Submission",
+  );
 
   useEffect(() => {
     const getStatus = async () => {
@@ -77,16 +92,28 @@ function PatentApplication(props) {
       <div className="header-section">
         <FileText size={32} color="#4a90e2" />
         <h1>{title}</h1>
-        <Text size="sm" color="dimmed">{date}</Text>
+        <Text size="sm" className="date-text">
+          Date - {date}
+        </Text>
       </div>
 
       <div className="details-section">
-        <Group spacing="xs">
-          <Text weight={500}><strong>Application No.:</strong> {applicationNumber}</Text>
-          <Text weight={500}><strong>Token No.:</strong> {tokenNumber}</Text>
-          <Text weight={500}><User size={18} /> {attorneyName}</Text>
-          <Text weight={500}><Phone size={18} /> {phoneNumber}</Text>
-          <Text weight={500}><MessengerLogo size={18} /> {email}</Text>
+        <Group spacing="md" direction="column">
+          {/* First Line: Name, Phone Number, and Email */}
+          <Text weight={500}>
+            <User size={18} /> {attorneyName} | <Phone size={18} />{" "}
+            {phoneNumber} | <MessengerLogo size={18} /> {email}
+          </Text>
+
+          {/* Second Line: Application No and Token No */}
+          <Group spacing="md" direction="row">
+            <Text weight={500}>
+              <strong>Application No.:</strong> {applicationNumber}
+            </Text>
+            <Text weight={500}>
+              <strong>Token No.:</strong> {tokenNumber}
+            </Text>
+          </Group>
         </Group>
       </div>
 
@@ -114,7 +141,9 @@ function PatentApplication(props) {
 
       <div className="status-section">
         <Text weight={600}>Status of Application: {currentStatus}</Text>
-        {statusImage && <img src={statusImage} alt="Status" className="status-image" />}
+        {statusImage && (
+          <img src={statusImage} alt="Status" className="status-image" />
+        )}
       </div>
 
       <div className="progress-section">
@@ -125,6 +154,7 @@ function PatentApplication(props) {
   );
 }
 
+// PropTypes and DefaultProps
 PatentApplication.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
@@ -138,7 +168,7 @@ PatentApplication.propTypes = {
       names: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
   statusImage: PropTypes.string,
 };
@@ -150,11 +180,19 @@ PatentApplication.defaultProps = {
   statusImage: null,
 };
 
-// Sample usage with inventors
+// Sample Component for Displaying Patent Application Details
 function SampleAppDetails() {
   const inventors = [
-    { names: "Ashish Kumar Bhoi", email: "ashish@gmail.com", phone: "123-456-7890" },
-    { names: "Shreyas Katkar", email: "shreyas@gmail.com", phone: "987-654-3210" },
+    {
+      names: "Ashish Kumar Bhoi",
+      email: "ashish@gmail.com",
+      phone: "123-456-7890",
+    },
+    {
+      names: "Shreyas Katkar",
+      email: "shreyas@gmail.com",
+      phone: "987-654-3210",
+    },
     { names: "Aman Kheria", email: "kheria@gmail.com", phone: "555-123-4567" },
   ];
 

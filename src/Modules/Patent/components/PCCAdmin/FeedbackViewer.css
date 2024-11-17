@@ -7,6 +7,7 @@
   padding-left: 40px;
   margin-top: 0px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .fv-main-app-container {
@@ -41,15 +42,16 @@
 
 /* Hover effect */
 .fv-application-card:hover {
-  box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.15);
-  transform: translateY(-6px);
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+  
+  transform: translateY(-5px);
 }
 
 /* Card header styling */
 .fv-card-header {
   font-size: 22px;
   font-weight: bold;
-  color: #2b6cb0;
+  color:black;
   margin-bottom: 12px;
 }
 
@@ -71,18 +73,13 @@
 /* Button styling */
 .fv-button {
   align-self: center;
-  color: #3182ce;
-  border-color: #3182ce;
+  
   font-size: 15px;
   padding: 10px 16px;
   width: 100%;
   transition: background-color 0.2s ease-in-out;
 }
 
-.fv-button:hover {
-  background-color: #ebf8ff;
-  color: #3182ce;
-}
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
