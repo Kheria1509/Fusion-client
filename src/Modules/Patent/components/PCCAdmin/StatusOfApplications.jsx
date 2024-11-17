@@ -1,26 +1,34 @@
-// StatusOfApplications.jsx
-
 import React, { useState } from "react";
-import { Box, Button, Card, Text, Title } from "@mantine/core";
+import PropTypes from "prop-types"; // Import PropTypes
+import { Box, Button, Card, Text, Title, Center } from "@mantine/core";
+import { Eye, PaperPlaneTilt } from "@phosphor-icons/react";
 import { StatusOfApplicationData } from "./StatusOfApplicationsData";
-import { Eye } from "phosphor-react";
+import SampleAppDetails from "./PCCAStatusView";
 import "./StatusOfApplications.css";
-import SampleAppDetails from "./PCCAStatusView"; // Import the detailed view component
 
-function StatusOfApplicationCard({ title, applicant, date, status, applicationNumber, borderColor, onView }) {
+// Card Component for Individual Application Status
+function StatusOfApplicationCard({
+  title,
+  applicant,
+  date,
+  status,
+  applicationNumber,
+  onView,
+}) {
   return (
-    <Card className="status-card" style={{ borderLeft: `6px solid ${borderColor}` }}>
+    <Card className="status-card">
       <Text className="card-title">{title}</Text>
       <Text className="card-description">
-        Application by : {applicant} <br/>
-        Status: {status.toLowerCase()} <br/>
-        Date Submitted: {date} <br/>
+        Application by: {applicant} <br />
+        Status: {status.toLowerCase()} <br />
+        Date Submitted: {date} <br />
         Application No.: {applicationNumber}
       </Text>
       <Button
-        variant="light"
+        variant="filled"
+        color="blue"
         leftIcon={<Eye size={16} />}
-        onClick={() => onView(applicationNumber)} // Pass applicationNumber to onView
+        onClick={() => onView(applicationNumber)}
         className="view-button"
       >
         View Details
@@ -29,43 +37,73 @@ function StatusOfApplicationCard({ title, applicant, date, status, applicationNu
   );
 }
 
+// Add PropTypes validation for StatusOfApplicationCard
+StatusOfApplicationCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  applicant: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  applicationNumber: PropTypes.string.isRequired,
+  onView: PropTypes.func.isRequired,
+};
+
 function StatusOfApplications() {
   const [selectedApplication, setSelectedApplication] = useState(null);
 
   const handleViewClick = (applicationNumber) => {
-    setSelectedApplication(applicationNumber); // Set the selected application number
+    setSelectedApplication(applicationNumber);
   };
 
   const handleBackClick = () => {
-    setSelectedApplication(null); // Go back to the list view
+    setSelectedApplication(null);
   };
 
   return (
     <Box className="status-container">
       {!selectedApplication ? (
-        // Show list of applications if no application is selected
+        // List view of applications
         <>
-          <Title order={2} className="status-title">Status of Applications</Title>
+          <Center className="status-header">
+            <PaperPlaneTilt
+              size={32}
+              color="#1d4ed8"
+              style={{ marginRight: 10 }}
+            />
+            <Title order={2} className="status-title">
+              Status of Applications
+            </Title>
+          </Center>
           <Text size="md" color="dimmed" className="description">
-            Below is the list of recent patent applications with their current status. Click on "View Details" for more information on each application.
+            Below is the list of recent patent applications with their current
+            status. Click on "View Details" for more information on each
+            application.
           </Text>
           <Box className="status-cards-container">
             {StatusOfApplicationData.map((application, index) => (
               <StatusOfApplicationCard
                 key={index}
-                {...application}
+                title={application.title}
+                applicant={application.applicant}
+                date={application.date}
+                status={application.status}
+                applicationNumber={application.applicationNumber}
                 onView={handleViewClick}
               />
             ))}
           </Box>
         </>
       ) : (
-        // Show detailed view if an application is selected
+        // Detailed view of selected application
         <Box className="detail-view-container">
-          <Button variant="outline" onClick={handleBackClick}>
+          <Button
+            variant="filled"
+            color="blue"
+            onClick={handleBackClick}
+            className="back-button"
+          >
             Back to Applications List
           </Button>
-          <SampleAppDetails /> {/* Display detailed view component */}
+          <SampleAppDetails applicationNumber={selectedApplication} />
         </Box>
       )}
     </Box>

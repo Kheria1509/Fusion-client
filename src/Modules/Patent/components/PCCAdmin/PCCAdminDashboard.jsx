@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Grid, Box, Text, Divider, Button } from "@mantine/core";
 import {
   Eye,
@@ -9,16 +10,96 @@ import {
   ChartBar,
   Clock,
   Buildings,
-} from "@phosphor-icons/react";
-import "./PCCAdminDashboard.css";
-import {
   ArrowCircleDown,
   ArrowCircleRight,
   ClipboardText,
-} from "phosphor-react";
-import PropTypes from "prop-types";
+} from "@phosphor-icons/react";
+
+import "./PCCAdminDashboard.css";
 
 function PCCAdminDashboard({ setActiveTab }) {
+  // Features Data Array
+  const featuresData = [
+    {
+      icon: <Eye size={20} className="feature-icon" />,
+      title: "Application Management and Review",
+      description:
+        "Track and review patent applications, view submission details, and monitor status updates.",
+    },
+    {
+      icon: <ArrowRight size={20} className="feature-icon" />,
+      title: "Forwarding to Director for Approval",
+      description:
+        "Streamlined process for sending applications to the Director, with automated notifications.",
+    },
+    {
+      icon: <Briefcase size={20} className="feature-icon" />,
+      title: "Attorney Feedback and Communication",
+      description:
+        "Integrate feedback from attorneys, facilitate communication, and track application history.",
+    },
+    {
+      icon: <Clock size={20} className="feature-icon" />,
+      title: "Transparent Record-Keeping and Status Visibility",
+      description:
+        "Real-time status updates, detailed history tracking, and archive functionality.",
+    },
+    {
+      icon: <ChartBar size={20} className="feature-icon" />,
+      title: "Dashboard Analytics and Insights",
+      description:
+        "Analyze application volume, performance metrics, and trends to support data-driven decisions.",
+    },
+    {
+      icon: <ArrowCircleDown size={20} className="feature-icon" />,
+      title: "Download Important Documents and Forms",
+      description:
+        "Quick and easy access to important documents and forms for offline use.",
+    },
+    {
+      icon: <ArrowCircleDown size={20} className="feature-icon" />,
+      title: "Insights",
+      description: "See past years applications data.",
+    },
+  ];
+
+  // Function to Render Feature Items
+  const renderFeatureItems = () =>
+    featuresData.map((feature, index) => (
+      <Box key={index} className="feature-item">
+        <Box className="icon-and-title">
+          {feature.icon}
+          <Text className="feature-title">
+            <strong>{feature.title}</strong>
+          </Text>
+        </Box>
+        <Text className="feature-description">{feature.description}</Text>
+      </Box>
+    ));
+
+  // Function to Render Dashboard Cards
+  const renderDashboardCard = (icon, title, description, tabId) => (
+    <Box className="dashboard-card">
+      <Text className="dashboard-card-title">
+        {icon} {title}
+      </Text>
+      <Divider className="card-divider" />
+      <Text size="sm" mt="sm">
+        {description}
+      </Text>
+      <Button
+        variant="filled"
+        color="blue"
+        fullWidth
+        mt="md"
+        className="dashboard-button"
+        onClick={() => setActiveTab(tabId)}
+      >
+        {title}
+      </Button>
+    </Box>
+  );
+
   return (
     <Box>
       {/* Page Title */}
@@ -28,8 +109,7 @@ function PCCAdminDashboard({ setActiveTab }) {
       <Box className="overview-section">
         <Text className="overview-title">
           IIITDM Jabalpur's Patent System
-          <Buildings size={24} className="overview-icon" />{" "}
-          {/* Adds an Eye icon */}
+          <Buildings size={24} className="overview-icon" />
         </Text>
         <Text className="overview-text">
           The Patent Management System at IIITDM Jabalpur focuses on fostering
@@ -38,242 +118,91 @@ function PCCAdminDashboard({ setActiveTab }) {
         </Text>
         <Text className="overview-title">
           Overview
-          <ChartBar size={24} className="overview-icon" />{" "}
-          {/* Adds a ChartBar icon */}
+          <ChartBar size={24} className="overview-icon" />
         </Text>
         <Text className="overview-text">
           The PCC Admin Dashboard serves as the central hub for managing and
           overseeing the patent application process at IIITDM Jabalpur. With a
           streamlined interface and powerful tools, the platform supports the
           Patent Coordination Committee (PCC) in handling every stage of the
-          patent lifecycle. It provides a comprehensive suite of features to
-          ensure a structured and efficient approach to patent management, while
-          fostering an environment where intellectual property is valued and
-          protected.
+          patent lifecycle.
         </Text>
         <Divider mt="sm" />
 
         {/* Enhanced Features List */}
-        <Box className="features-list">
-          {[
-            {
-              icon: <Eye size={20} className="feature-icon" />,
-              title: "Application Management and Review",
-              description:
-                "Track and review patent applications, view submission details, and monitor status updates.",
-            },
-            {
-              icon: <ArrowRight size={20} className="feature-icon" />,
-              title: "Forwarding to Director for Approval",
-              description:
-                "Streamlined process for sending applications to the Director, with automated notifications.",
-            },
-            {
-              icon: <Briefcase size={20} className="feature-icon" />,
-              title: "Attorney Feedback and Communication",
-              description:
-                "Integrate feedback from attorneys, facilitate communication, and track application history.",
-            },
-            {
-              icon: <Clock size={20} className="feature-icon" />,
-              title: "Transparent Record-Keeping and Status Visibility",
-              description:
-                "Real-time status updates, detailed history tracking, and archive functionality.",
-            },
-            {
-              icon: <ChartBar size={20} className="feature-icon" />,
-              title: "Dashboard Analytics and Insights",
-              description:
-                "Analyze application volume, performance metrics, and trends to support data-driven decisions.",
-            },
-            {
-              icon: <ArrowCircleDown size={20} className="feature-icon" />,
-              title: "Download Important Documents and Forms",
-              description:
-                "Quick and easy access to important documents and forms for offline use.",
-            },
-          ].map((feature, index) => (
-            <Box key={index} className="feature-item">
-              <Box className="icon-and-title">
-                {feature.icon}
-                <Text className="feature-title">
-                  <strong>{feature.title}</strong>
-                </Text>
-              </Box>
-              <Text className="feature-description">{feature.description}</Text>
-            </Box>
-          ))}
-        </Box>
+        <Box className="features-list">{renderFeatureItems()}</Box>
       </Box>
 
       {/* Dashboard Sections */}
       <Grid mt="md" className="dashboard-grid">
-        {/* New Applications */}
+        {/* Dashboard Cards */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card review-applications">
-            <Text className="dashboard-card-title">
-              <Eye size={20} className="icon" /> New Applications
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              Review and provide feedback on latest applications.
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("1")}
-            >
-              New Applications
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <Eye size={20} className="icon" />,
+            "New Applications",
+            "Review and provide feedback on the latest applications.",
+            "1",
+          )}
         </Grid.Col>
 
-        {/* Status of Applications */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card status-applications">
-            <Text className="dashboard-card-title">
-              <List size={20} className="icon" /> Status of Applications
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              Track the current status of all applications.
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("2")}
-            >
-              View Status
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <List size={20} className="icon" />,
+            "Status of Applications",
+            "Track the current status of all applications.",
+            "2",
+          )}
         </Grid.Col>
 
-        {/* Manage Attorney Details */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card manage-attorney">
-            <Text className="dashboard-card-title">
-              <Briefcase size={20} className="icon" /> Manage Attorney Details
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              Manage and update attorney information.
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("3")}
-            >
-              Manage Attorney
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <Briefcase size={20} className="icon" />,
+            "Manage Attorney Details",
+            "Manage and update attorney information.",
+            "3",
+          )}
         </Grid.Col>
 
-        {/* Forward to Director */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card forward-director">
-            <Text className="dashboard-card-title">
-              <ArrowCircleRight size={20} className="icon" /> Forward to
-              Director
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              Send applications forward for final review.
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("4")}
-            >
-              Forward
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <ArrowCircleRight size={20} className="icon" />,
+            "Forward to Director",
+            "Send applications forward for final review.",
+            "4",
+          )}
         </Grid.Col>
 
-        {/* Feedback Section */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card feedback-section">
-            <Text className="dashboard-card-title">
-              <Chat size={20} className="icon" /> Feedback Viewer
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              View and respond to user feedback.
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("5")}
-            >
-              View Feedback
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <Chat size={20} className="icon" />,
+            "Feedback Viewer",
+            "View and respond to user feedback.",
+            "5",
+          )}
         </Grid.Col>
 
-        {/* Downloads Section */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card downloads-section">
-            <Text className="dashboard-card-title">
-              <ArrowCircleDown size={20} className="icon" /> Downloads
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              Access and download important documents.
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("6")}
-            >
-              Access Downloads
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <ArrowCircleDown size={20} className="icon" />,
+            "Downloads",
+            "Access and download important documents.",
+            "6",
+          )}
         </Grid.Col>
 
-        {/* Insights Section */}
         <Grid.Col span={6}>
-          <Box className="dashboard-card insights-section">
-            <Text className="dashboard-card-title">
-              <ClipboardText size={20} className="icon" /> Insights
-            </Text>
-            <Divider className="card-divider" />
-            <Text size="sm" mt="sm">
-              See Past Years Applications Data
-            </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              className="dashboard-button"
-              onClick={() => setActiveTab("7")}
-            >
-              See Insights
-            </Button>
-          </Box>
+          {renderDashboardCard(
+            <ClipboardText size={20} className="icon" />,
+            "Insights",
+            "See past years applications data.",
+            "7",
+          )}
         </Grid.Col>
       </Grid>
     </Box>
   );
 }
-//
+
 PCCAdminDashboard.propTypes = {
   setActiveTab: PropTypes.func.isRequired, // Ensure setActiveTab is a required function
 };

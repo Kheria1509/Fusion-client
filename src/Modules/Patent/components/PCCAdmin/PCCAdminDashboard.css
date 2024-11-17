@@ -1,172 +1,141 @@
-  /* PCCAdminDashboard.css */
+/* General Styles */
+.dashboard-title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
 
-  .dashboard-title {
-    font-size: 38px;
-    font-weight: bold;
-    text-align: center; 
-    margin: 0 auto; 
-    margin-top: -10px;
-    margin-bottom: 0px;
-  }
+/* Overview Section */
+.overview-section {
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 32px;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
 
-  /* CSS for Overview Section */
-  .overview-section {
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-top: 0rem;
-    margin-left: 32px;
-    margin-right: 32px;
-    line-height: 1.6;
-  }
+.overview-icon {
+  margin-left: 8px;
+  vertical-align: middle;
+  color: #4c6ef5;
+}
 
-  .overview-icon {
-    margin-left: 8px; 
-    vertical-align: middle; 
-    color: #4c6ef5; 
-  }
+.overview-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
 
-  .overview-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
+.overview-text {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
 
-  .overview-text {
-    font-size: 1rem;
-    color: #374151; 
-    margin-bottom: 1rem;
-    line-height: 1.75;
-  }
+/* Divider styling */
+.overview-section .mantine-Divider-root {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #d1d5db;
+  height: 1px;
+}
 
-  /* Divider styling */
-  .overview-section .mantine-Divider-root {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-color: #d1d5db; 
-    height: 1px;
-  }
+/* Enhanced Features List */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
 
-  /* Responsive Styling */
-  @media (max-width: 768px) {
-    .overview-section {
-      padding: 1.5rem;
-    }
-    
-    .overview-title {
-      font-size: 1.125rem;
-    }
-    
-    .overview-text {
-      font-size: 0.95rem;
-    }
-  }
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f7fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
 
-  /* CSS for Enhanced Features List */
-  .features-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-  }
+.feature-item:hover {
+  transform: translateY(-2px);
+}
 
-  .feature-item {
-    display: flex;
-    align-items: flex-start;
-    background-color: #f7fafc;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
+.icon-and-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-  .feature-item:hover {
-    transform: translateY(-3px);
-  }
+.feature-icon {
+  color: #4c6ef5;
+}
 
-  .icon-and-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+.feature-title {
+  font-size: 14px;
+  color: #333;
+}
 
-  .feature-icon {
-    color: #4c6ef5; /* Primary accent color */
-  }
+.feature-description {
+  font-size: 14px;
+  color: #555;
+  margin-left: 2rem;
+  line-height: 1.5;
+}
 
-  .feature-title {
-    font-size: 1rem;
-    color: #333;
-  }
+/* General card styling */
+.dashboard-card {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
 
-  .feature-description {
-    font-size: 0.9rem;
-    color: #555;
-    margin-left: 2rem;
-    line-height: 1.5;
-  }
+.dashboard-card:hover {
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+  
+  transform: translateY(-5px);
+}
 
-  /* Responsive styling */
-  @media (max-width: 768px) {
-    .feature-description {
-      margin-left: 1rem;
-      font-size: 0.85rem;
-    }
-  }
+.dashboard-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
+.dashboard-grid {
+  padding: 1rem;
+}
 
-  /* General card styling */
-  .dashboard-card {
-    background-color: #f7fafc;
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-    border-left: 6px solid transparent;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-    text-align: left;
-    cursor: pointer;
-  }
+/* Card Divider */
+.card-divider {
+  margin: 8px 0;
+  background-color: #e5e7eb;
+}
 
-  /* Hover effect for cards */
-  .dashboard-card:hover {
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-  }
+/* Button Style */
+.dashboard-button {
+  
+  align-self: flex-start;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 12px;
+}
 
 
-  /* Title styling for all cards */
-  .dashboard-card-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-
-  /* Icon styling */
-  .icon {
-    margin-right: 8px;
-  }
-
-  /* Divider for card */
-  .card-divider {
-    margin: 8px 0;
-  }
-
-  /* Button styling */
-  .dashboard-button {
-    border-color: #3182ce;
-    font-size: 15px;
-    padding: 4px 10px;
-    min-height: 30px;
-    width: 100%;
-    background-color: #fff;
-    transition: color 0.3s ease, background-color 0.3s ease;
-  }
-
-  /* Responsive behavior for smaller screens */
-  @media (max-width: 768px) {
-  .dashboard-grid {
-    grid-template-columns: repeat(1, minmax(0,1fr));
-  }
-  }

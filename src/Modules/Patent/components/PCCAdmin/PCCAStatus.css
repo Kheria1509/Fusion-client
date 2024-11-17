@@ -1,60 +1,105 @@
+/* Global Styles */
 body {
   background: linear-gradient(to right, #e3f2fd, #fce4ec);
   font-family: Arial, sans-serif;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
+/* Main Container Styling */
 .mainbox {
   background-color: #ffffff;
   border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
-  margin: 20px auto;
-  animation: fadeIn 1s ease-in-out;
+  padding: 24px;
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); */
+  max-width: 1000px;
+  margin: 40px auto;
+  animation: fadeIn 0.8s ease-in-out;
+  position: relative;
 }
 
+/* Header Styling */
 .header-section {
   display: flex;
   align-items: center;
-  gap: 10px;
-  justify-content: center;
-  padding-bottom: 10px;
+  /* justify-content: space-between; */
+  padding-bottom: 20px;
   color: #4a90e2;
-}
-
-.details-section, .inventors-section, .status-section, .progress-section {
-  margin-top: 20px;
-}
-
-.inventors-table {
-  width: 100%;
-  border-collapse: collapse;
+  margin-left: 40px;
   margin-top: 10px;
 }
 
-.inventors-table th, .inventors-table td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  text-align: left;
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
 }
 
+/* Date Styling */
+.date-text {
+  font-size: 1rem;
+  color: #555;
+  position: absolute;
+  top: 10px;
+  right: 24px;
+}
+
+/* Section Styling */
+.details-section,
+.inventors-section,
+.status-section,
+.progress-section {
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f8fafc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Table Styling */
+.inventors-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.inventors-table th,
+.inventors-table td {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+  background: #ffffff;
+  font-size: 0.95rem;
+}
+
+.inventors-table th {
+  background: #f1f3f5;
+  font-weight: 600;
+  color:black;
+}
+
+/* Progress Bar Styling */
 .progress-bar-container {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
 .progress-label {
   text-align: center;
-  color: #555;
+  color: #444;
+  font-size: 0.85rem;
 }
 
+/* Status Image Styling */
 .status-image {
-  width: 100px;
+  width: 120px;
   display: block;
-  margin: 10px auto;
+  margin: 15px auto;
+  border-radius: 8px;
 }
 
+/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
