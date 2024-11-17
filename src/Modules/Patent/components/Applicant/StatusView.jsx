@@ -201,8 +201,8 @@ function SampleInventorsApp() {
       phone: "123-456-7890",
     },
     {
-      names: "Shreyas Katkar",
-      email: "shreyas@gmail.com",
+      names: "Shreyash Katkar",
+      email: "shreyash@gmail.com",
       phone: "987-654-3210",
     },
     { names: "Aman Kheria", email: "kheria@gmail.com", phone: "555-123-4567" },

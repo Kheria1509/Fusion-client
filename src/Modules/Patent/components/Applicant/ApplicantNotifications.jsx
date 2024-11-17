@@ -55,18 +55,40 @@ function NotificationCard({
   return (
     <Card
       className="notification-card"
-      style={{ borderLeft: `6px solid ${color}` }}
+      style={{
+        borderLeft: `6px solid ${color}`,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        minHeight: "210px",
+        height: "100%",
+      }}
     >
-      <Text className="notification-title">{title}</Text>
-      <Text className="notification-status" style={{ color }}>
-        {status}
-      </Text>
-      <Text className="notification-date">{`${date} | ${time}`}</Text>
-      <Text className="notification-description">{description}</Text>
+      <div>
+        <Text className="notification-title">{title}</Text>
+        <Text className="notification-status" style={{ color }}>
+          {status}
+        </Text>
+        <Text className="notification-date">{`${date} | ${time}`}</Text>
+        <Text
+          className="notification-description"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {description}
+        </Text>
+      </div>
+
       <Button
         variant="outline"
         className="markReadButton"
         onClick={() => onMarkAsRead(id)}
+        style={{ marginTop: "auto" }}
       >
         Mark as Read
       </Button>
