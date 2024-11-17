@@ -47,14 +47,10 @@
   font-weight: 500;
   font-size: 0.875rem; /* Match 14px size */
   padding: 6px 12px;
-  border: 1px solid #0073e6; 
+ 
   border-radius: 6px; 
-  color: #0073e6;
-  background-color: #fff; 
+
+ 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.download-button:hover {
-  background-color: #d5edfb; 
-  color: #0279ef; 
-}

@@ -49,6 +49,8 @@ function DownloadsPage() {
                     component="a"
                     href={download.link}
                     target="_blank"
+                    color="blue"
+                    variant="filled"
                     className="download-button"
                   >
                     <ArrowCircleDown size={16} style={{ marginRight: "8px" }} />

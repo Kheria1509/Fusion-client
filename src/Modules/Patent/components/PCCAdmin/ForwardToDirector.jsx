@@ -7,7 +7,7 @@ import {
   ForwardToDirectorData,
   ForwardedToDirectorData,
 } from "./ForwardToDirectorData";
-import "./ForwardToDirector.css";
+import "./ForwardTODirector.css";
 
 function ForwardToDirectorCard({
   title,
@@ -22,21 +22,37 @@ function ForwardToDirectorCard({
   return (
     <Card
       className="f-application-card"
-      style={{ borderLeft: `8px solid ${borderColor}` }}
+      style={{ borderLeftColor: borderColor }}
     >
-      <Text className="card-header">{title}</Text>
-      <Text className="f-card-details">{`${date} | ${time}`}</Text>
-      <Text className="f-card-details">Token No.: {tokenNumber}</Text>
-      <Text className="f-card-details">Application No.: {applicationNumber}</Text>
-      <Text className="f-card-details">Assigned Attorney: {attorney}</Text>
-      <Button
-        variant="outline"
-        leftIcon={<Info size={16} />}
-        onClick={onViewDetails}
-        className="f-button"
-      >
-        View Details
-      </Button>
+      <div className="card-content">
+        {/* Title */}
+        <Text className="card-header">{title}</Text>
+
+        {/* Date and Time */}
+        <Text className="f-card-details">{`${date} | ${time}`}</Text>
+
+        {/* Application and Token Info */}
+        <div className="card-info">
+          <Text className="f-card-details">
+            Application No.: {applicationNumber}
+          </Text>
+          <Text className="f-card-details">Token No.: {tokenNumber}</Text>
+        </div>
+
+        {/* Attorney Information */}
+        <Text className="f-card-details">Assigned Attorney: {attorney}</Text>
+
+        {/* View Details Button */}
+        <Button
+          variant="filled"
+          color="blue"
+          leftIcon={<Info size={16} />}
+          onClick={onViewDetails}
+          className="f-button"
+        >
+          View Details
+        </Button>
+      </div>
     </Card>
   );
 }
@@ -68,18 +84,30 @@ function ForwardToDirector() {
         {ForwardToDirectorData.map((application, index) => (
           <ForwardToDirectorCard
             key={index}
-            {...application}
+            title={application.title}
+            date={application.date}
+            time={application.time}
+            tokenNumber={application.tokenNumber}
+            applicationNumber={application.applicationNumber}
+            attorney={application.attorney}
+            borderColor={application.borderColor}
             onViewDetails={() => handleViewDetails(application)}
           />
         ))}
       </Box>
 
-      <Text className="f-header-text">Applications Forwarded to Director</Text>
+      {/* Section for applications that have already been forwarded */}
       <Box className="f-app-container">
         {ForwardedToDirectorData.map((application, index) => (
           <ForwardToDirectorCard
             key={index}
-            {...application}
+            title={application.title}
+            date={application.date}
+            time={application.time}
+            tokenNumber={application.tokenNumber}
+            applicationNumber={application.applicationNumber}
+            attorney={application.attorney}
+            borderColor={application.borderColor}
             onViewDetails={() => handleViewDetails(application)}
           />
         ))}

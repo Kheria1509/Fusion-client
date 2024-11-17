@@ -133,7 +133,8 @@ function ReviewApplication() {
     <Box>
       {/* Title for New Applications Section */}
       <Title order={2} className="title">
-        <PaperPlane size={20} /> New Applications
+        <PaperPlane size={20} />
+        <span> New Applications</span>
       </Title>
       <Box className="outerContainer">
         <Box className="content">
@@ -159,7 +160,7 @@ function ReviewApplication() {
 
       {/* Title for Applications Under Review Section */}
       <Title order={2} className="title">
-        <NewspaperClipping size={20} /> Applications Under Review
+        <NewspaperClipping size={20} /> <span> Applications Under Review</span>
       </Title>
       <Box className="outerContainer">
         <Box className="content">
