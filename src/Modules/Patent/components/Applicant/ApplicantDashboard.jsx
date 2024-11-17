@@ -27,7 +27,7 @@ function ApplicantDashboard({ setActiveTab }) {
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("1")}
+              onClick={() => setActiveTab("1.0")}
               className="submit-button"
             >
               Start Application
