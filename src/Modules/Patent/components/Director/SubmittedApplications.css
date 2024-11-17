@@ -1,0 +1,72 @@
+/* Page title */
+.submitted-header-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 32px;
+}
+
+/* Submitted Applications container */
+.submitted-applications-container {
+  padding-left: 32px;
+}
+
+/* Submitted application card */
+.submitted-application-card {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f7fafc;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for card */
+.submitted-application-card:hover {
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Slight lifting effect */
+}
+
+/* Card header */
+.card-header {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Card details */
+.card-details {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* View Details button */
+.view-details-button {
+    align-self: center;
+    background-color: #3182ce; /* Blue background for buttons */
+    color: #ffffff; /* White text for button text */
+    font-size: 15px; /* Font size for button text */
+    padding: 12px 16px; /* Padding for buttons */
+    width: 100%;
+    border: none; /* No border for clean design */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for buttons / / Smooth hover effects */
+  
+  
+}
+
+/* Hover effect for View Details button */
+.view-details-button:hover {
+    background-color: #225ea8;
+  
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .submitted-application-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+

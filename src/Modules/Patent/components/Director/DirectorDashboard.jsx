@@ -98,6 +98,29 @@ function DirectorDashboard({ setActiveTab }) {
             </Button>
           </Box>
         </Grid.Col>
+
+        {/* New Section for Submitted Applications */}
+        <Grid.Col span={6}>
+          <Box className="dashboard-card submitted-applications">
+            <Text className="dashboard-card-title">
+              <ClipboardText size={20} className="icon" /> Submitted Applications
+            </Text>
+            <Divider className="card-divider" />
+            <Text size="sm" mt="sm">
+              View applications that have been submitted by PCC Admin.
+            </Text>
+            <Button
+              variant="light"
+              fullWidth
+              mt="md"
+              size="xs"
+              onClick={() => setActiveTab("5")}
+              className="dashboard-button"
+            >
+              View Submitted Applications
+            </Button>
+          </Box>
+        </Grid.Col>
       </Grid>
     </Box>
   );

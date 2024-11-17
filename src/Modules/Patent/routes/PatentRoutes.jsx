@@ -19,6 +19,7 @@ import PendingReviewsView from "../components/Director/PendingReviews.jsx";
 import ReviewedApplications from "../components/Director/ReviewedApplications.jsx";
 import ActiveApplications from "../components/Director/ActiveApplications";
 import DirectorNotifications from "../components/Director/DirectorNotifications.jsx";
+import SubmittedApplications from "../components/Director/SubmittedApplications.jsx";
 import DirectorAccept from "../components/Director/Accept.jsx";
 import RecentsView from "../components/Director/RecentsView.jsx";
 
@@ -187,6 +188,15 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
+      <Route
+        path="/director/submitted-applications"
+        element={
+          <Layout>
+            <SubmittedApplications />
+          </Layout>
+        }
+      />
+
 
       {/* PCCAdmin-related routes */}
       <Route
