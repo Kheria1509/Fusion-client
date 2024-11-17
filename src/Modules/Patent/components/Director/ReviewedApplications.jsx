@@ -86,7 +86,7 @@ function ReviewedApplications() {
 
   // Function to handle "View Details" click
   const handleViewDetails = (application) => {
-    navigate(`/patent/director/final-review/details`, {
+    navigate(`/patent/director/accept_reject`, {
       state: { application },
     });
   };
