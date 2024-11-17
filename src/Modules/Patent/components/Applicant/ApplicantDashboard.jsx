@@ -233,12 +233,12 @@ function ApplicantDashboard({ setActiveTab }) {
               guided form.
             </Text>
             <Button
-              variant="light"
+              variant="outline"
               fullWidth
               mt="md"
-              size="xs"
+              size="sm"
               onClick={() => setActiveTab("1")}
-              className="tabs-button"
+              className="markReadButton"
             >
               Start Application
             </Button>
@@ -257,12 +257,12 @@ function ApplicantDashboard({ setActiveTab }) {
               applications.
             </Text>
             <Button
-              variant="light"
+              variant="outline"
               fullWidth
               mt="md"
-              size="xs"
+              size="sm"
               onClick={() => setActiveTab("2")}
-              className="tabs-button"
+              className="markReadButton"
             >
               View Applications
             </Button>
@@ -280,12 +280,12 @@ function ApplicantDashboard({ setActiveTab }) {
               Continue working on applications you have saved as drafts.
             </Text>
             <Button
-              variant="light"
+              variant="outline"
               fullWidth
               mt="md"
-              size="xs"
+              size="sm"
               onClick={() => setActiveTab("3")}
-              className="tabs-button"
+              className="markReadButton"
             >
               Resume Draft
             </Button>
@@ -304,12 +304,12 @@ function ApplicantDashboard({ setActiveTab }) {
               applications.
             </Text>
             <Button
-              variant="light"
+              variant="outline"
               fullWidth
               mt="md"
-              size="xs"
+              size="sm"
               onClick={() => setActiveTab("4")}
-              className="tabs-button"
+              className="markReadButton"
             >
               View Notifications
             </Button>

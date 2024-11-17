@@ -60,7 +60,7 @@ function NotificationCard({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        minHeight: "210px",
+        minHeight: "250px",
         height: "100%",
       }}
     >
