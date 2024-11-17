@@ -9,6 +9,7 @@ import PendingReviewsView from "./PendingReviews.jsx";
 import ReviewedApplications from "./ReviewedApplications.jsx";
 import ActiveApplications from "./ActiveApplications.jsx";
 import DirectorNotifications from "./DirectorNotifications.jsx";
+import SubmittedApplications from "./SubmittedApplications.jsx";  // Add this import
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -25,6 +26,7 @@ function DirectorMainDashboard() {
     { title: "Reviewed Applications" },
     { title: "Active Applications" },
     { title: "Notifications" },
+    { title: "New Applications" },  // Add the new tab here
   ];
 
   useEffect(() => {
@@ -94,6 +96,9 @@ function DirectorMainDashboard() {
             )}
             {activeTab === "4" && (
               <DirectorNotifications setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "5" && (  // Add this condition for the new tab
+              <SubmittedApplications setActiveTab={setActiveTab} />
             )}
           </>
         )}
