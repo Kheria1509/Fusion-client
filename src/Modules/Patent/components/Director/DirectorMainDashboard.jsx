@@ -10,6 +10,7 @@ import ReviewedApplications from "./ReviewedApplications.jsx";
 import ActiveApplications from "./ActiveApplications.jsx";
 import DirectorNotifications from "./DirectorNotifications.jsx";
 import SubmittedApplications from "./SubmittedApplications.jsx";  // Add this import
+import RecentsView from "./RecentsView.jsx";
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -27,6 +28,7 @@ function DirectorMainDashboard() {
     { title: "Active Applications" },
     { title: "Notifications" },
     { title: "New Applications" },  // Add the new tab here
+    { title: "Recents"},
   ];
 
   useEffect(() => {
@@ -99,6 +101,8 @@ function DirectorMainDashboard() {
             )}
             {activeTab === "5" && (  // Add this condition for the new tab
               <SubmittedApplications setActiveTab={setActiveTab} />
+            {activeTab == "6" && (
+              <RecentsView setActivetab={setActiveTab} />
             )}
           </>
         )}

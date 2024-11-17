@@ -55,15 +55,10 @@
 }
 
 /* Mark as Read button */
-.mark-read-button {
+.markReadButton {
   margin-top: 16px;
-  color: #4a5568;
-  border-color: #4a5568;
-}
-
-.mark-read-button:hover {
-  background-color: #e2e8f0;
-  border-color: #2b6cb0;
+  background-color: #0073e6;
+  color: #F7FAFC;;
 }
 
 /* Responsive behavior for smaller screens */

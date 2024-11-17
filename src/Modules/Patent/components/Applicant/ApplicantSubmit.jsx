@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Card, Text, Box, Divider } from "@mantine/core";
-import { Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 import "./ApplicantSubmit.css";
 
@@ -10,7 +9,7 @@ function SubmitNewApplication() {
     navigate("/patent/applicant/applications/submit/new");
   };
   return (
-    <Box>
+    <Box style={{ width: "50%" }}>
       <Text className="header-texts">New Patent Application</Text>
       <Card className="card">
         <Text className="card-title">Intellectual Property Filing Form</Text>
@@ -23,7 +22,6 @@ function SubmitNewApplication() {
         <Divider className="card-line" />
         <Button
           variant="outline"
-          leftIcon={<Info size={16} />}
           className="submit-button"
           onClick={handleSubmit}
         >

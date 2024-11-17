@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { Hourglass, Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import "./PendingReviews.css";
+import "./RecentsView.css";
 
 // Dummy data for pending reviews
 const pendingReviewsData = [
@@ -17,13 +17,13 @@ const pendingReviewsData = [
     borderColor: "orange",
   },
   {
-    title: "Smart Waste Management System",
-    date: "12/10/2024",
-    time: "16:30:00",
-    tokenNumber: "TKN003459",
-    applicationNumber: "APP003459",
-    attorney: "STU654321",
-    borderColor: "steelblue",
+    title: "Telemedicine Platform for Remote Consultations",
+    date: "18/10/2024",
+    time: "11:15:00",
+    tokenNumber: "TKN003457",
+    applicationNumber: "APP003457",
+    attorney: "MNO987654",
+    borderColor: "lightcoral",
   },
   {
     title: "AI-Driven Personalized Learning System",
@@ -35,14 +35,15 @@ const pendingReviewsData = [
     borderColor: "mediumseagreen",
   },
   {
-    title: "Telemedicine Platform for Remote Consultations",
-    date: "18/10/2024",
-    time: "11:15:00",
-    tokenNumber: "TKN003457",
-    applicationNumber: "APP003457",
-    attorney: "MNO987654",
-    borderColor: "lightcoral",
+    title: "Smart Waste Management System",
+    date: "12/10/2024",
+    time: "16:30:00",
+    tokenNumber: "TKN003459",
+    applicationNumber: "APP003459",
+    attorney: "STU654321",
+    borderColor: "steelblue",
   },
+  
 ];
 
 // Component for individual pending review card
@@ -60,7 +61,7 @@ function PendingReviewCard({
   return (
     <Card
       className="pending-review-card"
-     
+      style={{ borderLeft: `6px solid ${borderColor}` }}
     >
       <Text className="card-header">{title}</Text>
       <Text className="card-details">{`${date} | ${time}`}</Text>
@@ -74,7 +75,7 @@ function PendingReviewCard({
           className="button"
           onClick={onReview}
         >
-          Review
+          Review Again
         </Button>
         <Button
           variant="outline"
@@ -103,7 +104,7 @@ PendingReviewCard.propTypes = {
 };
 
 // Main PendingReviewsView component
-function PendingReviewsView() {
+function RecentsView() {
   const navigate = useNavigate();
 
   // Function to handle the review click
@@ -121,7 +122,7 @@ function PendingReviewsView() {
 
   return (
     <Box>
-      <Text className="header-text">Pending Reviews</Text>
+      <Text className="header-text">Recently Reviewed</Text>
       <Grid className="app-container">
         {pendingReviewsData.map((application, index) => (
           <Grid.Col span={6} key={index}>
@@ -143,4 +144,4 @@ function PendingReviewsView() {
   );
 }
 
-export default PendingReviewsView;
+export default RecentsView;

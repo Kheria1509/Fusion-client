@@ -9,7 +9,9 @@ import ManageAttorneyAssignment from "./ManageAttorneyAssignment.jsx";
 import ForwardToDirector from "./ForwardToDirector.jsx";
 import ReviewApplication from "./ReviewApplicaion.jsx";
 import FeedbackViewer from "./FeedbackViewer";
+import DownloadsPage from "./DownloadsPage.jsx";
 import StatusOfApplications from "./StatusOfApplications.jsx";
+import InsightsPage from "./InsightsPage.jsx";
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -22,11 +24,13 @@ function ApplicantMainDashboard() {
   // Define your tabs here
   const tabItems = [
     { title: "Dashboard" },
-    { title: "Review Applications" },
+    { title: "New Applications" },
     { title: "Status of Applications" },
     { title: "Manage Attorney" },
     { title: "Forward to Director" },
     { title: "Feedback Viewer" },
+    { title: "Downloads" },
+    { title: "Insights" },
   ];
 
   useEffect(() => {
@@ -100,6 +104,8 @@ function ApplicantMainDashboard() {
             {activeTab === "5" && (
               <FeedbackViewer setActiveTab={setActiveTab} />
             )}
+            {activeTab === "6" && <DownloadsPage setActiveTab={setActiveTab} />}
+            {activeTab === "7" && <InsightsPage setActiveTab={setActiveTab} />}
           </>
         )}
       </Grid>
