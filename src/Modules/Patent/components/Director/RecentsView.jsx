@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { Hourglass, Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import "./PendingReviews.css";
+import "./RecentsView.css";
 
 // Dummy data for pending reviews
 const pendingReviewsData = [
@@ -43,6 +43,60 @@ const pendingReviewsData = [
     attorney: "STU654321",
     borderColor: "steelblue",
   },
+  {
+    title: "Blockchain Voting System",
+    date: "10/10/2024",
+    time: "10:00:00",
+    tokenNumber: "TKN003460",
+    applicationNumber: "APP003460",
+    attorney: "UVW111111",
+    borderColor: "gold",
+  },
+  {
+    title: "IoT-Based Smart Parking Solution",
+    date: "08/10/2024",
+    time: "12:45:00",
+    tokenNumber: "TKN003461",
+    applicationNumber: "APP003461",
+    attorney: "XYZ222222",
+    borderColor: "cyan",
+  },
+  {
+    title: "Wearable Health Monitoring Device",
+    date: "06/10/2024",
+    time: "13:30:00",
+    tokenNumber: "TKN003462",
+    applicationNumber: "APP003462",
+    attorney: "ABC333333",
+    borderColor: "purple",
+  },
+  {
+    title: "Autonomous Drone Delivery System",
+    date: "05/10/2024",
+    time: "15:15:00",
+    tokenNumber: "TKN003463",
+    applicationNumber: "APP003463",
+    attorney: "DEF444444",
+    borderColor: "limegreen",
+  },
+  {
+    title: "Quantum Cryptography Techniques",
+    date: "03/10/2024",
+    time: "09:45:00",
+    tokenNumber: "TKN003464",
+    applicationNumber: "APP003464",
+    attorney: "GHI555555",
+    borderColor: "teal",
+  },
+  {
+    title: "AI-Enabled Traffic Management System",
+    date: "01/10/2024",
+    time: "11:00:00",
+    tokenNumber: "TKN003465",
+    applicationNumber: "APP003465",
+    attorney: "JKL666666",
+    borderColor: "magenta",
+  },
 ];
 
 // Component for individual pending review card
@@ -74,7 +128,7 @@ function PendingReviewCard({
           className="button"
           onClick={onReview}
         >
-          Review
+          Review Again
         </Button>
         <Button
           variant="outline"
@@ -103,7 +157,7 @@ PendingReviewCard.propTypes = {
 };
 
 // Main PendingReviewsView component
-function PendingReviewsView() {
+function RecentsView() {
   const navigate = useNavigate();
 
   // Function to handle the review click
@@ -121,7 +175,7 @@ function PendingReviewsView() {
 
   return (
     <Box>
-      <Text className="header-text">Pending Reviews</Text>
+      <Text className="header-text">Recently Reviewed</Text>
       <Grid className="app-container">
         {pendingReviewsData.map((application, index) => (
           <Grid.Col span={6} key={index}>
