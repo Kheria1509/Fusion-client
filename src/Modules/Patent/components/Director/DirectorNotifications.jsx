@@ -16,13 +16,12 @@ const notificationsData = [
   },
   {
     id: 2,
-    title: "Patent Application - AI Driven Agriculture",
-    status: "Accepted",
-    description:
-      "Application accepted by PCC Admin and forwarded to Director for initial review.",
-    date: "2024-10-22",
-    time: "10:15:30",
-    color: "green",
+    title: "Patent Application - Renewable Energy Storage",
+    status: "Rejected",
+    description: "Application rejected by Director during final approval step.",
+    date: "2024-10-20",
+    time: "16:20:45",
+    color: "red",
   },
   {
     id: 3,
@@ -36,12 +35,13 @@ const notificationsData = [
   },
   {
     id: 4,
-    title: "Patent Application - Renewable Energy Storage",
-    status: "Rejected",
-    description: "Application rejected by Director during final approval step.",
-    date: "2024-10-20",
-    time: "16:20:45",
-    color: "red",
+    title: "Patent Application - AI Driven Agriculture",
+    status: "Accepted",
+    description:
+      "Application accepted by PCC Admin and forwarded to Director for initial review.",
+    date: "2024-10-22",
+    time: "10:15:30",
+    color: "green",
   },
 ];
 

@@ -1,12 +1,12 @@
-// ManageAttorneyAssignment.jsx
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Container, Modal, Text, Group, Card } from '@mantine/core';
-import AttorneyDetails from './AttorneyDetails';
-import AttorneyForm from './AttorneyForm';
-import NewAttorneyForm from './NewAttorneyForm'; 
-import { PencilSimple } from 'phosphor-react';
+import React, { useState, useEffect } from "react";
+import { Table, Button, Container, Modal, Text, Paper } from "@mantine/core";
+import { PencilSimple } from "phosphor-react";
+import AttorneyDetails from "./AttorneyDetails";
+import AttorneyForm from "./AttorneyForm";
+import NewAttorneyForm from "./NewAttorneyForm";
 import "./ManageAttorneyAssignment.css";
-const ManageAttorneyAssignment = () => {
+
+function ManageAttorneyAssignment() {
   const [attorneyData, setAttorneyData] = useState([]);
   const [selectedAttorney, setSelectedAttorney] = useState(null);
   const [viewDetailsOpened, setViewDetailsOpened] = useState(false);
@@ -19,9 +19,11 @@ const ManageAttorneyAssignment = () => {
 
   // Handle view details button
   const handleViewDetails = (attorneyID) => {
-    const selected = attorneyData.find((attorney) => attorney.AttorneyID === attorneyID);
+    const selected = attorneyData.find(
+      (attorney) => attorney.AttorneyID === attorneyID,
+    );
     setSelectedAttorney(selected);
-    setViewDetailsOpened(true); 
+    setViewDetailsOpened(true);
   };
 
   // Handle add new attorney
@@ -31,21 +33,25 @@ const ManageAttorneyAssignment = () => {
   };
 
   return (
-    <Container style={{ width: '100%' }}>
-      <Text className="page-t-title">
-        Manage Attorney Assignments
-      </Text>
-      <Text align="center" size="sm" color="dimmed" mb="md">
-        View attorney details, assign applications, add new attorneys, reassign existing applications, and view feedback.
+    <Container className="manage-attorney-container">
+      <Text className="page-t-title">Manage Attorney Assignments</Text>
+      <Text align="center" mb="md" className="page-subtitle">
+        View attorney details, assign applications, add new attorneys, reassign
+        existing applications, and view feedback.
       </Text>
 
       {/* New Attorney Button */}
-      <Button variant="filled" color="green" onClick={() => setNewAttorneyOpened(true)} style={{ marginBottom: '20px' }}>
+      <Button
+        variant="filled"
+        color="blue"
+        onClick={() => setNewAttorneyOpened(true)}
+        className="add-new-attorney-button"
+      >
         + Add New Attorney
       </Button>
 
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Table striped highlightOnHover>
+      <Paper shadow="sm" padding="lg" radius="md" className="table-card">
+        <Table striped highlightOnHover className="attorney-table">
           <thead>
             <tr>
               <th>S.No.</th>
@@ -57,12 +63,12 @@ const ManageAttorneyAssignment = () => {
           <tbody>
             {attorneyData.map((attorney, index) => (
               <tr key={attorney.AttorneyID}>
-                <td style={{ textAlign: "center" }}>{index + 1}</td>
-                <td style={{ textAlign: "center" }}>{attorney.AttorneyName}</td>
-                <td style={{ textAlign: "center" }}>{attorney.AttorneyID}</td>
-                <td style={{ textAlign: "center" }}>
+                <td>{index + 1}</td>
+                <td>{attorney.AttorneyName}</td>
+                <td>{attorney.AttorneyID}</td>
+                <td>
                   <Button
-                    variant="subtle"
+                    variant="filled"
                     color="blue"
                     onClick={() => handleViewDetails(attorney.AttorneyID)}
                     leftIcon={<PencilSimple />}
@@ -74,28 +80,22 @@ const ManageAttorneyAssignment = () => {
             ))}
           </tbody>
         </Table>
-      </Card>
+      </Paper>
 
       {/* Modal to show attorney form with Edit Button */}
       <Modal
         opened={viewDetailsOpened}
         onClose={() => setViewDetailsOpened(false)}
-        title="Attorney Details"
         size="lg"
         centered
       >
-        {selectedAttorney && (
-          <>
-            <AttorneyForm attorney={selectedAttorney} />
-          </>
-        )}
+        {selectedAttorney && <AttorneyForm attorney={selectedAttorney} />}
       </Modal>
 
       {/* Modal for Adding New Attorney */}
       <Modal
         opened={newAttorneyOpened}
         onClose={() => setNewAttorneyOpened(false)}
-        title="Add New Attorney"
         size="lg"
         centered
       >
@@ -103,6 +103,6 @@ const ManageAttorneyAssignment = () => {
       </Modal>
     </Container>
   );
-};
+}
 
 export default ManageAttorneyAssignment;

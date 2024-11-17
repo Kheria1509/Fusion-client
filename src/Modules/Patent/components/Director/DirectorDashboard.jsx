@@ -27,14 +27,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               View applications awaiting your final assessment.
             </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              onClick={() => setActiveTab("1")}
-              className="dashboard-button"
-            >
+            <Button fullWidth mt="md" size="xs">
               View Pending Reviews
             </Button>
           </Box>
@@ -50,14 +43,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Access applications that have already been reviewed.
             </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              onClick={() => setActiveTab("2")}
-              className="dashboard-button"
-            >
+            <Button fullWidth mt="md" size="xs">
               View Reviewed Applications
             </Button>
           </Box>
@@ -73,14 +59,7 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Monitor currently active applications.
             </Text>
-            <Button
-              variant="light"
-              fullWidth
-              mt="md"
-              size="xs"
-              onClick={() => setActiveTab("3")}
-              className="dashboard-button"
-            >
+            <Button fullWidth mt="md" size="xs">
               View Active Applications
             </Button>
           </Box>
@@ -96,15 +75,32 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Stay updated with the latest alerts and updates.
             </Text>
+            <Button fullWidth mt="md" size="xs">
+              View Notifications
+            </Button>
+          </Box>
+        </Grid.Col>
+
+        {/* New Section for Submitted Applications */}
+        <Grid.Col span={6}>
+          <Box className="dashboard-card submitted-applications">
+            <Text className="dashboard-card-title">
+              <ClipboardText size={20} className="icon" /> Submitted
+              Applications
+            </Text>
+            <Divider className="card-divider" />
+            <Text size="sm" mt="sm">
+              View applications that have been submitted by PCC Admin.
+            </Text>
             <Button
               variant="light"
               fullWidth
               mt="md"
               size="xs"
-              onClick={() => setActiveTab("4")}
+              onClick={() => setActiveTab("5")}
               className="dashboard-button"
             >
-              View Notifications
+              View Submitted Applications
             </Button>
           </Box>
         </Grid.Col>

@@ -19,6 +19,9 @@ import PendingReviewsView from "../components/Director/PendingReviews.jsx";
 import ReviewedApplications from "../components/Director/ReviewedApplications.jsx";
 import ActiveApplications from "../components/Director/ActiveApplications";
 import DirectorNotifications from "../components/Director/DirectorNotifications.jsx";
+import SubmittedApplications from "../components/Director/SubmittedApplications.jsx";
+import DirectorAccept from "../components/Director/Accept.jsx";
+import RecentsView from "../components/Director/RecentsView.jsx";
 
 // PCCAdmin-related imports
 import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
@@ -28,6 +31,7 @@ import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx"
 import DirectorStatusView from "../components/Director/StatusView";
 import ForwardDetails from "../components/PCCAdmin/ForwardDetails.jsx";
 import DownloadsPage from "../components/PCCAdmin/DownloadsPage.jsx";
+import InsightsPage from "../components/PCCAdmin/InsightsPage.jsx";
 // import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
 // import ReviewApplication from './components/PCCAdmin/ReviewApplication';
 // import AttorneyDetails from "./components/PCCAdmin/AttorneyDetails";
@@ -129,6 +133,22 @@ export default function PatentRoutes() {
         }
       />
       <Route
+        path="/director/accept_reject"
+        element={
+          <Layout>
+            <DirectorAccept />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/recents"
+        element={
+          <Layout>
+            <RecentsView />
+          </Layout>
+        }
+      />
+      <Route
         path="/director/pending-reviews"
         element={
           <Layout>
@@ -165,6 +185,14 @@ export default function PatentRoutes() {
         element={
           <Layout>
             <DirectorNotifications />
+          </Layout>
+        }
+      />
+      <Route
+        path="/director/submitted-applications"
+        element={
+          <Layout>
+            <SubmittedApplications />
           </Layout>
         }
       />
@@ -240,6 +268,14 @@ export default function PatentRoutes() {
         element={
           <Layout>
             <DownloadsPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/insights"
+        element={
+          <Layout>
+            <InsightsPage />
           </Layout>
         }
       />

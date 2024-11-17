@@ -1,10 +1,16 @@
+
 /* Title Styling */
 .dashboard-title {
   margin-left: 32px;
   padding: 0;
   text-align: left;
-  font-size: 28px;
+  font-size: 26px; /* Updated from 28px to 26px */
   font-weight: bold;
+}
+
+/* Page Background */
+body {
+  background-color: #f7f7f7; /* Light grey background */
 }
 
 /* Grid Styling */
@@ -23,23 +29,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-/* Specific Colorful Left Borders for Each Card */
-.dashboard-card.pending-reviews {
-  border-left: 6px solid #3182ce; /* Blue */
-}
-
-.dashboard-card.reviewed-applications {
-  border-left: 6px solid #38a169; /* Green */
-}
-
-.dashboard-card.active-applications {
-  border-left: 6px solid #d69e2e; /* Gold */
-}
-
-.dashboard-card.notifications {
-  border-left: 6px solid #e53e3e; /* Red */
+  background-color: #fff; /* Pure white background */
+  border-left: none; /* Removed left borders */
 }
 
 /* Title Styling for All Cards */
@@ -52,12 +43,6 @@
   align-items: center;
 }
 
-/* Icon Styling */
-.icon {
-  margin-right: 8px;
-  color: #2d3748;
-}
-
 /* Divider for Card */
 .card-divider {
   margin: 8px 0;
@@ -66,27 +51,117 @@
 
 /* Button Styling */
 .dashboard-button {
-  border-color: #3182ce;
-  font-size: 18px;
-  padding: 14px 20px;
-  min-height: 48px;
-  width: 100%;
-  background-color: #fff;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce; /* Blue buttons */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* Button Hover Effect */
 .dashboard-button:hover {
-  color: #3182ce;
+  color: #fff;
+  background-color: #225ea8; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Specific Button Classes (for clarity and targeting) */
+.view-pending-review-button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce; /* Blue buttons */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-pending-review-button:hover {
+  background-color: #225ea8; /* Darker blue */
+}
+
+.view-reviewed-applications-button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce; /* Blue buttons */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-reviewed-applications-button:hover {
+  background-color: #225ea8; /* Darker blue */
+}
+
+.view-active-applications-button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce; /* Blue buttons */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-active-applications-button:hover {
+  background-color: #225ea8; /* Darker blue */
+}
+
+.view-notifications-button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce; /* Blue buttons */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-notifications-button:hover {
+  background-color: #225ea8; /* Darker blue */
 }
 
 /* Header Styling */
 .header {
-  font-size: 28px;
+  font-size: 26px; /* Updated from 28px */
   font-weight: 700;
   color: #2d3748;
   margin: 24px 0;
   letter-spacing: 0.5px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f5f9; /* Light grey background for table header */
+  color: #3182ce; /* Blue text for headings */
+  font-weight: bold;
+  padding: 12px 16px;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0; /* Light border */
 }
 
 /* Responsive Behavior for Smaller Screens */
@@ -97,7 +172,6 @@
 
   .dashboard-card {
     padding: 16px;
-    border-left-width: 4px;
   }
 }
 
