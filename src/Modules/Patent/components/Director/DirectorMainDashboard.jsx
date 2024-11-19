@@ -5,10 +5,6 @@ import { SortAscending } from "@phosphor-icons/react";
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs.jsx";
 import ModuleTabs from "../../../../components/moduleTabs.jsx";
 import DirectorDashboard from "./DirectorDashboard.jsx";
-import PendingReviewsView from "./PendingReviews.jsx";
-import ReviewedApplications from "./ReviewedApplications.jsx";
-import ActiveApplications from "./ActiveApplications.jsx";
-import DirectorNotifications from "./DirectorNotifications.jsx";
 import SubmittedApplications from "./SubmittedApplications.jsx"; // Add this import
 import RecentsView from "./RecentsView.jsx";
 
@@ -22,13 +18,9 @@ function DirectorMainDashboard() {
 
   // Define your tabs here
   const tabItems = [
-    { title: "Dashboard" },
-    { title: "Pending Reviews" },
-    { title: "Reviewed Applications" },
-    { title: "Active Applications" },
-    { title: "Notifications" },
-    { title: "New Applications" }, // Add the new tab here
-    { title: "Recents" },
+    { title: "Dashboard" }, // Tab 0
+    { title: "New Applications" }, // Tab 1
+    { title: "Recents" }, // Tab 2
   ];
 
   useEffect(() => {
@@ -88,21 +80,9 @@ function DirectorMainDashboard() {
               <DirectorDashboard setActiveTab={setActiveTab} />
             )}
             {activeTab === "1" && (
-              <PendingReviewsView setActiveTab={setActiveTab} />
-            )}
-            {activeTab === "2" && (
-              <ReviewedApplications setActiveTab={setActiveTab} />
-            )}
-            {activeTab === "3" && (
-              <ActiveApplications setActiveTab={setActiveTab} />
-            )}
-            {activeTab === "4" && (
-              <DirectorNotifications setActiveTab={setActiveTab} />
-            )}
-            {activeTab === "5" && ( // Add this condition for the new tab
               <SubmittedApplications setActiveTab={setActiveTab} />
             )}
-            {activeTab === "6" && <RecentsView setActivetab={setActiveTab} />}
+            {activeTab === "2" && <RecentsView setActiveTab={setActiveTab} />}
           </>
         )}
       </Grid>

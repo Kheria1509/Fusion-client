@@ -1,21 +1,36 @@
-
 /* Title Styling */
 .dashboard-title {
   margin-left: 32px;
   padding: 0;
   text-align: left;
-  font-size: 26px; /* Updated from 28px to 26px */
+  font-size: 26px;
+  /* Updated from 28px to 26px */
   font-weight: bold;
+  color: black;
 }
-
+.titledashdash{
+  font-size: 26px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 32px;
+}
 /* Page Background */
 body {
-  background-color: #f7f7f7; /* Light grey background */
+  background-color: #f7f7f7;
+  /* Light grey background */
 }
 
 /* Grid Styling */
 .dashboard-grid {
   margin: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* Ensure the cards wrap on smaller screens */
+  gap: 16px;
+  /* Add space between the cards */
 }
 
 /* General Card Styling */
@@ -29,8 +44,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #fff; /* Pure white background */
-  border-left: none; /* Removed left borders */
+  background-color: #fff;
+  /* Pure white background */
+  border-left: none;
+  /* Removed left borders */
+  width: 100%;
+  /* Set the width to 50% of the container */
+  margin-right: 16px;
+  /* Optional: Add some space between the cards */
 }
 
 /* Title Styling for All Cards */
@@ -56,8 +77,10 @@ body {
   padding: 12px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #3182ce; /* Blue buttons */
-  color: #fff; /* White text */
+  background-color: #3182ce;
+  /* Blue buttons */
+  color: #fff;
+  /* White text */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -65,8 +88,10 @@ body {
 /* Button Hover Effect */
 .dashboard-button:hover {
   color: #fff;
-  background-color: #225ea8; /* Darker blue on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #225ea8;
+  /* Darker blue on hover */
+  transform: translateY(-2px);
+  /* Slight lift effect */
 }
 
 /* Specific Button Classes (for clarity and targeting) */
@@ -76,14 +101,17 @@ body {
   padding: 12px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #3182ce; /* Blue buttons */
-  color: #fff; /* White text */
+  background-color: #3182ce;
+  /* Blue buttons */
+  color: #fff;
+  /* White text */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-pending-review-button:hover {
-  background-color: #225ea8; /* Darker blue */
+  background-color: #225ea8;
+  /* Darker blue */
 }
 
 .view-reviewed-applications-button {
@@ -92,14 +120,17 @@ body {
   padding: 12px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #3182ce; /* Blue buttons */
-  color: #fff; /* White text */
+  background-color: #3182ce;
+  /* Blue buttons */
+  color: #fff;
+  /* White text */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-reviewed-applications-button:hover {
-  background-color: #225ea8; /* Darker blue */
+  background-color: #225ea8;
+  /* Darker blue */
 }
 
 .view-active-applications-button {
@@ -108,14 +139,17 @@ body {
   padding: 12px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #3182ce; /* Blue buttons */
-  color: #fff; /* White text */
+  background-color: #3182ce;
+  /* Blue buttons */
+  color: #fff;
+  /* White text */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-active-applications-button:hover {
-  background-color: #225ea8; /* Darker blue */
+  background-color: #225ea8;
+  /* Darker blue */
 }
 
 .view-notifications-button {
@@ -124,21 +158,25 @@ body {
   padding: 12px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #3182ce; /* Blue buttons */
-  color: #fff; /* White text */
+  background-color: #3182ce;
+  /* Blue buttons */
+  color: #fff;
+  /* White text */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-notifications-button:hover {
-  background-color: #225ea8; /* Darker blue */
+  background-color: #225ea8;
+  /* Darker blue */
 }
 
 /* Header Styling */
 .header {
-  font-size: 26px; /* Updated from 28px */
+  font-size: 26px;
+  /* Updated from 28px */
   font-weight: 700;
-  color: #2d3748;
+  color: #0b0c0c;
   margin: 24px 0;
   letter-spacing: 0.5px;
 }
@@ -153,15 +191,18 @@ table {
 }
 
 th {
-  background-color: #f1f5f9; /* Light grey background for table header */
-  color: #3182ce; /* Blue text for headings */
+  background-color: #f1f5f9;
+  /* Light grey background for table header */
+  color: #3182ce;
+  /* Blue text for headings */
   font-weight: bold;
   padding: 12px 16px;
 }
 
 td {
   padding: 12px 16px;
-  border-bottom: 1px solid #e2e8f0; /* Light border */
+  border-bottom: 1px solid #e2e8f0;
+  /* Light border */
 }
 
 /* Responsive Behavior for Smaller Screens */
@@ -172,11 +213,16 @@ td {
 
   .dashboard-card {
     padding: 16px;
+    width: 100%;
+    /* On smaller screens, set the card width to 100% */
   }
 }
 
 /* Padding and Margin Adjustments for Layout */
 .dashboard-container {
-  padding: 24px;
-  margin: 16px;
+  padding: 32px;
+  width: 100%;
+}
+.dashboard-container text{
+  color: #0b0c0c  ;
 }
