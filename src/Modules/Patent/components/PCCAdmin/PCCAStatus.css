@@ -5,6 +5,8 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+
+  
 }
 
 /* Main Container Styling */
@@ -13,10 +15,10 @@ body {
   border-radius: 15px;
   padding: 24px;
   /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); */
-  max-width: 1000px;
+  max-width: 1000px; /* Makes it occupy 90% of the screen width */
   margin: 40px auto;
   animation: fadeIn 0.8s ease-in-out;
-  position: relative;
+  position:relative;
 }
 
 /* Header Styling */
@@ -33,6 +35,8 @@ body {
 h1 {
   font-size: 1.8rem;
   font-weight: 600;
+    color: #4a90e2;
+
   margin: 0;
 }
 
@@ -46,7 +50,7 @@ h1 {
 }
 
 /* Section Styling */
-.details-section,
+
 .inventors-section,
 .status-section,
 .progress-section {
@@ -57,27 +61,57 @@ h1 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Table Styling */
+/* Details and Table Styling */
+.details-section p {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Updated Table Styling */
 .inventors-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
 }
 
 .inventors-table th,
 .inventors-table td {
-  padding: 12px;
-  border: 1px solid #e0e0e0;
-  text-align: left;
-  background: #ffffff;
-  font-size: 0.95rem;
+  text-align: center;
+  font-size: 0.875rem; /* Match 14px size */
+  color: #444; /* Similar color scheme */
+  padding: 12px 16px; /* Updated for better spacing */
+}
+
+.inventors-table thead th {
+  font-weight: 600;
+  background: #f2f2f2; /* Updated for uniform header style */
+  color: #222; /* Similar color scheme */
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.inventors-table tbody tr:hover {
+  background-color: #f8f9fa; /* Subtle hover effect */
+}
+
+.inventors-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row colors */
 }
 
 .inventors-table th {
-  background: #f1f3f5;
   font-weight: 600;
-  color:black;
 }
+
+.inventors-table td {
+  border: 1px solid #ddd; /* Add border for table cells */
+}
+
+.inventors-section {
+  padding: 15px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 25px;
+}
+
 
 /* Progress Bar Styling */
 .progress-bar-container {
