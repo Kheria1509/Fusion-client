@@ -8,12 +8,7 @@ import {
   Text,
   Paper,
 } from "@mantine/core";
-import {
-  Eye,
-  Info,
-  PaperPlane,
-  NewspaperClipping,
-} from "@phosphor-icons/react";
+import { Eye, Info, NewspaperClipping } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types"; // Import PropTypes
 import {
@@ -113,7 +108,7 @@ function ReviewApplication() {
       <td>{item["Date - Time"]}</td>
       <td>
         <Button
-          variant="filled" // Changed from "fullfilled" to "filled"
+          variant="outline" // Changed from "fullfilled" to "filled"
           color="blue"
           size="xs"
           onClick={() =>
@@ -133,7 +128,7 @@ function ReviewApplication() {
     <Box>
       {/* Title for New Applications Section */}
       <Title order={2} className="title">
-        <PaperPlane size={20} />
+        {/* <PaperPlane size={20} /> */}
         <span> New Applications</span>
       </Title>
       <Box className="outerContainer">

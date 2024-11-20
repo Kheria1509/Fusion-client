@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
 import { Box, Button, Card, Text, Title, Center } from "@mantine/core";
-import { Eye, PaperPlaneTilt } from "@phosphor-icons/react";
+import { Eye } from "@phosphor-icons/react";
 import { StatusOfApplicationData } from "./StatusOfApplicationsData";
 import SampleAppDetails from "./PCCAStatusView";
 import "./StatusOfApplications.css";
@@ -64,11 +64,11 @@ function StatusOfApplications() {
         // List view of applications
         <>
           <Center className="status-header">
-            <PaperPlaneTilt
+            {/* <PaperPlaneTilt
               size={32}
               color="#1d4ed8"
               style={{ marginRight: 10 }}
-            />
+            /> */}
             <Title order={2} className="status-title">
               Status of Applications
             </Title>

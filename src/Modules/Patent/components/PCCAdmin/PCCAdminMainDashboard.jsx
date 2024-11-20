@@ -64,7 +64,7 @@ function ApplicantMainDashboard() {
               option: "select-options",
               input: "select-inputs",
             }}
-            variant="filled"
+            variant="outline"
             leftSection={<SortAscending />}
             data={categories}
             value={sortedBy}
@@ -85,12 +85,8 @@ function ApplicantMainDashboard() {
             {activeTab === "0" && (
               <PCCAdminDashboard setActiveTab={setActiveTab} />
             )}
-            {activeTab === "1" && (
-              <DownloadsPage setActiveTab={setActiveTab} />
-            )}
-            {activeTab === "2" && (
-              <InsightsPage setActiveTab={setActiveTab} />
-            )}
+            {activeTab === "1" && <DownloadsPage setActiveTab={setActiveTab} />}
+            {activeTab === "2" && <InsightsPage setActiveTab={setActiveTab} />}
             {activeTab === "3" && (
               <ReviewApplication setActiveTab={setActiveTab} />
             )}

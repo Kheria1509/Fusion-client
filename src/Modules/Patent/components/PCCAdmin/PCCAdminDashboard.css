@@ -93,13 +93,14 @@
 
 /* General card styling */
 .dashboard-card {
-  background-color: #ffffff;
-  padding: 32px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-  border-left: 6px solid transparent;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
+  background-color: #fff;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-left: 6px solid transparent;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    text-align: left;
+    cursor: pointer;
 }
 
 .dashboard-card:hover {
@@ -130,12 +131,16 @@
 
 /* Button Style */
 .dashboard-button {
-  
-  align-self: flex-start;
-  width: 100%;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 10px 12px;
+  color: #0073e6;
+    background-color: #ffffff;
+    border: 1px solid #0073e6;
+    font-weight: 500;
+    padding: 1px;
+}
+
+.dashboard-button:hover {
+background-color: #0073e6;
+  color: #ffffff;
 }
 
 
