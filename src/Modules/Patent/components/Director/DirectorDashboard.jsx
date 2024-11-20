@@ -1,24 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Grid, Box, Text, Divider, Button } from "@mantine/core";
-import {
-  ClipboardText,
-  CheckCircle,
-  Hourglass,
-  Bell,
-} from "@phosphor-icons/react";
+import { ClipboardText, CheckCircle } from "@phosphor-icons/react";
 import "./DirectorDashboard.css";
 
 function DirectorDashboard({ setActiveTab }) {
   return (
-    <Box>
+    <Box className="dashboard-container">
       {/* Page Title */}
-      <Text className="title">Director Dashboard</Text>
+      <Text className="titledashdash">Director Dashboard</Text>
 
       {/* Dashboard Sections */}
       <Grid mt="md" className="dashboard-grid">
         {/* Pending Reviews */}
-        <Grid.Col span={6}>
+        {/* <Grid.Col span={6}>
           <Box className="dashboard-card pending-reviews">
             <Text className="dashboard-card-title">
               <ClipboardText size={20} className="icon" /> Pending Reviews
@@ -31,7 +26,7 @@ function DirectorDashboard({ setActiveTab }) {
               View Pending Reviews
             </Button>
           </Box>
-        </Grid.Col>
+        </Grid.Col> */}
 
         {/* Reviewed Applications */}
         <Grid.Col span={6}>
@@ -50,7 +45,7 @@ function DirectorDashboard({ setActiveTab }) {
         </Grid.Col>
 
         {/* Active Applications */}
-        <Grid.Col span={6}>
+        {/* <Grid.Col span={6}>
           <Box className="dashboard-card active-applications">
             <Text className="dashboard-card-title">
               <Hourglass size={20} className="icon" /> Active Applications
@@ -63,10 +58,10 @@ function DirectorDashboard({ setActiveTab }) {
               View Active Applications
             </Button>
           </Box>
-        </Grid.Col>
+        </Grid.Col> */}
 
         {/* Notifications */}
-        <Grid.Col span={6}>
+        {/* <Grid.Col span={6}>
           <Box className="dashboard-card notifications">
             <Text className="dashboard-card-title">
               <Bell size={20} className="icon" /> Notifications
@@ -79,7 +74,7 @@ function DirectorDashboard({ setActiveTab }) {
               View Notifications
             </Button>
           </Box>
-        </Grid.Col>
+        </Grid.Col> */}
 
         {/* New Section for Submitted Applications */}
         <Grid.Col span={6}>

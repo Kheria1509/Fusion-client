@@ -25,11 +25,11 @@ import RecentsView from "../components/Director/RecentsView.jsx";
 
 // PCCAdmin-related imports
 import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
-import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.jsx";
-import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
+// import FeedbackViewer from "../components/PCCAdmin/FeedbackViewer.jsx";
+// import ForwardToDirector from "../components/PCCAdmin/ForwardToDirector.jsx";
 import ManageAttorney from "../components/PCCAdmin/ManageAttorneyAssignment.jsx";
 import DirectorStatusView from "../components/Director/StatusView";
-import ForwardDetails from "../components/PCCAdmin/ForwardDetails.jsx";
+// import ForwardDetails from "../components/PCCAdmin/ForwardDetails.jsx";
 import DownloadsPage from "../components/PCCAdmin/DownloadsPage.jsx";
 import InsightsPage from "../components/PCCAdmin/InsightsPage.jsx";
 // import PCCAdminDashboard from './components/PCCAdmin/PCCAdminDashboard';
@@ -215,30 +215,6 @@ export default function PatentRoutes() {
         }
       />
 
-      <Route
-        path="/pccAdmin/feedbackView"
-        element={
-          <Layout>
-            <FeedbackViewer />
-          </Layout>
-        }
-      />
-      <Route
-        path="/pccAdmin/forwardToDirector"
-        element={
-          <Layout>
-            <ForwardToDirector />
-          </Layout>
-        }
-      />
-      <Route
-        path="/pccAdmin/details/:applicationNumber"
-        element={
-          <Layout>
-            <ForwardDetails />
-          </Layout>
-        }
-      />
       <Route
         path="/pccAdmin/manageAttorney"
         element={
