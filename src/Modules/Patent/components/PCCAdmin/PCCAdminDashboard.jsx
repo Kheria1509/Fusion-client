@@ -6,12 +6,10 @@ import {
   List,
   Briefcase,
   ArrowRight,
-  Chat,
   ChartBar,
   Clock,
   Buildings,
   ArrowCircleDown,
-  ArrowCircleRight,
   ClipboardText,
 } from "@phosphor-icons/react";
 
@@ -88,10 +86,7 @@ function PCCAdminDashboard({ setActiveTab }) {
         {description}
       </Text>
       <Button
-        variant="filled"
-        color="blue"
-        fullWidth
-        mt="md"
+        variant="outline"
         className="dashboard-button"
         onClick={() => setActiveTab(tabId)}
       >
