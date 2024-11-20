@@ -9,6 +9,7 @@ import ViewApplicationsPage from "../components/Applicant/ApplicationView";
 import SavedDraftsPage from "../components/Applicant/ApplicationDraft";
 import SubmitNewApplication from "../components/Applicant/ApplicantSubmit";
 import NotificationsPage from "../components/Applicant/ApplicantNotifications";
+import IPFilingForm from "../components/Applicant/IPFilingForm";
 import ApplicationForm from "../components/Applicant/ApplicationForm";
 import StatusView from "../components/Applicant/StatusView";
 
@@ -104,6 +105,14 @@ export default function PatentRoutes() {
           <Layout>
             <ApplicationForm />
           </Layout>
+        }
+      />
+      <Route
+        path="/applicant/applications/submitted"
+        element={
+          <Layout>
+            <IPFilingForm />
+          </Layout> 
         }
       />
       <Route
