@@ -71,16 +71,20 @@ function PendingReviewCard({
         <Button
           variant="outline"
           leftIcon={<Hourglass size={16} />}
-          className="button"
+          className="buttonone"
           onClick={onReview}
+          fontSize="16px"
+          fullWidth
         >
           Review Again
         </Button>
         <Button
           variant="outline"
           leftIcon={<Info size={16} />}
-          className="button"
+          fontSize="16px"
+          className="buttonone"
           onClick={onViewDetails}
+          fullWidth
         >
           View Details
         </Button>

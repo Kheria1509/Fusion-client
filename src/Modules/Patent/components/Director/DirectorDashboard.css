@@ -72,7 +72,7 @@ body {
 
 /* Button Styling */
 .dashboard-button {
-  font-size: 16px;
+  font-size: 14x;
   font-weight: 600;
   padding: 12px 24px;
   border-radius: 6px;
@@ -96,7 +96,7 @@ body {
 
 /* Specific Button Classes (for clarity and targeting) */
 .view-pending-review-button {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   padding: 12px 24px;
   border-radius: 6px;
