@@ -42,7 +42,7 @@ function ManageAttorneyAssignment() {
 
       {/* New Attorney Button */}
       <Button
-        variant="filled"
+        variant="outline"
         color="blue"
         onClick={() => setNewAttorneyOpened(true)}
         className="add-new-attorney-button"
@@ -68,7 +68,7 @@ function ManageAttorneyAssignment() {
                 <td>{attorney.AttorneyID}</td>
                 <td>
                   <Button
-                    variant="filled"
+                    variant="outline"
                     color="blue"
                     onClick={() => handleViewDetails(attorney.AttorneyID)}
                     leftIcon={<PencilSimple />}

@@ -50,7 +50,7 @@ function DownloadsPage() {
                     href={download.link}
                     target="_blank"
                     color="blue"
-                    variant="filled"
+                    variant="outline"
                     className="download-button"
                   >
                     <ArrowCircleDown size={16} style={{ marginRight: "8px" }} />

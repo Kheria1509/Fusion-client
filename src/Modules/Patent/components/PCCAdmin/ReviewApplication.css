@@ -125,11 +125,11 @@
 }
 
 .r-button {
-  align-self: flex-start;
-  width: 100%;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 10px 12px;
+  color: #0073e6;
+    background-color: #ffffff;
+    border: 1px solid #0073e6;
+    font-weight: 500;
+    padding: 1px;
 }
 
 /* Responsive Design for Cards */

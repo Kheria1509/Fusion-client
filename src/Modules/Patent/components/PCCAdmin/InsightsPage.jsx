@@ -173,6 +173,7 @@ function InsightsPage() {
         <Button
           radius="md"
           size="md"
+          variant="outline"
           leftIcon={<DownloadSimple size={16} />}
           onClick={handleDownload}
         >
