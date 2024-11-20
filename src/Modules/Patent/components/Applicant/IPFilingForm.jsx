@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Container,
-  Text,
-  Card,
-  Button,
-  Checkbox,
-  Group,
-  FileInput,
-} from "@mantine/core";
-import { DownloadSimple, UploadSimple } from "phosphor-react";
+import { Container, Text, Card, Button } from "@mantine/core";
+import { DownloadSimple } from "phosphor-react";
 import "./IPFilingForm.css";
 
 function IPFilingForm() {
@@ -29,10 +21,10 @@ function IPFilingForm() {
     },
   ];
 
-  const [formIII, setFormIII] = React.useState(null);
+  const [formIII] = React.useState(null);
 
   return (
-    <Container className="form-container">
+    <Container className="form-container" size="lg">
       <Text className="form-title">Intellectual Property Filing Form</Text>
 
       {/* Administrative and Technical Details */}
@@ -43,7 +35,9 @@ function IPFilingForm() {
 
         <div className="form-field">
           <Text className="field-heading">Title of Application:</Text>
-          <Text className="field-value">AI-Based Disease Detection in Crops</Text>
+          <Text className="field-value">
+            AI-Based Disease Detection in Crops
+          </Text>
         </div>
 
         <Text className="field-group-title">
@@ -78,7 +72,8 @@ function IPFilingForm() {
         <div className="form-field">
           <Text className="field-heading">Problem in the area:</Text>
           <Text className="field-value">
-            Lack of efficient and affordable disease detection tools for farmers.
+            Lack of efficient and affordable disease detection tools for
+            farmers.
           </Text>
         </div>
         <div className="form-field">
@@ -113,7 +108,9 @@ function IPFilingForm() {
           <Text className="field-value">Institute's research grant</Text>
         </div>
         <div className="form-field">
-          <Text className="field-heading">Journal/Conference Presentation:</Text>
+          <Text className="field-heading">
+            Journal/Conference Presentation:
+          </Text>
           <Text className="field-value">
             Presented at AI & Agriculture 2024 Conference.
           </Text>
@@ -139,18 +136,25 @@ function IPFilingForm() {
           <Text className="field-heading">Development Stage:</Text>
           <Text className="field-value">Partially developed</Text>
         </div>
-        <Group position="apart" align="center">
+        <div className="form-field">
           <Text className="field-heading">
-            Please upload duly filled and signed Form-III:
+            Uploaded duly filled and signed Form-III:
           </Text>
-          <FileInput
-            placeholder="Upload Form-III"
-            icon={<UploadSimple size={20} />}
-            value={formIII}
-            onChange={setFormIII}
-            className="file-input"
-          />
-        </Group>
+          <Button
+            component="a"
+            href="https://example.com/sample.pdf"
+            target="_blank"
+            download="Form-III.pdf"
+            color="blue"
+            sx={{
+              width: "50px", // Set specific width
+              maxWidth: "80%", // Ensure it doesn't overflow the container
+            }}
+            className="field-value down-button"
+          >
+            View Form-III
+          </Button>
+        </div>
         {formIII && (
           <Button
             variant="subtle"
@@ -167,14 +171,6 @@ function IPFilingForm() {
             Download Uploaded Form-III
           </Button>
         )}
-      </Card>
-      
-      {/* Undertaking */}
-      <Card className="form-section">
-        <Checkbox
-          label="Undertaking: Intellectual Property is being filed on behalf of the Institute."
-          className="undertaking-checkbox"
-        />
       </Card>
 
       {/* Dates */}
@@ -208,10 +204,7 @@ function IPFilingForm() {
       </Card>
       {/* Form Actions */}
       <div className="form-actions">
-        <Button
-          leftIcon={<DownloadSimple size={20} />}
-          className="down-button"
-        >
+        <Button leftIcon={<DownloadSimple size={20} />} className="down-button">
           Download Form
         </Button>
       </div>

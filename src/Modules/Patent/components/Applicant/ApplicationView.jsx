@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
 import "./ApplicationView.css";
 
 // Component for individual application card
@@ -14,11 +14,16 @@ function ApplicationCard({
 }) {
   return (
     <Box className="main-box">
-      <Card className="application-card" style={{ borderLeft: "6px solid #4caf50" }}>
+      <Card
+        className="application-card"
+        style={{ borderLeft: "6px solid #4caf50" }}
+      >
         <Text className="app-card-header">{title}</Text>
         <Text className="app-card-details">{`Date: ${date}`}</Text>
         <Text className="app-card-details">Token No.: {tokenNumber}</Text>
-        <Text className="app-card-details">Application No.: {applicationNumber}</Text>
+        <Text className="app-card-details">
+          Application No.: {applicationNumber}
+        </Text>
         <Text className="app-card-details">Assigned Attorney: {attorney}</Text>
         <Box className="button-container">
           <Button
@@ -35,9 +40,7 @@ function ApplicationCard({
 }
 
 // Main ApplicationView component
-function ApplicationView() {
-  const navigate = useNavigate();
-
+function ApplicationView({ setActiveTab }) {
   // AI-based Disease Detection in Crops data
   const applicationData = {
     title: "AI-Based Disease Detection in Crops",
@@ -49,7 +52,7 @@ function ApplicationView() {
 
   // Handle View Application click
   const handleViewApplication = () => {
-    navigate("/patent/applicant/applications/submitted"); // Redirect to IPFilingForm page
+    setActiveTab("2.1"); // Set active tab to View Applications
   };
 
   return (
