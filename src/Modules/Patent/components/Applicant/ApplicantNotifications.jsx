@@ -9,7 +9,8 @@ const notificationsData = [
     id: 1,
     title: "AI-Based Disease Detection in Crops",
     status: "Approved by director",
-    description: "Application approved by Director and sent to Attorney for Patentability check.",
+    description:
+      "Application approved by Director and sent to Attorney for Patentability check.",
     date: "2024-10-23",
     time: "14:30:00",
   },
@@ -89,7 +90,7 @@ function NotificationsPage() {
   };
 
   return (
-    <Box style={{ width: "95%" }}>
+    <Box>
       {/* Page Title */}
       <Text className="notif-title">Notifications</Text>
 

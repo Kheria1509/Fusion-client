@@ -64,7 +64,7 @@
 }
 
 .viewApplicationButton:hover {
-  background-color: #3182ce;
+  background-color: #0073e6;
   color: #ffffff;
   transform: scale(1.02);
 }

@@ -115,7 +115,7 @@ function ApplicantDashboard({ setActiveTab }) {
             <Box
               style={{
                 position: "absolute",
-                top: "50%",
+                top: "40%",
                 left: "0",
                 width: "100%",
                 display: "flex",
