@@ -55,7 +55,7 @@
 }
 
 /* View Details button */
-.view-details-button {
+.view-detail-button {
   align-self: center;
   background-color: #3182ce;
   /* Blue background for buttons */
@@ -77,11 +77,17 @@
 }
 
 /* Hover effect for View Details button */
-.view-details-button:hover {
+.view-detail-button:hover {
   background-color: #225ea8;
   /* Darker blue */
   transform: translateY(-2px);
   /* Slight lift effect */
+}
+
+.view-det-button:hover{
+  background-color: #225ea8;
+  transform: translateY(-2px);
+  color: white;
 }
 
 /* Responsive behavior for smaller screens */
