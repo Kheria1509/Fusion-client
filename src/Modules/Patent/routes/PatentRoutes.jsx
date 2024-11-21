@@ -41,6 +41,7 @@ import InsightsPage from "../components/PCCAdmin/InsightsPage.jsx";
 // eslint-disable-next-line import/no-unresolved
 import NotifyApplicant from "../components/PCCAdmin/NotifyApplicant";
 import PCCAdminDashboard from "../components/PCCAdmin/PCCAdminDashboard.jsx";
+import PCCAdminStatusView from "../components/PCCAdmin/PCCAStatusView.jsx";
 // import PCCAdminMainDashboard from "../components/PCCAdmin/PCCAdminMainDashboard";
 // import PCCAdminDashboard from '../components/PCCAdmin/PCCAdminDashboard';
 // import ReviewApplication from '../components/PCCAdmin/ReviewApplication';
@@ -112,7 +113,7 @@ export default function PatentRoutes() {
         element={
           <Layout>
             <IPFilingForm />
-          </Layout> 
+          </Layout>
         }
       />
       <Route
@@ -261,6 +262,14 @@ export default function PatentRoutes() {
         element={
           <Layout>
             <InsightsPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/pccAdmin/application/view-details"
+        element={
+          <Layout>
+            <PCCAdminStatusView />
           </Layout>
         }
       />
