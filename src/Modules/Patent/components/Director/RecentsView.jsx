@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
@@ -17,7 +18,7 @@ const pendingReviewsData = [
     borderColor: "orange",
   },
   {
-    title: "Telemedicine Platform for Remote Consultations",
+    title: "Telemedicine Platform for Rural Areas",
     date: "18/10/2024",
     time: "11:15:00",
     tokenNumber: "TKN003457",
@@ -107,7 +108,7 @@ PendingReviewCard.propTypes = {
 };
 
 // Main PendingReviewsView component
-function RecentsView() {
+function RecentsView({ setActiveTab }) {
   const navigate = useNavigate();
 
   // Function to handle the review click
@@ -117,10 +118,8 @@ function RecentsView() {
     });
   };
   // Function to handle "View Details" click
-  const handleViewDetails = (application) => {
-    navigate(`/patent/director/final-review/details`, {
-      state: { application },
-    });
+  const handleViewDetails = () => {
+    setActiveTab("1.1");
   };
 
   return (
@@ -138,7 +137,7 @@ function RecentsView() {
               attorney={application.attorney}
               borderColor={application.borderColor}
               onReview={() => handleReview(application)} // Pass application data to handler
-              onViewDetails={() => handleViewDetails(application)}
+              onViewDetails={() => handleViewDetails()}
             />
           </Grid.Col>
         ))}

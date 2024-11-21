@@ -140,20 +140,18 @@ function IPFilingForm() {
           <Text className="field-heading">
             Uploaded duly filled and signed Form-III:
           </Text>
-          <Button
-            component="a"
-            href="https://example.com/sample.pdf"
-            target="_blank"
-            download="Form-III.pdf"
-            color="blue"
-            sx={{
-              width: "50px", // Set specific width
-              maxWidth: "80%", // Ensure it doesn't overflow the container
-            }}
-            className="field-value down-button"
-          >
-            View Form-III
-          </Button>
+          <div className="field-value">
+            <Button
+              component="a"
+              href="https://example.com/sample.pdf"
+              target="_blank"
+              download="Form-III.pdf"
+              color="blue"
+              className="down-button"
+            >
+              View Form-III
+            </Button>
+          </div>
         </div>
         {formIII && (
           <Button

@@ -7,6 +7,7 @@ import ModuleTabs from "../../../../components/moduleTabs.jsx";
 import DirectorDashboard from "./DirectorDashboard.jsx";
 import SubmittedApplications from "./SubmittedApplications.jsx"; // Add this import
 import RecentsView from "./RecentsView.jsx";
+import PatentApplication from "./StatusView.jsx"; // Add this import
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -20,7 +21,7 @@ function DirectorMainDashboard() {
   const tabItems = [
     { title: "Dashboard" }, // Tab 0
     { title: "New Applications" }, // Tab 1
-    { title: "Recents" }, // Tab 2
+    { title: "Reviewed Applications" }, // Tab 2
   ];
 
   useEffect(() => {
@@ -81,6 +82,9 @@ function DirectorMainDashboard() {
             )}
             {activeTab === "1" && (
               <SubmittedApplications setActiveTab={setActiveTab} />
+            )}
+            {activeTab === "1.1" && (
+              <PatentApplication setActiveTab={setActiveTab} />
             )}
             {activeTab === "2" && <RecentsView setActiveTab={setActiveTab} />}
           </>
