@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Progress, Text, Group, Box } from "@mantine/core";
-import { User, MessengerLogo, Phone, FileText } from "phosphor-react";
+import { FileText } from "phosphor-react";
 import PropTypes from "prop-types";
 import "./PCCAStatus.css";
 
@@ -92,29 +92,32 @@ function PatentApplication({
       <div className="header-section">
         <FileText size={32} color="#4a90e2" />
         <h1>{title}</h1>
-        <Text size="sm" className="date-text">
+        {/* <Text size="sm" className="date-text">
           Date - {date}
-        </Text>
+        </Text> */}
       </div>
 
       <div className="details-section">
-        <Group spacing="md" direction="column">
-          {/* First Line: Name, Phone Number, and Email */}
-          <Text weight={500}>
-            <User size={18} /> {attorneyName} | <Phone size={18} />{" "}
-            {phoneNumber} | <MessengerLogo size={18} /> {email}
-          </Text>
-
-          {/* Second Line: Application No and Token No */}
-          <Group spacing="md" direction="row">
-            <Text weight={500}>
-              <strong>Application No.:</strong> {applicationNumber}
-            </Text>
-            <Text weight={500}>
-              <strong>Token No.:</strong> {tokenNumber}
-            </Text>
-          </Group>
-        </Group>
+        <div style={{ marginBottom: "20px" }}>
+          <p>
+            <strong>Date:</strong> {date}
+          </p>
+          <p>
+            <strong>Attorney Name:</strong> {attorneyName}
+          </p>
+          <p>
+            <strong>Phone No.:</strong> {phoneNumber}
+          </p>
+          <p>
+            <strong>Email ID:</strong> {email}
+          </p>
+          <p>
+            <strong>Application No.:</strong> {applicationNumber}
+          </p>
+          <p>
+            <strong>Token No.:</strong> {tokenNumber}
+          </p>
+        </div>
       </div>
 
       <div className="inventors-section">

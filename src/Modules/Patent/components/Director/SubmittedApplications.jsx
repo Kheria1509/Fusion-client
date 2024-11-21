@@ -25,8 +25,11 @@ function SubmittedApplicationCard({
         <Button
           variant="outline"
           leftIcon={<Info size={16} />}
-          className="view-details-button"
+          mt="md"
+          // size="xs"
+          className="view-det-button"
           onClick={onViewDetails}
+          fullWidth
         >
           View Details
         </Button>

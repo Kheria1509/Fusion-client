@@ -38,7 +38,14 @@ function DirectorDashboard({ setActiveTab }) {
             <Text size="sm" mt="sm">
               Access applications that have already been reviewed.
             </Text>
-            <Button fullWidth mt="md" size="xs">
+            <Button
+              fullWidth
+              variant="outline"
+              mt="md"
+              fontSize="16px"
+              onClick={() => setActiveTab("2")}
+              className="buttonone"
+            >
               View Reviewed Applications
             </Button>
           </Box>
@@ -88,12 +95,11 @@ function DirectorDashboard({ setActiveTab }) {
               View applications that have been submitted by PCC Admin.
             </Text>
             <Button
-              variant="light"
+              variant="outline"
               fullWidth
               mt="md"
-              size="xs"
-              onClick={() => setActiveTab("5")}
-              className="dashboard-button"
+              onClick={() => setActiveTab("1")}
+              className="buttonone"
             >
               View Submitted Applications
             </Button>

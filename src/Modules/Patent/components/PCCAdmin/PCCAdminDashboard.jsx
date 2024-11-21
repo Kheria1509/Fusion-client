@@ -87,7 +87,7 @@ function PCCAdminDashboard({ setActiveTab }) {
       </Text>
       <Button
         variant="outline"
-        className="dashboard-button"
+        className="dashboard-button add"
         onClick={() => setActiveTab(tabId)}
       >
         {title}

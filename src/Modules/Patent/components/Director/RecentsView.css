@@ -27,6 +27,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+.buttonone:hover{
+    background-color: #225ea8;
+    color: white;
+}
   
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
