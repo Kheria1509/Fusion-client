@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 // ReviewedApplications.jsx
 import React from "react";
 import { Card, Text, Button, Box, Grid } from "@mantine/core";
 import { Eye, Info } from "phosphor-react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./ReviewedApplications.css";
 
@@ -81,14 +81,10 @@ ApplicationCard.propTypes = {
 };
 
 // Main component
-function ReviewedApplications() {
-  const navigate = useNavigate();
-
+function ReviewedApplications({ setActiveTab }) {
   // Function to handle "View Details" click
-  const handleViewDetails = (application) => {
-    navigate(`/patent/director/accept_reject`, {
-      state: { application },
-    });
+  const handleViewDetails = () => {
+    setActiveTab("1.1");
   };
 
   return (
@@ -103,7 +99,7 @@ function ReviewedApplications() {
               applicationNumber={application.applicationNumber}
               attorney={application.attorney}
               borderColor={application.borderColor}
-              onViewDetails={() => handleViewDetails(application)}
+              onViewDetails={() => handleViewDetails()}
             />
           </Grid.Col>
         ))}

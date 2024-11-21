@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { Info } from "phosphor-react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./SubmittedApplications.css";
 
@@ -49,14 +49,9 @@ SubmittedApplicationCard.propTypes = {
 };
 
 // Main component
-function SubmittedApplications() {
-  const navigate = useNavigate();
-
-  // Function to handle "View Details" click
-  const handleViewDetails = (application) => {
-    navigate(`/patent/director/final-review/details`, {
-      state: { application },
-    });
+function SubmittedApplications({ setActiveTab }) {
+  const handleViewDetails = () => {
+    setActiveTab("1.1");
   };
 
   // Data for Submitted Applications
