@@ -22,11 +22,11 @@ function ApplicantMainDashboard() {
   // Define your tabs here
   const tabItems = [
     { title: "Dashboard" },
-    { title: "Downloads" },
-    { title: "Insights" },
     { title: "New Applications" },
     { title: "Status of Applications" },
     { title: "Manage Attorney" },
+    { title: "Insights" },
+    { title: "Downloads" },
   ];
 
   useEffect(() => {
@@ -85,17 +85,17 @@ function ApplicantMainDashboard() {
             {activeTab === "0" && (
               <PCCAdminDashboard setActiveTab={setActiveTab} />
             )}
-            {activeTab === "1" && <DownloadsPage setActiveTab={setActiveTab} />}
-            {activeTab === "2" && <InsightsPage setActiveTab={setActiveTab} />}
-            {activeTab === "3" && (
+            {activeTab === "1" && (
               <ReviewApplication setActiveTab={setActiveTab} />
             )}
-            {activeTab === "4" && (
+            {activeTab === "2" && (
               <StatusOfApplications setActiveTab={setActiveTab} />
             )}
-            {activeTab === "5" && (
+            {activeTab === "3" && (
               <ManageAttorneyAssignment setActiveTab={setActiveTab} />
             )}
+            {activeTab === "4" && <InsightsPage setActiveTab={setActiveTab} />}
+            {activeTab === "5" && <DownloadsPage setActiveTab={setActiveTab} />}
           </>
         )}
       </Grid>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-import { Box, Button, Card, Text, Title, Center } from "@mantine/core";
+import { Box, Button, Card, Text, Center } from "@mantine/core";
 import { Eye } from "@phosphor-icons/react";
 import { StatusOfApplicationData } from "./StatusOfApplicationsData";
 import SampleAppDetails from "./PCCAStatusView";
@@ -69,9 +69,13 @@ function StatusOfApplications() {
               color="#1d4ed8"
               style={{ marginRight: 10 }}
             /> */}
-            <Title order={2} className="status-title">
+            <Text
+              order={2}
+              className="stati-title"
+              style={{ textAlign: "left" }}
+            >
               Status of Applications
-            </Title>
+            </Text>
           </Center>
           <Text size="md" color="dimmed" className="description">
             Below is the list of recent patent applications with their current

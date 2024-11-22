@@ -8,7 +8,7 @@ import {
   Text,
   Paper,
 } from "@mantine/core";
-import { Eye, Info, NewspaperClipping } from "@phosphor-icons/react";
+import { Eye, Info } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types"; // Import PropTypes
 import {
@@ -157,15 +157,14 @@ function ReviewApplication() {
       <Title order={2} className="title">
         Applications Under Review
       </Title>
-      <Box className="content">
-          <Text size="md" color="dimmed" className="description">
-            The following is a list of patent applications under review. Please
-            examine the details and click on the "Review" button to see more
-            information.
-          </Text>
-        </Box>
+      <Box className="content" style={{ paddingLeft: "30px" }}>
+        <Text size="md" color="dimmed" className="description">
+          The following is a list of patent applications under review. Please
+          examine the details and click on the "Review" button to see more
+          information.
+        </Text>
+      </Box>
       <Box className="outerContainer">
-        
         <ReviewedApplications />
       </Box>
     </Box>

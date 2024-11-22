@@ -1,14 +1,13 @@
 /* Centering Header */
 .status-header {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 
 /* Container Styles */
 .status-container {
-  padding: 32px;
+  padding: 30px;
   max-width: 100%;
   background-color: #f9fafb;
 }
@@ -19,6 +18,14 @@
   color: #333;
   margin-bottom: 16px;
   font-weight: 700;
+  text-align: left;
+}
+.stati-title{
+  font-size: 2rem;
+    color: #333;
+    margin-bottom: 16px;
+    font-weight: 700;
+  text-align: left;
 }
 
 .description {

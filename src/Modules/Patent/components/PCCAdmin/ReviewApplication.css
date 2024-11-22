@@ -12,11 +12,12 @@
 .title {
    font-size: 26px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
   margin-top: 15px;
   margin-bottom: 10px;
-  color: blue;
+  color: black;
+  padding-left: 30px;
 }
 .title span{
   color: black;
