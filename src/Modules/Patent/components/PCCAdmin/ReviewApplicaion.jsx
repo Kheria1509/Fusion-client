@@ -127,18 +127,29 @@ function ReviewApplication() {
   return (
     <Box>
       {/* Title for New Applications Section */}
-      <Title order={2} className="title" style ={{marginLeft: "32px", marginTop: "0px"}}>
+      <Title
+        order={2}
+        className="title"
+        style={{ marginLeft: "32px", marginTop: "0px" }}
+      >
         {/* <PaperPlane size={20} /> */}
         <span> New Applications</span>
       </Title>
-      <Text size="md" color="dimmed" className="description" style={{marginLeft: "64px"}}>
-            The following is a list of new patent applications that require
-            review. Please examine the details and click on the "View" button to
-            see more information.
-          </Text>
-      <Box className="outerContainer" style={{ marginLeft: "64px", marginRight: "64px"}}>
-        <Box className="content">
-        </Box>
+      <Text
+        size="md"
+        color="dimmed"
+        className="description"
+        style={{ marginLeft: "64px" }}
+      >
+        The following is a list of new patent applications that require review.
+        Please examine the details and click on the "View" button to see more
+        information.
+      </Text>
+      <Box
+        className="outerContainer"
+        style={{ marginLeft: "64px", marginRight: "64px" }}
+      >
+        <Box className="content" />
         <ScrollArea>
           <Table highlightOnHover striped withBorder className="styledTable">
             <thead className="fusionTableHeader">
@@ -154,7 +165,11 @@ function ReviewApplication() {
       </Box>
 
       {/* Title for Applications Under Review Section */}
-      <Title order={2} className="title" style={{marginTop: "32px", marginLeft: "32px"}}>
+      <Title
+        order={2}
+        className="title"
+        style={{ marginTop: "32px", marginLeft: "32px" }}
+      >
         Applications Under Review
       </Title>
       <Box className="content" style={{ paddingLeft: "64px" }}>
