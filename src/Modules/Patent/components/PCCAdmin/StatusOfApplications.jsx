@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-import { Box, Button, Card, Text, Center } from "@mantine/core";
+import { Box, Button, Card, Text, Title, Center } from "@mantine/core";
 import { Eye } from "@phosphor-icons/react";
 import { StatusOfApplicationData } from "./StatusOfApplicationsData";
 import SampleAppDetails from "./PCCAStatusView";
@@ -63,26 +63,22 @@ function StatusOfApplications() {
       {!selectedApplication ? (
         // List view of applications
         <>
-          <Center className="status-header" style={{ marginLeft: "32px", marginBottom: "0px"}}>
+          <Center className="status-header">
             {/* <PaperPlaneTilt
               size={32}
               color="#1d4ed8"
               style={{ marginRight: 10 }}
             /> */}
-            <Text
-              order={2}
-              className="stati-title"
-              style={{ textAlign: "left", fontSize: "26px", marginTop: "-30px", marginBottom: "0px" }}
-            >
+            <Title order={2} className="status-title">
               Status of Applications
-            </Text>
+            </Title>
           </Center>
-          <Text size="md" color="dimmed" className="description" style={{marginLeft: "32px"}}>
+          <Text size="md" color="dimmed" className="description">
             Below is the list of recent patent applications with their current
             status. Click on "View Details" for more information on each
             application.
           </Text>
-          <Box className="status-cards-container" style={{marginLeft: "32px"}}>
+          <Box className="status-cards-container">
             {StatusOfApplicationData.map((application, index) => (
               <StatusOfApplicationCard
                 key={index}
