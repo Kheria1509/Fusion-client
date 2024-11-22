@@ -299,7 +299,7 @@ function PatentApplication({
       </Card>
 
       {/* Comments Section */}
-      <Card className="form-section">
+      <Card className="form-section button-section">
         <Text className="section-title">PCC Admin Comments</Text>
         <Textarea
           placeholder="Add comments before forwarding to the director..."
@@ -309,13 +309,27 @@ function PatentApplication({
           autosize
           minRows={3}
         />
-        <Button
+        {/* <Button
+            onClick={handleForwardToDirector}
+            color="blue"
+            style={{ marginTop: "10px" }}
+          >
+            Review
+          </Button>
+          <Button
+            onClick={handleForwardToDirector}
+            color="blue"
+            style={{ marginTop: "10px" }}
+          >
+            Download Form
+          </Button> */}
+        {/* <Button
           onClick={handleForwardToDirector}
           color="blue"
           style={{ marginTop: "10px" }}
         >
           Forward to Director
-        </Button>
+        </Button> */}
       </Card>
 
       {/* Application Status */}
@@ -323,6 +337,33 @@ function PatentApplication({
         <Text className="section-title">Application Progress</Text>
         <PatentProgressBar currentStatus={currentStatus} />
       </Card>
+
+      {/* Form Actions */}
+      <div className="form-actions">
+        <Button
+          component="a"
+          href="https://example.com/sample.pdf"
+          target="_blank"
+          download="Form-III.pdf"
+          className="down-button"
+        >
+          Download Form
+        </Button>
+        <Button
+          onClick={handleForwardToDirector}
+          color="blue"
+          className="down-button"
+        >
+          Review Application
+        </Button>
+        <Button
+          onClick={handleForwardToDirector}
+          color="blue"
+          className="down-button"
+        >
+          Forward to Director
+        </Button>
+      </div>
     </Container>
   );
 }
