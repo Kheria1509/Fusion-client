@@ -245,3 +245,38 @@ h1 {
 .progress-bar-container .mantine-Stepper-active {
   color: #007bff;
 }
+
+.button-section{
+  display: flex;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between; /* Adjust buttons spacing */
+  gap: 12px; /* Adds uniform spacing between buttons */
+  margin-top: 20px;
+  flex-wrap: wrap; /* Wraps buttons if container width is small */
+}
+
+/* Download Button */
+.down-button {
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.down-button:hover {
+  background-color: #005bb5;
+}
+
+.down-button:focus {
+  outline: none;
+  box-shadow: 0 0 4px 2px rgba(0, 123, 230, 0.5);
+}
