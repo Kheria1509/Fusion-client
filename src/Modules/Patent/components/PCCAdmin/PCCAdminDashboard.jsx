@@ -13,7 +13,7 @@ import {
   ClipboardText,
 } from "@phosphor-icons/react";
 
-import "./PCCAdminDashboard.css";
+import "../../style/Pcc_Admin/PCCAdminDashboard.css";
 
 function PCCAdminDashboard({ setActiveTab }) {
   // Features Data Array

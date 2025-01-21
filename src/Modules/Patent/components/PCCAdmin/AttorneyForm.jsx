@@ -23,7 +23,7 @@ import {
   UserCircle,
 } from "phosphor-react";
 import ApplicationModal from "./ApplicationModal";
-import "./AttorneyForm.css";
+import "../../style/Pcc_Admin/AttorneyForm.css";
 
 function AttorneyForm({ attorney, onUpdate }) {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
@@ -260,7 +260,7 @@ AttorneyForm.propTypes = {
         title: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-      })
+      }),
     ),
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

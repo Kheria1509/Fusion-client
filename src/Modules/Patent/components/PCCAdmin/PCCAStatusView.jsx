@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mantine/core";
 import PropTypes from "prop-types";
-import "./PCCAStatus.css";
+import "../../style/Pcc_Admin/PCCAStatus.css";
 
 // Simulate fetching status from the backend
 const fetchApplicationStatus = async () => {

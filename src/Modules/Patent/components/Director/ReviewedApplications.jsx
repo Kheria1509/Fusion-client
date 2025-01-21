@@ -4,7 +4,7 @@ import React from "react";
 import { Card, Text, Button, Box, Grid } from "@mantine/core";
 import { Eye, Info } from "phosphor-react";
 import PropTypes from "prop-types";
-import "./ReviewedApplications.css";
+import "../../style/Director/ReviewedApplications.css";
 
 // Updated dummy data with three cards
 const ReviewedApplicationsData = [

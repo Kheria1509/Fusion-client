@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes for validation
 import {
   Grid,
   Box,
@@ -10,13 +11,10 @@ import {
 } from "@mantine/core";
 import {
   ClipboardText,
-  FilePlus,
-  Archive,
-  Bell,
   CheckCircle,
   ArrowCircleDown,
 } from "@phosphor-icons/react";
-import "./DirectorDashboard.css";
+import "../../style/Director/DirectorDashboard.css";
 
 function DirectorDashboard({ setActiveTab }) {
   const downloadsData = [
@@ -41,8 +39,8 @@ function DirectorDashboard({ setActiveTab }) {
       <Container className="content-container">
         <Text mt="sm" mb="lg" className="feature-text">
           Welcome to the Director Dashboard. Here, you can manage and monitor
-          the review process for patent applications. Access resources and
-          track workflow progress to ensure smooth operation.
+          the review process for patent applications. Access resources and track
+          workflow progress to ensure smooth operation.
         </Text>
 
         {/* Application Workflow */}
@@ -86,7 +84,7 @@ function DirectorDashboard({ setActiveTab }) {
                   >
                     {label}
                   </Text>
-                )
+                ),
               )}
             </Box>
           </Box>
@@ -94,7 +92,11 @@ function DirectorDashboard({ setActiveTab }) {
       </Container>
 
       {/* Downloads Section */}
-      <Container mt="lg" className="downloads-container" style={{marginLeft: "32px", marginRight: "64px"}}>
+      <Container
+        mt="lg"
+        className="downloads-container"
+        style={{ marginLeft: "32px", marginRight: "64px" }}
+      >
         <Text className="section-title">Download Resources</Text>
         <table className="downloads-table">
           <thead>
@@ -128,7 +130,6 @@ function DirectorDashboard({ setActiveTab }) {
 
       {/* Dashboard Sections */}
       <Grid mt="xl" className="dashboard-grid">
-        
         {/* Submitted Applications */}
         <Grid.Col span={6}>
           <Box className="dashboard-cards">
@@ -176,5 +177,10 @@ function DirectorDashboard({ setActiveTab }) {
     </Box>
   );
 }
+
+// PropTypes validation
+DirectorDashboard.propTypes = {
+  setActiveTab: PropTypes.func.isRequired,
+};
 
 export default DirectorDashboard;

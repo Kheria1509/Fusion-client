@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Text, Loader, Table } from "@mantine/core";
-import "./StatusView.css";
+import "../../style/Applicant/StatusView.css";
 
 // Mock backend call
 const fetchApplicationStatus = async () => {

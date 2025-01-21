@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { Hourglass, Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import "./RecentsView.css";
+import "../../style/Director/RecentsView.css";
 
 // Dummy data for pending reviews
 const pendingReviewsData = [

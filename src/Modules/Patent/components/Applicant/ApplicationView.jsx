@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
-import "./ApplicationView.css";
+import "../../style/Applicant/ApplicationView.css";
 
 // Component for individual application card
 function ApplicationCard({

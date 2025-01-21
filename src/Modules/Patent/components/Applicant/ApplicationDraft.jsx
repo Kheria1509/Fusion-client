@@ -11,7 +11,7 @@ import {
   Group,
 } from "@mantine/core";
 import { ArrowRight, Download } from "phosphor-react";
-import "./ApplicationDraft.css";
+import "../../style/Applicant/ApplicationDraft.css";
 
 // Static data for saved drafts
 const savedDraftsData = [
@@ -42,7 +42,13 @@ const savedDraftsData = [
 ];
 
 // Saved draft card component
-function SavedDraftCard({ title, savedDate, savedTime, description, onViewDraft }) {
+function SavedDraftCard({
+  title,
+  savedDate,
+  savedTime,
+  description,
+  onViewDraft,
+}) {
   return (
     <Card
       className="saved-draft-card"
@@ -127,7 +133,8 @@ function SavedDraftsPage() {
         {selectedDraft && (
           <Box>
             <Text className="modal-details" size="sm" weight={500}>
-              Last Saved on: {selectedDraft.savedDate} | {selectedDraft.savedTime}
+              Last Saved on: {selectedDraft.savedDate} |{" "}
+              {selectedDraft.savedTime}
             </Text>
             <Divider my="sm" />
             <Text className="modal-description" size="sm" weight={600}>

@@ -15,7 +15,7 @@ import {
   NewApplicationData,
   ReviewedApplicationsData,
 } from "./ReviewApplicationData";
-import "./ReviewApplication.css";
+import "../../style/Pcc_Admin/ReviewApplication.css";
 
 function ReviewedApplicationCard({
   title,

@@ -4,7 +4,7 @@ import { Box, Button, Card, Text, Title, Center } from "@mantine/core";
 import { Eye } from "@phosphor-icons/react";
 import { StatusOfApplicationData } from "./StatusOfApplicationsData";
 import SampleAppDetails from "./PCCAStatusView";
-import "./StatusOfApplications.css";
+import "../../style/Pcc_Admin/StatusOfApplications.css";
 
 // Card Component for Individual Application Status
 function StatusOfApplicationCard({

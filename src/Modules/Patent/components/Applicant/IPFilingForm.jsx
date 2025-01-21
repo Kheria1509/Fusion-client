@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Text, Card, Button, Stepper } from "@mantine/core";
 import { CheckCircle, ArrowRight, DownloadSimple } from "phosphor-react";
-import "./IPFilingForm.css";
+import "../../style/Applicant/IPFilingForm.css";
 
 function IPFilingForm() {
   const inventors = [
@@ -21,7 +21,7 @@ function IPFilingForm() {
     },
   ];
 
-  const [formIII] = React.useState(null);
+  // const [formIII] = React.useState(null);
   const [currentStep, setCurrentStep] = React.useState(5); // Assume the process is completed
 
   return (

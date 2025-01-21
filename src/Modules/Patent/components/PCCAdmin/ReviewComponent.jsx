@@ -8,7 +8,7 @@ import {
   Grid,
   Divider,
 } from "@mantine/core";
-import "./ReviewComponent.css"; // Import your CSS file
+import "../../style/Pcc_Admin/ReviewComponent.css"; // Import your CSS file
 
 // Mock function to fetch filled application data
 const fetchFilledData = () => {

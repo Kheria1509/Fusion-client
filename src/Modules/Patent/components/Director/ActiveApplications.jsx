@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { CheckCircle, Info } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import "./ActiveApplications.css";
+import "../../style/Director/ActiveApplications.css";
 
 // Dummy data for active applications
 const activeApplicationsData = [
