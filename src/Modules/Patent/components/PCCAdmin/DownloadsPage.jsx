@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Container, Card, Text } from "@mantine/core";
 import { ArrowCircleDown } from "@phosphor-icons/react";
-import "./DownloadsPage.css";
+import "../../style/Pcc_Admin/DownloadsPage.css";
 
 function DownloadsPage() {
   const [downloadsData] = useState([

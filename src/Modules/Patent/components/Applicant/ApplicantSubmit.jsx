@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, Text, Box, Divider } from "@mantine/core";
-import "./ApplicantSubmit.css";
+import "../../style/Applicant/ApplicantSubmit.css";
 
 // eslint-disable-next-line react/prop-types
 function SubmitNewApplication({ setActiveTab }) {
@@ -11,7 +11,9 @@ function SubmitNewApplication({ setActiveTab }) {
     <Box style={{ width: "50%" }}>
       <Text className="header-texts">New Patent Application</Text>
       <Card className="card">
-        <Text className="new-card-title">Intellectual Property Filing Form</Text>
+        <Text className="new-card-title">
+          Intellectual Property Filing Form
+        </Text>
         <Text className="card-details">
           Complete this form to initiate a new patent filing. Please ensure all
           necessary details are accurate before submission. This form will help

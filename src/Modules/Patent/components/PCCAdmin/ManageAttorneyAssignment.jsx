@@ -4,7 +4,7 @@ import { PencilSimple } from "phosphor-react";
 import AttorneyDetails from "./AttorneyDetails";
 import AttorneyForm from "./AttorneyForm";
 import NewAttorneyForm from "./NewAttorneyForm";
-import "./ManageAttorneyAssignment.css";
+import "../../style/Pcc_Admin/ManageAttorneyAssignment.css";
 
 function ManageAttorneyAssignment() {
   const [attorneyData, setAttorneyData] = useState([]);
@@ -24,7 +24,6 @@ function ManageAttorneyAssignment() {
     );
     setSelectedAttorney(selected);
     setViewDetailsOpened(true);
-    
   };
 
   // Handle add new attorney
@@ -84,22 +83,22 @@ function ManageAttorneyAssignment() {
       </Paper>
 
       {/* Modal to show attorney form with Edit Button */}
-      
+
       <Modal
-  opened={viewDetailsOpened}
-  onClose={() => setViewDetailsOpened(false)}
-  size="xl" // Wider modal
-  centered
-  overflow="inside" // Prevents side scroll
-  styles={{
-    modal: {
-      padding: "20px", // Adjust padding to your preference
-      maxWidth: "90vw", // Ensures the modal doesn't exceed the viewport width
-    },
-  }}
->
-  {selectedAttorney && <AttorneyForm attorney={selectedAttorney} />}
-</Modal>
+        opened={viewDetailsOpened}
+        onClose={() => setViewDetailsOpened(false)}
+        size="xl" // Wider modal
+        centered
+        overflow="inside" // Prevents side scroll
+        styles={{
+          modal: {
+            padding: "20px", // Adjust padding to your preference
+            maxWidth: "90vw", // Ensures the modal doesn't exceed the viewport width
+          },
+        }}
+      >
+        {selectedAttorney && <AttorneyForm attorney={selectedAttorney} />}
+      </Modal>
 
       {/* Modal for Adding New Attorney */}
       <Modal

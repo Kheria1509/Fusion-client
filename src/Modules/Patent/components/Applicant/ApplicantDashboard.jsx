@@ -15,7 +15,7 @@ import {
   Bell,
   ArrowCircleDown,
 } from "@phosphor-icons/react";
-import "./ApplicantDashboard.css";
+import "../../style/Applicant/ApplicantDashboard.css";
 
 // eslint-disable-next-line react/prop-types
 function ApplicantDashboard({ setActiveTab }) {

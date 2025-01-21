@@ -10,7 +10,7 @@ import {
   FileText,
 } from "phosphor-react";
 import PropTypes from "prop-types"; // Import PropTypes
-import "./NewAttorneyForm.css";
+import "../../style/Pcc_Admin/NewAttorneyForm.css";
 
 function NewAttorneyForm({ onSubmit }) {
   const [formData, setFormData] = useState({

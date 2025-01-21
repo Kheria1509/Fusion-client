@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Card, Text, Box, Grid } from "@mantine/core";
 import { Info } from "phosphor-react";
 import PropTypes from "prop-types";
-import "./SubmittedApplications.css";
+import "../../style/Director/SubmittedApplications.css";
 
 // Component for individual application card
 function SubmittedApplicationCard({
@@ -87,10 +87,16 @@ function SubmittedApplications({ setActiveTab }) {
       className="submitted-applications-container"
       style={{ padding: "24px" }}
     >
-      <Text className="submitted-header-text" style={{ marginLeft: "32px", marginBottom: "20px", marginTop: "-20px" }}>
+      <Text
+        className="submitted-header-text"
+        style={{ marginLeft: "32px", marginBottom: "20px", marginTop: "-20px" }}
+      >
         Applications Forwarded by PCC Admin
       </Text>
-      <Grid gutter="24px" style={{ marginLeft: "32px", marginRight: "64px", maxWidth: "80%"}}>
+      <Grid
+        gutter="24px"
+        style={{ marginLeft: "32px", marginRight: "64px", maxWidth: "80%" }}
+      >
         {SubmittedApplicationsData.map((application, index) => (
           <Grid.Col span={6} key={index}>
             <SubmittedApplicationCard

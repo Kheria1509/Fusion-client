@@ -1,5 +1,5 @@
 import React from "react";
-import "./StatusView.css";
+import "../../style/Director/StatusView.css";
 import PropTypes from "prop-types";
 
 // Component for displaying patent application details

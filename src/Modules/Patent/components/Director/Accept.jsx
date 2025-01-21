@@ -1,5 +1,5 @@
 import React from "react";
-import "./Accept.css";
+import "../../style/Director/Accept.css";
 import PropTypes from "prop-types";
 
 // Component for displaying patent application details

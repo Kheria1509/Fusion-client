@@ -1,0 +1,131 @@
+/* Title Styling */
+.submitted-header-text {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 32px;
+}
+
+/* Submitted Applications container */
+.submitted-applications-container {
+  padding-left: 32px;
+  width: 100%;
+}
+
+/* Submitted application card */
+.submitted-application-card {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 16px;
+  width: 80%;
+}
+
+/* Hover effect for card */
+.submitted-application-card:hover {
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  /* Slight lifting effect */
+}
+
+/* Card header */
+.card-header {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+/* Card details */
+.card-details {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+/* View Details button */
+.view-detail-button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce; /* Blue buttons */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Hover Effect */
+.view-detail-button:hover {
+  background-color: #225ea8; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.view-det-button:hover{
+  background-color: #3182ce;
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .submitted-application-card {
+    padding: 16px;
+    width: 100%;
+    /* Card takes full width */
+  }
+
+  .view-details-button {
+    padding: 12px 16px;
+    /* Adjust button padding */
+  }
+}
+
+/* General Card Styling (consistent across pages) */
+.dashboard-card,
+.submitted-application-card {
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-right: 16px;
+  width: 100%;
+  /* Set the width to 50% of the container */
+}
+
+/* Button Styling (for all buttons) */
+.dashboard-button,
+.view-details-button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3182ce;
+  /* Blue buttons */
+  color: #fff;
+  /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-button:hover,
+.view-details-button:hover {
+  background-color: #225ea8;
+  /* Darker blue on hover */
+  transform: translateY(-2px);
+  /* Slight lift effect */
+}

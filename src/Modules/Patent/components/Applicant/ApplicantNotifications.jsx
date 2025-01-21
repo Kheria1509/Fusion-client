@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Card, Button, Text, Box } from "@mantine/core";
-import "./ApplicantNotifications.css";
+import "../../style/Applicant/ApplicantNotifications.css";
 
 // Dummy data for notifications
 const notificationsData = [
