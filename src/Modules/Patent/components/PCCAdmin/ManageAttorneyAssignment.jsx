@@ -61,7 +61,7 @@ function ManageAttorneyAssignment() {
   return (
     <Container className="manage-attorney-container">
       <Text className="page-heading-title">Manage Attorney Assignments</Text>
-      <Text align="center" mb="md" className="attorney-page-subtitle">
+      <Text align="center" mb="md"         className="description"      >
         View attorney details, assign applications, add new attorneys, reassign
         existing applications, and view feedback.
       </Text>
