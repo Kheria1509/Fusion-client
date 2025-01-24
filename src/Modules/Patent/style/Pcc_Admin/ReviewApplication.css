@@ -27,7 +27,9 @@
 .content {
   text-align: left;
 }
-
+.description{
+  text-align: left;
+}
 /* Responsive Text Adjustments */
 .content .description {
   font-size: 14px;

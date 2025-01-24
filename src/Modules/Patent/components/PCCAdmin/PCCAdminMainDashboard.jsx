@@ -8,7 +8,6 @@ import PCCAdminDashboard from "./PCCAdminDashboard.jsx";
 import ManageAttorneyAssignment from "./ManageAttorneyAssignment.jsx";
 import DownloadsPage from "./DownloadsPage.jsx";
 import StatusOfApplications from "./StatusOfApplications.jsx";
-// import InsightsPage from "./InsightsPage.jsx";
 import ReviewApplication from "./ReviewApplicaion.jsx";
 
 const categories = ["Most Recent", "Tags", "Title"];

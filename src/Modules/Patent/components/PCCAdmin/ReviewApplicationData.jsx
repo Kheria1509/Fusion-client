@@ -1,5 +1,6 @@
 export const NewApplicationData = [
   {
+    "Token Number": "IIITDMJ/AGR/20241107/001/AAS/104", 
     "Patent Title": "Smart Irrigation System",
     "Submitted By": "Aarav Sharma",
     Designation: "Research Scientist",
@@ -7,6 +8,7 @@ export const NewApplicationData = [
     "Date - Time": "2024-11-07 10:00 AM",
   },
   {
+    "Token Number": "IIITDMJ/SM/20241107/002/NVV/105",
     "Patent Title": "Eco-Friendly Packaging Material",
     "Submitted By": "Neha Verma",
     Designation: "Product Designer",
@@ -14,6 +16,7 @@ export const NewApplicationData = [
     "Date - Time": "2024-11-07 11:30 AM",
   },
   {
+    "Token Number": "IIITDMJ/HT/20241107/003/RSR/106",
     "Patent Title": "AI-Powered Medical Diagnosis",
     "Submitted By": "Rohan Singh",
     Designation: "Data Scientist",
@@ -21,6 +24,7 @@ export const NewApplicationData = [
     "Date - Time": "2024-11-07 12:45 PM",
   },
   {
+    "Token Number": "IIITDMJ/RE/20241107/004/PPT/107",
     "Patent Title": "Solar Energy Optimizer",
     "Submitted By": "Priya Patel",
     Designation: "Energy Analyst",
@@ -28,6 +32,7 @@ export const NewApplicationData = [
     "Date - Time": "2024-11-07 01:15 PM",
   },
   {
+    "Token Number": "IIITDMJ/SE/20241107/005/KMR/108",
     "Patent Title": "Blockchain-Based Voting System",
     "Submitted By": "Karan Mehta",
     Designation: "Blockchain Developer",
@@ -35,6 +40,7 @@ export const NewApplicationData = [
     "Date - Time": "2024-11-07 02:00 PM",
   },
 ];
+
 
 export const ReviewedApplicationsData = [
   {
