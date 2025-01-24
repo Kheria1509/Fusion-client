@@ -8,7 +8,7 @@ import PCCAdminDashboard from "./PCCAdminDashboard.jsx";
 import ManageAttorneyAssignment from "./ManageAttorneyAssignment.jsx";
 import DownloadsPage from "./DownloadsPage.jsx";
 import StatusOfApplications from "./StatusOfApplications.jsx";
-import InsightsPage from "./InsightsPage.jsx";
+// import InsightsPage from "./InsightsPage.jsx";
 import ReviewApplication from "./ReviewApplicaion.jsx";
 
 const categories = ["Most Recent", "Tags", "Title"];
@@ -25,7 +25,6 @@ function ApplicantMainDashboard() {
     { title: "New Applications" },
     { title: "Status of Applications" },
     { title: "Manage Attorney" },
-    { title: "Insights" },
     { title: "Downloads" },
   ];
 
@@ -94,8 +93,7 @@ function ApplicantMainDashboard() {
             {activeTab === "3" && (
               <ManageAttorneyAssignment setActiveTab={setActiveTab} />
             )}
-            {activeTab === "4" && <InsightsPage setActiveTab={setActiveTab} />}
-            {activeTab === "5" && <DownloadsPage setActiveTab={setActiveTab} />}
+            {activeTab === "4" && (<DownloadsPage setActiveTab={setActiveTab} />)}
           </>
         )}
       </Grid>

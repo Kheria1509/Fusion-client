@@ -278,7 +278,7 @@ function PCCAdminDashboard({ setActiveTab }) {
             <ArrowCircleDown size={20} className="icon" />,
             "Downloads",
             "Access and download important documents.",
-            "2",
+            "4",
           )}
         </Grid.Col>
       </Grid>
