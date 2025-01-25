@@ -17,80 +17,10 @@ import {
 } from "./ReviewApplicationData";
 import "../../style/Pcc_Admin/ReviewApplication.css";
 
-function ReviewedApplicationCard({
-  title,
-  date,
-  time,
-  tokenNumber,
-  applicationNumber,
-  attorney,
-  onViewDetails,
-}) {
-  return (
-    <Paper shadow="xs" radius="md" className="r-application-card">
-      <Text className="card-header">{title}</Text>
-      <Text className="r-card-details">{`${date} | ${time}`}</Text>
-      <Text className="r-card-details">Token No.: {tokenNumber}</Text>
-      <Text className="r-card-details">
-        Application No.: {applicationNumber}
-      </Text>
-      <Text className="r-card-details">Assigned Attorney: {attorney}</Text>
-      <Button
-        variant="filled"
-        color="blue"
-        leftIcon={<Info size={16} />}
-        onClick={onViewDetails}
-        className="r-button"
-      >
-        View Details
-      </Button>
-    </Paper>
-  );
-}
-
-// Add PropTypes validation for ReviewedApplicationCard
-ReviewedApplicationCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  tokenNumber: PropTypes.string.isRequired,
-  applicationNumber: PropTypes.string.isRequired,
-  attorney: PropTypes.string.isRequired,
-  onViewDetails: PropTypes.func.isRequired,
-};
-
-function ReviewedApplications() {
-  const navigate = useNavigate();
-
-  const handleViewDetails = (application) => {
-    navigate(`/patent/pccAdmin/application/view-details`, {
-      state: { application },
-    });
-  };
-
-  return (
-    <Box className="r-main-app-container">
-      <Box className="r-app-container">
-        {ReviewedApplicationsData.map((application, index) => (
-          <ReviewedApplicationCard
-            key={index}
-            title={application.title} // Explicitly passing each prop
-            date={application.date}
-            time={application.time}
-            tokenNumber={application.tokenNumber}
-            applicationNumber={application.applicationNumber}
-            attorney={application.attorney}
-            onViewDetails={() => handleViewDetails(application)}
-          />
-        ))}
-      </Box>
-    </Box>
-  );
-}
-
 function ReviewApplication() {
   const navigate = useNavigate();
   const columnNames = [
+    "Token Number",
     "Patent Title",
     "Submitted By",
     "Designation",
@@ -101,6 +31,7 @@ function ReviewApplication() {
 
   const rows = NewApplicationData.map((item, index) => (
     <tr key={index} className="tableRow">
+      <td>{item["Token Number"]}</td> {/* Token Number */}
       <td>{item["Patent Title"]}</td>
       <td>{item["Submitted By"]}</td>
       <td>{item.Designation}</td>
@@ -118,7 +49,7 @@ function ReviewApplication() {
           }
           className="viewButton"
         >
-          <Eye size={16} /> <span>View</span>
+          <Eye size={16} /> <span> &nbsp; View</span>
         </Button>
       </td>
     </tr>
@@ -162,25 +93,6 @@ function ReviewApplication() {
             <tbody>{rows}</tbody>
           </Table>
         </ScrollArea>
-      </Box>
-
-      {/* Title for Applications Under Review Section */}
-      <Title
-        order={2}
-        className="title"
-        style={{ marginTop: "32px", marginLeft: "32px" }}
-      >
-        Applications Under Review
-      </Title>
-      <Box className="content" style={{ paddingLeft: "64px" }}>
-        <Text size="md" color="dimmed" className="description">
-          The following is a list of patent applications under review. Please
-          examine the details and click on the "Review" button to see more
-          information.
-        </Text>
-      </Box>
-      <Box style={{ marginLeft: "64px", marginRight: "64px" }}>
-        <ReviewedApplications />
       </Box>
     </Box>
   );
