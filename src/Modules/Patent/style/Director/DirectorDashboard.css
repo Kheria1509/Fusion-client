@@ -4,11 +4,13 @@ body {
   font-family: Arial, sans-serif; /* Ensure a clean default font */
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  width: 100%; /* Prevent horizontal overflow */
 }
 
 /* Header Styling */
 .header {
-  font-size: 26px; /* Updated from 28px */
+  font-size: 26px;
   font-weight: 700;
   color: #0b0c0c;
   margin: 24px 0;
@@ -16,34 +18,67 @@ body {
   text-align: center;
 }
 
-/* Title Styling */
-.dashboard-title,
-.titledashdash {
-  font-size: 26px;
-  font-weight: bold;
-  margin-left: 32px;
-  color: #2d3748;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-/* Container Styling */
+/* Dashboard Container */
 .dashboard-container {
   padding: 32px;
   width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.dashboard-container text {
-  color: #0b0c0c;
+/* Workflow Styling */
+.status-progress-container {
+  position: relative;
 }
 
-/* Grid Layout */
+.status-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.status-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a202c;
+  text-align: center;
+  flex: 1;
+}
+
+/* Downloads Section */
+.downloads-container {
+  margin-left: 32px;
+  margin-right: 32px;
+  width: calc(100% - 64px); /* Ensure container fits within viewport */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.downloads-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+}
+
+.downloads-table th {
+  background-color: #f1f5f9;
+  color: #3182ce;
+  font-weight: bold;
+  padding: 12px 16px;
+}
+
+.downloads-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Dashboard Grid */
 .dashboard-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin: 32px;
-  width: 100%; /* Ensure cards wrap on smaller screens */
+  justify-content: center;
+  padding: 16px;
+  margin-top: 16px;
 }
 
 /* Card Styling */
@@ -51,21 +86,20 @@ body {
   padding: 24px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* Pure white background */
-  width: calc(50% - 16px); /* Two cards per row with gap */
-  margin-bottom: 16px;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
+  width: 100%; /* Default width for smaller screens */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .dashboard-card:hover {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Title */
 .dashboard-card-title {
   font-size: 20px;
   font-weight: 600;
@@ -75,7 +109,6 @@ body {
   align-items: center;
 }
 
-/* Card Divider */
 .card-divider {
   border-color: #e2e8f0;
   margin: 8px 0;
@@ -88,68 +121,94 @@ body {
   padding: 12px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #3182ce; /* Blue buttons */
-  color: #fff; /* White text */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.dashboard-button:hover {
-  background-color: #225ea8; /* Darker blue */
-  transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Specific Button Variants */
-.view-pending-review-button,
-.view-reviewed-applications-button,
-.view-active-applications-button,
-.view-notifications-button {
-  font-size: 16px;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 6px;
-  border: none;
   background-color: #3182ce;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.view-pending-review-button:hover,
-.view-reviewed-applications-button:hover,
-.view-active-applications-button:hover,
-.view-notifications-button:hover {
-  background-color: #225ea8; /* Darker blue */
-}
-
-/* Table Styling */
-.downloads-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 16px;
-  text-align: left;
-}
-
-th {
-  background-color: #f1f5f9; /* Light grey */
-  color: #3182ce; /* Blue text */
-  font-weight: bold;
-  padding: 12px 16px;
-}
-
-td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #e2e8f0; /* Light border */
+.dashboard-button:hover {
+  background-color: #225ea8;
+  transform: translateY(-2px);
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+
+  .downloads-container {
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100% - 32px);
+  }
+}
+
 @media (max-width: 768px) {
+  .dashboard-container {
+    padding: 8px;
+  }
+
+  .downloads-container {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: calc(100% - 16px);
+  }
+
   .dashboard-grid {
-    flex-direction: column; /* Stack cards vertically */
+    flex-direction: column;
   }
 
   .dashboard-card {
-    width: 100%; /* Full-width cards */
+    width: 100%;
     margin-right: 0;
   }
 }
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 22px;
+    margin: 16px 0;
+  }
+
+  .downloads-container {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: calc(100% - 8px);
+  }
+
+  .dashboard-card {
+    padding: 16px;
+  }
+}
+
+/* General Styles */
+.feature-item {
+  margin-bottom: 16px;
+}
+
+.icon-and-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-title {
+  font-size: 16px;
+  color: #2d3748;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: #4a5568;
+  margin-top: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .feature-description {
+    display: none;
+  }
+}
+

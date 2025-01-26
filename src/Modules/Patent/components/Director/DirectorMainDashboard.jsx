@@ -5,9 +5,10 @@ import { SortAscending } from "@phosphor-icons/react";
 import CustomBreadcrumbs from "../../../../components/Breadcrumbs.jsx";
 import ModuleTabs from "../../../../components/moduleTabs.jsx";
 import DirectorDashboard from "./DirectorDashboard.jsx";
-import SubmittedApplications from "./SubmittedApplications.jsx"; // Add this import
+import SubmittedApplications from "./SubmittedApplications.jsx";
 import RecentsView from "./RecentsView.jsx";
-import PatentApplication from "./StatusView.jsx"; // Add this import
+import PatentApplication from "./StatusView.jsx";
+import DirectorNotifications from "./DirectorNotifications.jsx"; // Import the notification component
 
 const categories = ["Most Recent", "Tags", "Title"];
 
@@ -22,6 +23,7 @@ function DirectorMainDashboard() {
     { title: "Dashboard" }, // Tab 0
     { title: "New Applications" }, // Tab 1
     { title: "Reviewed Applications" }, // Tab 2
+    { title: "Notifications" }, // Tab 3 (New Notifications tab)
   ];
 
   useEffect(() => {
@@ -87,6 +89,8 @@ function DirectorMainDashboard() {
               <PatentApplication setActiveTab={setActiveTab} />
             )}
             {activeTab === "2" && <RecentsView setActiveTab={setActiveTab} />}
+            {activeTab === "3" && <DirectorNotifications />}{" "}
+            {/* Render notifications */}
           </>
         )}
       </Grid>
