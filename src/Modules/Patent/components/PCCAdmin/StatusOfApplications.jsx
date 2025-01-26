@@ -1,95 +1,100 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types"; // Import PropTypes
-import { Box, Button, Card, Text, Title, Center } from "@mantine/core";
+import { Box, Button, ScrollArea, Table, Title, Text } from "@mantine/core";
 import { Eye } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import { StatusOfApplicationData } from "./StatusOfApplicationsData";
 import SampleAppDetails from "./PCCAStatusView";
 import "../../style/Pcc_Admin/StatusOfApplications.css";
 
-// Card Component for Individual Application Status
-function StatusOfApplicationCard({
-  title,
-  applicant,
-  date,
-  status,
-  applicationNumber,
-  onView,
-}) {
-  return (
-    <Card className="status-card">
-      <Text className="card-title">{title}</Text>
-      <Text className="card-description">
-        Application by: {applicant} <br />
-        Status: {status.toLowerCase()} <br />
-        Date Submitted: {date} <br />
-        Application No.: {applicationNumber}
-      </Text>
-      <Button
-        variant="filled"
-        color="blue"
-        leftIcon={<Eye size={16} />}
-        onClick={() => onView(applicationNumber)}
-        className="view-button"
-      >
-        View Details
-      </Button>
-    </Card>
-  );
-}
-
-// Add PropTypes validation for StatusOfApplicationCard
-StatusOfApplicationCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  applicant: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  applicationNumber: PropTypes.string.isRequired,
-  onView: PropTypes.func.isRequired,
-};
-
 function StatusOfApplications() {
   const [selectedApplication, setSelectedApplication] = useState(null);
+  const navigate = useNavigate();
 
-  const handleViewClick = (applicationNumber) => {
-    setSelectedApplication(applicationNumber);
+  const columnNames = [
+    "Token Number",
+    "Patent Title",
+    "Submitted By",
+    "Designation",
+    "Department",
+    "Date - Time",
+    "Status",
+    "View",
+  ];
+
+  const handleViewClick = (tokenNumber) => {
+    setSelectedApplication(tokenNumber);
   };
 
   const handleBackClick = () => {
     setSelectedApplication(null);
   };
 
+  const rows = StatusOfApplicationData.map((application, index) => (
+    <tr key={index} className="tableRow">
+      <td>{application["Token Number"]}</td>
+      <td>{application["Patent Title"]}</td>
+      <td>{application["Submitted By"]}</td>
+      <td>{application.Designation}</td>
+      <td>{application.Department}</td>
+      <td>{application["Date - Time"]}</td>
+      <td>{application.Status}</td>
+      <td>
+        <Button
+          variant="outline"
+          color="blue"
+          size="xs"
+          onClick={() => handleViewClick(application["Token Number"])}
+          className="viewButton"
+        >
+          <Eye size={16} /> <span> &nbsp; View</span>
+        </Button>
+      </td>
+    </tr>
+  ));
+
   return (
-    <Box className="status-container">
+    <Box>
       {!selectedApplication ? (
-        // List view of applications
+        // List view of applications in table format
         <>
-          <Center className="status-header">
-            {/* <PaperPlaneTilt
-              size={32}
-              color="#1d4ed8"
-              style={{ marginRight: 10 }}
-            /> */}
-            <Title order={2} className="status-title">
-              Status of Applications
-            </Title>
-          </Center>
-          <Text size="md" color="dimmed" className="description">
+          <Title
+            order={2}
+            className="title"
+            style={{ marginLeft: "32px", marginTop: "0px" }}
+          >
+            Status of Applications
+          </Title>
+          <Text
+            size="md"
+            color="dimmed"
+            className="description"
+            style={{ marginLeft: "64px" }}
+          >
             Below is the list of recent patent applications with their current
-            status. Click on "View Details" for more information on each
-            application.
+            status. Click on "View" for more information on each application.
           </Text>
-          <Box className="status-cards-container">
-            {StatusOfApplicationData.map((application, index) => (
-              <StatusOfApplicationCard
-                key={index}
-                title={application.title}
-                applicant={application.applicant}
-                date={application.date}
-                status={application.status}
-                applicationNumber={application.applicationNumber}
-                onView={handleViewClick}
-              />
-            ))}
+          <Box
+            className="outerContainer"
+            style={{ marginLeft: "64px", marginRight: "64px" }}
+          >
+            <ScrollArea>
+              <Table
+                highlightOnHover
+                striped
+                withBorder
+                className="styledTable"
+              >
+                <thead className="fusionTableHeader">
+                  <tr>
+                    {columnNames.map((columnName, index) => (
+                      <th key={index}>{columnName}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+              </Table>
+            </ScrollArea>
           </Box>
         </>
       ) : (
@@ -109,5 +114,9 @@ function StatusOfApplications() {
     </Box>
   );
 }
+
+StatusOfApplications.propTypes = {
+  applicationNumber: PropTypes.string,
+};
 
 export default StatusOfApplications;
