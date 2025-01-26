@@ -1,79 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Grid, Box, Text, Divider, Button } from "@mantine/core";
+import {
+  Grid,
+  Box,
+  Text,
+  Divider,
+  Button,
+  Select,
+  Table,
+  Paper,
+  Container,
+  Title,
+} from "@mantine/core";
 import {
   Eye,
   List,
   Briefcase,
-  ArrowRight,
-  ChartBar,
-  Clock,
-  Buildings,
   ArrowCircleDown,
-  ClipboardText,
+  Buildings,
+  DownloadSimple,
 } from "@phosphor-icons/react";
 
 import "../../style/Pcc_Admin/PCCAdminDashboard.css";
 
 function PCCAdminDashboard({ setActiveTab }) {
-  // Features Data Array
-  const featuresData = [
-    {
-      icon: <Eye size={20} className="feature-icon" />,
-      title: "Application Management and Review",
-      description:
-        "Track and review patent applications, view submission details, and monitor status updates.",
-    },
-    {
-      icon: <ArrowRight size={20} className="feature-icon" />,
-      title: "Forwarding to Director for Approval",
-      description:
-        "Streamlined process for sending applications to the Director, with automated notifications.",
-    },
-    {
-      icon: <Briefcase size={20} className="feature-icon" />,
-      title: "Attorney Feedback and Communication",
-      description:
-        "Integrate feedback from attorneys, facilitate communication, and track application history.",
-    },
-    {
-      icon: <Clock size={20} className="feature-icon" />,
-      title: "Transparent Record-Keeping and Status Visibility",
-      description:
-        "Real-time status updates, detailed history tracking, and archive functionality.",
-    },
-    {
-      icon: <ChartBar size={20} className="feature-icon" />,
-      title: "Dashboard Analytics and Insights",
-      description:
-        "Analyze application volume, performance metrics, and trends to support data-driven decisions.",
-    },
-    {
-      icon: <ArrowCircleDown size={20} className="feature-icon" />,
-      title: "Download Important Documents and Forms",
-      description:
-        "Quick and easy access to important documents and forms for offline use.",
-    },
-    {
-      icon: <ArrowCircleDown size={20} className="feature-icon" />,
-      title: "Insights",
-      description: "See past years applications data.",
-    },
-  ];
+  // Insights
+  const [selectedYear, setSelectedYear] = useState("2021");
 
-  // Function to Render Feature Items
-  const renderFeatureItems = () =>
-    featuresData.map((feature, index) => (
-      <Box key={index} className="feature-item">
-        <Box className="icon-and-title">
-          {feature.icon}
-          <Text className="feature-title">
-            <strong>{feature.title}</strong>
-          </Text>
-        </Box>
-        <Text className="feature-description">{feature.description}</Text>
-      </Box>
-    ));
+  const applicationsByYear = {
+    2021: [
+      { label: "Submitted", count: 100, color: "#0056b3" },
+      { label: "Approved", count: 70, color: "#32cd32" },
+      { label: "Under Review", count: 30, color: "#ff6347" },
+    ],
+    2022: [
+      { label: "Submitted", count: 120, color: "#0056b3" },
+      { label: "Approved", count: 80, color: "#32cd32" },
+      { label: "Under Review", count: 40, color: "#ff6347" },
+    ],
+  };
+
+  const applications = applicationsByYear[selectedYear] || [];
+  const totalApplications = applications.reduce(
+    (sum, app) => sum + app.count,
+    0,
+  );
+
+  const handleDownload = () => {
+    const csvContent = `Status,Count,Percentage\n${applications
+      .map(
+        (app) =>
+          `${app.label},${app.count},${(
+            (app.count / totalApplications) *
+            100
+          ).toFixed(2)}%`,
+      )
+      .join("\n")}`;
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `Applications_${selectedYear}.csv`);
+    link.click();
+  };
 
   // Function to Render Dashboard Cards
   const renderDashboardCard = (icon, title, description, tabId) => (
@@ -103,7 +93,7 @@ function PCCAdminDashboard({ setActiveTab }) {
       {/* Overview Section */}
       <Box className="overview-section">
         <Text className="overview-title">
-          IIITDM Jabalpur's Patent System
+          IIITDM Jabalpur's Patent Management System (PMS)
           <Buildings size={24} className="overview-icon" />
         </Text>
         <Text className="overview-text">
@@ -111,22 +101,144 @@ function PCCAdminDashboard({ setActiveTab }) {
           research and development activities, particularly in IT-enabled design
           and manufacturing, as well as the design of IT systems.
         </Text>
-        <Text className="overview-title">
-          Overview
-          <ChartBar size={24} className="overview-icon" />
-        </Text>
-        <Text className="overview-text">
-          The PCC Admin Dashboard serves as the central hub for managing and
-          overseeing the patent application process at IIITDM Jabalpur. With a
-          streamlined interface and powerful tools, the platform supports the
-          Patent Coordination Committee (PCC) in handling every stage of the
-          patent lifecycle.
-        </Text>
-        <Divider mt="sm" />
-
-        {/* Enhanced Features List */}
-        <Box className="features-list">{renderFeatureItems()}</Box>
       </Box>
+
+      {/* Insights Section */}
+      <Container style={{ margin: "0", marginLeft: "7%" }}>
+        <Paper shadow="md" radius="lg" padding="xl" className="insights-page">
+          <Title order={2} align="center" className="page-title">
+            Applications Overview - {selectedYear}
+          </Title>
+          <Text align="center" color="dimmed" className="description">
+            Select a year from the dropdown below to view the statistics of
+            applications for that year. You can also download the data as a CSV
+            file for further analysis.
+          </Text>
+
+          <div className="filter">
+            <Text size="sm" weight={600}>
+              Select Year:
+            </Text>
+            <Select
+              id="year-select"
+              data={Object.keys(applicationsByYear)}
+              value={selectedYear}
+              onChange={(value) => setSelectedYear(value)}
+              radius="md"
+              size="sm"
+              styles={{
+                dropdown: { padding: "10px" },
+              }}
+            />
+          </div>
+
+          <div className="content">
+            <div className="chart-section">
+              <svg width="300" height="300" viewBox="0 0 100 100">
+                {
+                  applications.reduce(
+                    (acc, app, index) => {
+                      const { startAngle } = acc;
+                      const sweepAngle = (app.count / totalApplications) * 360;
+                      const endAngle = startAngle + sweepAngle;
+
+                      const largeArcFlag = sweepAngle > 180 ? 1 : 0;
+                      const [startX, startY] = [
+                        50 + 40 * Math.cos((Math.PI * startAngle) / 180),
+                        50 + 40 * Math.sin((Math.PI * startAngle) / 180),
+                      ];
+                      const [endX, endY] = [
+                        50 + 40 * Math.cos((Math.PI * endAngle) / 180),
+                        50 + 40 * Math.sin((Math.PI * endAngle) / 180),
+                      ];
+
+                      const midAngle = startAngle + sweepAngle / 2;
+                      const [textX, textY] = [
+                        50 + 25 * Math.cos((Math.PI * midAngle) / 180),
+                        50 + 25 * Math.sin((Math.PI * midAngle) / 180),
+                      ];
+
+                      acc.slices.push(
+                        <g key={index}>
+                          <path
+                            d={`M50,50 L${startX},${startY} A40,40 0 ${largeArcFlag} 1 ${endX},${endY} Z`}
+                            fill={app.color}
+                          />
+                          <text
+                            x={textX}
+                            y={textY}
+                            fontSize="4"
+                            fill="#fff"
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                          >
+                            {((app.count / totalApplications) * 100).toFixed(1)}
+                            %
+                          </text>
+                        </g>,
+                      );
+
+                      acc.startAngle = endAngle;
+                      return acc;
+                    },
+                    { slices: [], startAngle: 0 },
+                  ).slices
+                }
+              </svg>
+
+              <div className="legend">
+                {applications.map((app, index) => (
+                  <div key={index} className="legend-item">
+                    <div
+                      className="legend-color"
+                      style={{ backgroundColor: app.color }}
+                    />
+                    <span className="legend-label">{app.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="table-section">
+              <Title order={3} size="lg" align="center" mb="md">
+                Applications Data
+              </Title>
+              <Table highlightOnHover>
+                <thead>
+                  <tr>
+                    <th>Status</th>
+                    <th>Count</th>
+                    <th>Percentage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {applications.map((app, index) => (
+                    <tr key={index}>
+                      <td>{app.label}</td>
+                      <td>{app.count}</td>
+                      <td>
+                        {((app.count / totalApplications) * 100).toFixed(2)}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          </div>
+
+          <div className="download">
+            <Button
+              className="DB"
+              radius="md"
+              size="md"
+              leftIcon={<DownloadSimple size={16} />}
+              onClick={handleDownload}
+            >
+              Download CSV
+            </Button>
+          </div>
+        </Paper>
+      </Container>
 
       {/* Dashboard Sections */}
       <Grid mt="md" className="dashboard-grid">
@@ -163,16 +275,7 @@ function PCCAdminDashboard({ setActiveTab }) {
             <ArrowCircleDown size={20} className="icon" />,
             "Downloads",
             "Access and download important documents.",
-            "2",
-          )}
-        </Grid.Col>
-
-        <Grid.Col span={6}>
-          {renderDashboardCard(
-            <ClipboardText size={20} className="icon" />,
-            "Insights",
-            "See past years applications data.",
-            "3",
+            "4",
           )}
         </Grid.Col>
       </Grid>

@@ -300,9 +300,9 @@ function PatentApplication({
 
       {/* Comments Section */}
       <Card className="form-section button-section">
-        <Text className="section-title">PCC Admin Comments</Text>
+        <Text className="section-title">Approximate Cost</Text>
         <Textarea
-          placeholder="Add comments before forwarding to the director..."
+          placeholder="Enter Value in ₹(INR)"
           value={comments}
           onChange={(event) => setComments(event.currentTarget.value)}
           className="comments-box"

@@ -279,6 +279,7 @@ export default function PatentRoutes() {
           </Layout>
         }
       />
+
       <Route
         path="/pccAdmin/application/view-details"
         element={
