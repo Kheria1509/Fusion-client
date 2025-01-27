@@ -1,6 +1,6 @@
 export const NewApplicationData = [
   {
-    "Token Number": "IIITDMJ/AGR/20241107/001/AAS/104", 
+    "Token Number": "IIITDMJ/AGR/20241107/001/AAS/104",
     "Patent Title": "Smart Irrigation System",
     "Submitted By": "Aarav Sharma",
     Designation: "Research Scientist",
@@ -40,7 +40,6 @@ export const NewApplicationData = [
     "Date - Time": "2024-11-07 02:00 PM",
   },
 ];
-
 
 export const ReviewedApplicationsData = [
   {

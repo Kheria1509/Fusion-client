@@ -50,6 +50,11 @@ import PCCAdminStatusView from "../components/PCCAdmin/PCCAStatusView.jsx";
 // import ManageAttorney from "../components/PCCAdmin/ManageAttorney";
 
 export default function PatentRoutes() {
+  // Function to handle setActiveTab if needed
+  //  const setActiveTab = (tabKey) => {
+  //   // Logic to set active tab (e.g., updating state or handling navigation)
+  //   console.log(`Tab selected: ${tabKey}`);
+  // };
   return (
     <Routes>
       {/* Applicant-related routes */}

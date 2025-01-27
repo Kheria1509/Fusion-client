@@ -25,7 +25,13 @@ function DownloadsPage() {
   return (
     <Container style={{ width: "1300px", padding: "32px", marginLeft: "32px" }}>
       <Text className="page-heading-title">Download Forms and Documents</Text>
-      <Text align="left" size="sm" color="dimmed" mb="md"         className="description"      >
+      <Text
+        align="left"
+        size="sm"
+        color="dimmed"
+        mb="md"
+        className="description"
+      >
         You can review the document title and click the "Download" button to
         access the desired file.
       </Text>

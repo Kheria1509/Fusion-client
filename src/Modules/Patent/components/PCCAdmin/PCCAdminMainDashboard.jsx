@@ -92,7 +92,7 @@ function ApplicantMainDashboard() {
             {activeTab === "3" && (
               <ManageAttorneyAssignment setActiveTab={setActiveTab} />
             )}
-            {activeTab === "4" && (<DownloadsPage setActiveTab={setActiveTab} />)}
+            {activeTab === "4" && <DownloadsPage setActiveTab={setActiveTab} />}
           </>
         )}
       </Grid>

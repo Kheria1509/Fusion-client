@@ -24,7 +24,7 @@ import {
 import "../../style/Pcc_Admin/PCCAdminDashboard.css";
 
 function PCCAdminDashboard({ setActiveTab }) {
-  //Insights
+  // Insights
   const [selectedYear, setSelectedYear] = useState("2021");
 
   const applicationsByYear = {
@@ -103,17 +103,13 @@ function PCCAdminDashboard({ setActiveTab }) {
         </Text>
       </Box>
 
-      {/*Insights Section */}
-      <Container style={{margin:"0", marginLeft:"7%"}}>
+      {/* Insights Section */}
+      <Container style={{ margin: "0", marginLeft: "7%" }}>
         <Paper shadow="md" radius="lg" padding="xl" className="insights-page">
           <Title order={2} align="center" className="page-title">
             Applications Overview - {selectedYear}
           </Title>
-          <Text
-            align="center"
-            color="dimmed"
-            className="description"
-          >
+          <Text align="center" color="dimmed" className="description">
             Select a year from the dropdown below to view the statistics of
             applications for that year. You can also download the data as a CSV
             file for further analysis.
@@ -231,7 +227,8 @@ function PCCAdminDashboard({ setActiveTab }) {
           </div>
 
           <div className="download">
-            <Button className="DB"
+            <Button
+              className="DB"
               radius="md"
               size="md"
               leftIcon={<DownloadSimple size={16} />}

@@ -1,19 +1,11 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  ScrollArea,
-  Table,
-  Title,
-  Text,
-  Paper,
-} from "@mantine/core";
-import { Eye, Info } from "@phosphor-icons/react";
+import { Box, Button, ScrollArea, Table, Title, Text } from "@mantine/core";
+import { Eye } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types"; // Import PropTypes
+// import PropTypes from "prop-types"; // Import PropTypes
 import {
   NewApplicationData,
-  ReviewedApplicationsData,
+  // ReviewedApplicationsData,
 } from "./ReviewApplicationData";
 import "../../style/Pcc_Admin/ReviewApplication.css";
 

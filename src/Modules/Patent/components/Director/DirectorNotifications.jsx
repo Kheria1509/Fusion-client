@@ -2,48 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Card, Button, Text, Box } from "@mantine/core";
 import "../../style/Director/DirectorNotifications.css"; // Import the CSS file
-
-// Dummy data for notifications
-const notificationsData = [
-  {
-    id: 1,
-    title: "Patent Application - Smart Home Security",
-    status: "Rejected",
-    description: "Application rejected by PCC Admin due to missing details.",
-    date: "2024-10-23",
-    time: "14:30:00",
-    color: "red",
-  },
-  {
-    id: 2,
-    title: "Patent Application - Renewable Energy Storage",
-    status: "Rejected",
-    description: "Application rejected by Director during final approval step.",
-    date: "2024-10-20",
-    time: "16:20:45",
-    color: "red",
-  },
-  {
-    id: 3,
-    title: "Patent Application - Quantum Computing",
-    status: "Accepted",
-    description:
-      "Application approved by Director and sent to Attorney for Patentability check.",
-    date: "2024-10-21",
-    time: "09:45:00",
-    color: "green",
-  },
-  {
-    id: 4,
-    title: "Patent Application - AI Driven Agriculture",
-    status: "Accepted",
-    description:
-      "Application accepted by PCC Admin and forwarded to Director for initial review.",
-    date: "2024-10-22",
-    time: "10:15:30",
-    color: "green",
-  },
-];
+import notificationsData from "../../data/director/notificationsData"; // Import the notifications data
 
 // Notification card component
 function NotificationCard({
@@ -55,6 +14,7 @@ function NotificationCard({
   time,
   color,
   onMarkAsRead,
+  isRead,
 }) {
   return (
     <Card
@@ -68,11 +28,11 @@ function NotificationCard({
       <Text className="notification-date">{`${date} | ${time}`}</Text>
       <Text className="notification-description">{description}</Text>
       <Button
-        variant="outline"
-        className="mark-read-button"
+        variant={isRead ? "default" : "outline"}
+        className={`mark-read-button ${isRead ? "highlight" : ""}`}
         onClick={() => onMarkAsRead(id)}
       >
-        Mark as Read
+        {isRead ? "Remove Notification" : "Mark as Read"}
       </Button>
     </Card>
   );
@@ -88,22 +48,56 @@ NotificationCard.propTypes = {
   time: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   onMarkAsRead: PropTypes.func.isRequired,
+  isRead: PropTypes.bool.isRequired,
 };
 
 // Main DirectorNotifications component
 function DirectorNotifications() {
   const [notifications, setNotifications] = useState(notificationsData);
+  const [readNotifications, setReadNotifications] = useState([]);
 
   const handleMarkAsRead = (id) => {
-    setNotifications(
-      notifications.filter((notification) => notification.id !== id),
-    );
+    if (readNotifications.includes(id)) {
+      // Permanently remove the notification if already read
+      setNotifications(
+        notifications.filter((notification) => notification.id !== id),
+      );
+      setReadNotifications(readNotifications.filter((readId) => readId !== id));
+    } else {
+      // Mark as read but do not remove
+      setReadNotifications([...readNotifications, id]);
+    }
   };
+
+  // // Add a new notification dynamically for demo purposes
+  // const handleAddNotification = () => {
+  //   const newNotification = {
+  //     id: notifications.length + 1,
+  //     title: "New Patent Application - Advanced Robotics",
+  //     status: "Pending",
+  //     description:
+  //       "A new patent application has been submitted for review.",
+  //     date: new Date().toISOString().split("T")[0],
+  //     time: new Date().toLocaleTimeString(),
+  //     color: "blue",
+  //   };
+
+  //   setNotifications([newNotification, ...notifications]);
+  // };
 
   return (
     <Box style={{ width: "95%" }}>
       {/* Page Title */}
       <Text className="notif-title">Notifications</Text>
+
+      {/* Add New Notification Button
+      <Button
+        className="add-notification-button"
+        onClick={handleAddNotification}
+        mt="md"
+      >
+        Add New Notification
+      </Button> */}
 
       {/* Notifications container */}
       <Box className="notifications-container">
@@ -118,6 +112,7 @@ function DirectorNotifications() {
             time={notification.time}
             color={notification.color}
             onMarkAsRead={handleMarkAsRead}
+            isRead={readNotifications.includes(notification.id)}
           />
         ))}
       </Box>

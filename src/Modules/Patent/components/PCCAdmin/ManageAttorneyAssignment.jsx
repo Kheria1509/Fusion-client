@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button, Container, Modal, Text, Paper, Checkbox } from "@mantine/core";
-import { PencilSimple, TrashSimple } from "phosphor-react";
+import {
+  Table,
+  Button,
+  Container,
+  Modal,
+  Text,
+  Paper,
+  Checkbox,
+} from "@mantine/core";
+import { PencilSimple } from "phosphor-react";
 import AttorneyDetails from "./AttorneyDetails";
 import AttorneyForm from "./AttorneyForm";
 import NewAttorneyForm from "./NewAttorneyForm";
@@ -22,7 +30,7 @@ function ManageAttorneyAssignment() {
   // Handle view details button
   const handleViewDetails = (attorneyID) => {
     const selected = attorneyData.find(
-      (attorney) => attorney.AttorneyID === attorneyID
+      (attorney) => attorney.AttorneyID === attorneyID,
     );
     setSelectedAttorney(selected);
     setViewDetailsOpened(true);
@@ -45,15 +53,16 @@ function ManageAttorneyAssignment() {
     setSelectedRows((prev) => {
       if (prev.includes(attorneyID)) {
         return prev.filter((id) => id !== attorneyID);
-      } else {
-        return [...prev, attorneyID];
       }
+      return [...prev, attorneyID];
     });
   };
 
   // Handle remove selected attorneys
   const handleRemoveSelected = () => {
-    setAttorneyData((prev) => prev.filter((attorney) => !selectedRows.includes(attorney.AttorneyID)));
+    setAttorneyData((prev) =>
+      prev.filter((attorney) => !selectedRows.includes(attorney.AttorneyID)),
+    );
     setIsRemoving(false);
     setSelectedRows([]);
   };
@@ -61,7 +70,7 @@ function ManageAttorneyAssignment() {
   return (
     <Container className="manage-attorney-container">
       <Text className="page-heading-title">Manage Attorney Assignments</Text>
-      <Text align="center" mb="md"         className="description"      >
+      <Text align="center" mb="md" className="description">
         View attorney details, assign applications, add new attorneys, reassign
         existing applications, and view feedback.
       </Text>
@@ -130,19 +139,18 @@ function ManageAttorneyAssignment() {
 
       {/* Remove Confirmation */}
       {isRemoving && (
-  <div className="remove-selected-button-container">
-    <Button
-      variant="outline" // Use "outline" to allow the background color to be adjustable
-      color={selectedRows.length === 0 ? "blue" : "red"} // Set the color dynamically
-      onClick={handleRemoveSelected}
-      disabled={selectedRows.length === 0} // Disable button if no rows are selected
-      className={`remove-selected-button ${selectedRows.length === 0 ? 'no-selection' : 'selected'}`}
-    >
-      Remove Selected ({selectedRows.length})
-    </Button>
-  </div>
-)}
-
+        <div className="remove-selected-button-container">
+          <Button
+            variant="outline" // Use "outline" to allow the background color to be adjustable
+            color={selectedRows.length === 0 ? "blue" : "red"} // Set the color dynamically
+            onClick={handleRemoveSelected}
+            disabled={selectedRows.length === 0} // Disable button if no rows are selected
+            className={`remove-selected-button ${selectedRows.length === 0 ? "no-selection" : "selected"}`}
+          >
+            Remove Selected ({selectedRows.length})
+          </Button>
+        </div>
+      )}
 
       {/* Modal to show attorney form with Edit Button */}
       <Modal
